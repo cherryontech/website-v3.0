@@ -4,18 +4,18 @@ We are a tech squad! We support each other as we learn and grow in our tech care
 
 ## 💻 Tech Stack
 
-- This website is built using [Astro](https://astro.build/), a static site generator that allows different frameworks to be used. We are using [React](https://react.dev/) and [Tailwind CSS](https://tailwindcss.com/) specifically in this Astro project.
+This website is built using [Astro](https://astro.build/), a static site generator that allows different frameworks to be used. We are using [React](https://react.dev/) and [Tailwind CSS](https://tailwindcss.com/) specifically in this Astro project.
 
 ## ⚙️ Installation
 
-1. Node.js is required (version v22.12.0 or higher).
-2. Package Manager like `npm` or `pnpm` to manage the dependencies.
-3. Astro CLI runs the development server and other development tasks. See the [Astro documentation](https://docs.astro.build/en/install-and-setup/).
-4. Clone the repo: `git clone https://github.com/cherryontech/website-v3.0.git`
-5. Go to the source folder: `cd website-v3.0`
-6. Install dependencies: `npm install`
-7. Run the website locally: `npm run dev`
-8. Visit localhost at http://localhost:4321/
+- Node.js version v22.12.0 or higher is required.
+- npm is included with Node.js. If you do not have npm installed, install Node.js from the official website: https://nodejs.org/
+
+1. Clone the repo: `git clone https://github.com/cherryontech/website-v3.0.git`
+2. Go to the source folder: `cd website-v3.0`
+3. Install dependencies: `npm install`
+4. Run the website locally: `npm run dev`
+5. Visit localhost at http://localhost:4321/
 
 ## 🚀 Project Structure
 
