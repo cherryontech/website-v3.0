@@ -1,0 +1,22 @@
+---
+import "../styles/global.css";
+import { tv } from 'tailwind-variants';
+
+const { type } = Astro.props
+
+const headerStyle = tv({
+    base: 'font-lato text-3xl md:text-4xl',
+    variants: {
+        type: {
+            normal: "font-normal",
+            semibold: "font-semibold"
+        }
+    }
+});
+
+const headerType = headerStyle({ type })
+---
+
+<h3 class={headerType}>
+    <slot/>
+</h3>
