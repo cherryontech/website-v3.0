@@ -5,11 +5,11 @@ import { tv } from 'tailwind-variants';
 const { type } = Astro.props
 
 const headerStyle = tv({
-    base: 'font-lato text-2xl md:text-3xl',
+    base: 'font-lato text-2xl desktop:text-3xl',
     variants: {
         type: {
             normal: "font-normal",
-            semibold: "font-semibold"
+            bold: "font-semibold"
         }
     }
 });

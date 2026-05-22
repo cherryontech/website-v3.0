@@ -9,6 +9,9 @@
     --breakpoint-desktop: 64rem; /* 1024px */
     --breakpoint-tablet: 48rem; /* 768px */
     --text-4xl: 37px;
+    --text-mobile-4xl: 40px;
     --text-3xl: 29px;
+    --text-mobile-3xl: 32px;
     --text-2xl: 23px;
+    --text-mobile-2xl: 24px;
 }
