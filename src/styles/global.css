@@ -1,6 +1,7 @@
-@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Geologica:wght,CRSV@100..900,0&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Geologica:wght,CRSV@100..900,0&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import "tailwindcss";
+
 
 @theme {
    /* Font and typography */
@@ -101,4 +102,88 @@
   --color-icon-interactive: #0f62fe;
   --color-icon-inverse: #ffffff;
   --color-icon-disabled: rgb(22 22 22 / 25%);
+}
+
+@layer base {
+  body {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-bold);
+  }
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-lato);
+    font-weight: var(--font-weight-bold);
+  }
+  h1 {
+    font-size: var(--text-2xl);
+  }
+  h2 {
+    font-size: var(--text-xl);
+  }
+  h3 {
+    font-size: var(--text-lg);
+  }
+  h4 {
+    font-size: var(--text-base);
+  }
+  h5 {
+    font-size: var(--text-sm);
+  }
+  label {
+    font-family: var(--font-lato);
+    font-size: var(--text-xs);
+    font-weight: var(--font-weight-semibold);
+  }
+  @media (min-width: 64rem) {
+    h1 {
+      font-size: var(--text-3xl);
+    }
+    h2 {
+      font-size: var(--text-2xl);
+    }
+    h3 {
+      font-size: var(--text-xl);
+    }
+    h4 {
+      font-size: var(--text-lg);
+    }
+    h5 {
+      font-size: var(--text-base);
+    }
+  }
+}
+
+@layer components {
+  .caption {
+    font-family: var(--font-lato);
+    font-size: var(--text-base);
+  }
+  .display-1, .display-2, .display-3 {
+    font-family: var(--font-geologica);
+    font-weight: var(--font-weight-normal);
+  }
+  
+  .display-1 {
+    font-size: var(--text-5xl);
+  }
+  .display-2 {
+    font-size: var(--text-4xl);
+  }
+  .display-3 {
+    font-size: var(--text-3xl);
+
+  }
+  @media (min-width: 64rem) {
+    .display-1, .display-2, .display-3 {
+    font-weight: var(--font-weight-normal);
+  }
+  .display-1 {
+    font-size: var(--text-6xl);
+  }
+  .display-2 {
+    font-size: var(--text-5xl);
+  }
+  .display-3 {
+    font-size: var(--text-4xl);
+  }
+}
 }
