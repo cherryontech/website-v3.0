@@ -155,7 +155,8 @@
 @layer components {
   .caption {
     font-family: var(--font-lato);
-    font-size: var(--text-base);
+    font-weight: var(--font-weight-normal);
+    font-size: var(--text-sm);
   }
   .display-1, .display-2, .display-3 {
     font-family: var(--font-geologica);
@@ -173,9 +174,6 @@
 
   }
   @media (min-width: 64rem) {
-    .display-1, .display-2, .display-3 {
-    font-weight: var(--font-weight-normal);
-  }
   .display-1 {
     font-size: var(--text-6xl);
   }
