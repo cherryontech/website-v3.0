@@ -9,14 +9,7 @@
     --font-lato: "Lato";
     --breakpoint-*: initial;
     --breakpoint-desktop: 64rem; /* 1024px */
-    --breakpoint-tablet: 48rem; /* 768px */
-    --text-4xl: 37px;
-    --text-mobile-4xl: 40px;
-    --text-3xl: 29px;
-    --text-mobile-3xl: 32px;
-    --text-2xl: 23px;
-    --text-mobile-2xl: 24px;
-    
+    --breakpoint-tablet: 48rem; /* 768px */    
   /* Primary tokens */
   --color-primary-01: #0a205a;
   --color-primary-01-50: rgb(10 32 90 / 50%);
@@ -106,8 +99,9 @@
 
 @layer base {
   body {
+    font-family: var(--font-lato);
     font-size: var(--text-base);
-    font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-normal);
   }
   h1, h2, h3, h4, h5 {
     font-family: var(--font-lato);
@@ -174,15 +168,15 @@
 
   }
   @media (min-width: 64rem) {
-  .display-1 {
-    font-size: var(--text-6xl);
-  }
-  .display-2 {
-    font-size: var(--text-5xl);
-  }
-  .display-3 {
-    font-size: var(--text-4xl);
-  }
+    .display-1 {
+      font-size: var(--text-6xl);
+    }
+    .display-2 {
+      font-size: var(--text-5xl);
+    }
+    .display-3 {
+      font-size: var(--text-4xl);
+    }
 }
 }
 
