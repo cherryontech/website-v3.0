@@ -1,0 +1,120 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const variants = [
+  { label: 'Primary', className: 'btn-primary' },
+  { label: 'Secondary', className: 'btn-secondary' },
+  { label: 'Stroke', className: 'btn-stroke' },
+  { label: 'Link', className: 'link', isLink: true },
+];
+
+const states = [
+  { label: 'Default', className: '' },
+  { label: 'Hover', className: 'is-hover' },
+  { label: 'Active', className: 'is-active' },
+  { label: 'Disabled', className: 'is-disabled', disabled: true },
+];
+
+const sections = [
+  { title: 'Large', sizeClass: '', linkClass: 'link', text: 'Large Button', hasIcon: false },
+  { title: 'Large with icon', sizeClass: '', linkClass: 'link', text: 'Large Button', hasIcon: true },
+  { title: 'Small', sizeClass: 'btn-small', linkClass: 'link-small', text: 'Small Button', hasIcon: false },
+];
+---
+
+<Layout>
+  <main class="button-samples">
+    <h1>Button Samples</h1>
+
+    {sections.map((section) => (
+      <section class="sample-section" aria-labelledby={`section-${section.title.toLowerCase().replaceAll(' ', '-')}`}>
+        <h2 id={`section-${section.title.toLowerCase().replaceAll(' ', '-')}`}>{section.title}</h2>
+
+        <div class="sample-grid sample-header" aria-hidden="true">
+          <div></div>
+          {variants.map((variant) => <strong>{variant.label}</strong>)}
+        </div>
+
+        {states.map((state) => (
+          <div class="sample-grid">
+            <strong>{state.label}</strong>
+
+            {variants.map((variant) => {
+              const className = variant.isLink
+                ? [
+                    section.linkClass,
+                    section.hasIcon ? 'link-with-icon' : '',
+                    state.className,
+                  ].filter(Boolean).join(' ')
+                : [
+                    'btn',
+                    variant.className,
+                    section.sizeClass,
+                    section.hasIcon ? 'btn-with-icon' : '',
+                    state.className,
+                  ].filter(Boolean).join(' ');
+
+              return variant.isLink ? (
+                <a
+                  class={className}
+                  href={state.disabled ? undefined : '#'}
+                  aria-disabled={state.disabled ? 'true' : undefined}
+                >
+                  {section.text}
+                </a>
+              ) : (
+                <button class={className} type="button" disabled={state.disabled}>
+                  {section.text}
+                </button>
+              );
+            })}
+          </div>
+        ))}
+      </section>
+    ))}
+  </main>
+</Layout>
+
+<style>
+  .button-samples {
+    color: var(--color-text-primary);
+    margin: 0 auto;
+    max-width: 1120px;
+    padding: 48px 32px;
+  }
+
+  .button-samples h1 {
+    font-size: 32px;
+    line-height: 1.2;
+    margin: 0 0 32px;
+  }
+
+  .sample-section {
+    margin-top: 40px;
+  }
+
+  .sample-section h2 {
+    background-color: var(--color-background-accent-blue-light);
+    font-size: 20px;
+    line-height: 1.2;
+    margin: 0 0 20px;
+    padding: 10px 16px;
+    text-align: center;
+  }
+
+  .sample-grid {
+    align-items: center;
+    column-gap: 28px;
+    display: grid;
+    grid-template-columns: 100px repeat(4, minmax(140px, 1fr));
+    min-height: 64px;
+  }
+
+  .sample-header {
+    min-height: 32px;
+  }
+
+  .sample-grid > strong {
+    font-size: 16px;
+  }
+</style>
