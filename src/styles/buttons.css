@@ -6,7 +6,7 @@
     box-shadow: 4px 4px 0 0 var(--color-button-primary-hover);
     cursor: pointer;
     display: inline-flex;
-    font-size: var(--text-lg);
+    font-size: var(--text-xs);
     font-weight: var(--font-weight-bold);
     gap: 12px;
     justify-content: center;
@@ -47,7 +47,7 @@
   }
 
   .btn-small {
-    font-size: var(--text-base);
+    /*font-size: var(--text-base);*/
     padding: 6px 18px;
   }
 
@@ -129,14 +129,6 @@
   .link,
   .link-small {
     align-items: center;
-    background-color: transparent;
-    background-image: linear-gradient(currentColor, currentColor);
-    background-position: left bottom;
-    background-repeat: no-repeat;
-    background-size: 100% 1px;
-    border: 0;
-    border-radius: 0;
-    box-shadow: none;
     color: var(--color-text-primary);
     cursor: pointer;
     display: inline-flex;
@@ -149,12 +141,8 @@
     width: fit-content;
   }
 
-  .link {
-    font-size: var(--text-lg);
-  }
-
-  .link-small {
-    font-size: var(--text-base);
+  .link, .link-small {
+    font-size: var(--text-xs);
   }
 
   .link-with-icon {
@@ -195,11 +183,9 @@
   @media (min-width: 64rem) {
     .btn-small {
       padding: 10px 18px;
-      font-size: var(--text-lg);
     }
 
     .link-small {
-      font-size: var(--text-lg);
     }
   }
 }
