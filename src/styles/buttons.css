@@ -7,7 +7,7 @@
     cursor: pointer;
     display: inline-flex;
     font-size: var(--text-xs);
-    font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-semibold);
     gap: 12px;
     justify-content: center;
     line-height: 1;
@@ -47,7 +47,6 @@
   }
 
   .btn-small {
-    /*font-size: var(--text-base);*/
     padding: 6px 18px;
   }
 
