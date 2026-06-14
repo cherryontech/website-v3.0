@@ -1,15 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Geologica:wght,CRSV@100..900,0&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Geologica:wght,CRSV@100..900,0&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 @import "tailwindcss";
-
+@import "./buttons.css";
 
 @theme {
-   /* Font and typography */
-    --font-geologica: "Geologica";
-    --font-lato: "Lato";
-    --breakpoint-*: initial;
-    --breakpoint-desktop: 64rem; /* 1024px */
-    --breakpoint-tablet: 48rem; /* 768px */    
+  /* Font and typography */
+  --font-geologica: "Geologica";
+  --font-lato: "Lato";
+  --breakpoint-*: initial;
+  --breakpoint-desktop: 64rem; /* 1024px */
+  --breakpoint-tablet: 48rem; /* 768px */
+
   /* Primary tokens */
   --color-primary-01: #0a205a;
   --color-primary-01-50: rgb(10 32 90 / 50%);
@@ -49,6 +50,7 @@
   --color-button-secondary: #f6ced5;
   --color-button-secondary-hover: #e0b7be;
   --color-button-secondary-active: #aa8087;
+  --color-button-secondary-shadow: rgba(210, 10, 46, 0.50);
   --color-button-tertiary: #d20a2e;
   --color-button-tertiary-hover: #ed7780;
   --color-button-tertiary-active: #f8b1b9;
@@ -58,6 +60,7 @@
   --color-button-danger-active: #750e13;
   --color-button-separator: #e0e0e0;
   --color-button-disabled: #c6c6c6;
+  --color-button-shadow-disabled: #525252;
 
   /* Background main tokens */
   --color-background-white: #ffffff;
@@ -177,6 +180,6 @@
     .display-3 {
       font-size: var(--text-4xl);
     }
-}
+  }
 }
 
