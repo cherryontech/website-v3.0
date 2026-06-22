@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Header from '../components/header/Header.tsx';
 ---
 
 <!doctype html>
@@ -13,7 +14,10 @@ import '../styles/global.css';
 		<title>Astro Basics</title>
 	</head>
 	<body>
-		<slot />
+		<Header client:load />
+		<main>
+			<slot />
+		</main>
 	</body>
 </html>
 
