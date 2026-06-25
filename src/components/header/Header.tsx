@@ -81,7 +81,10 @@ function Header() {
                   <a href="/footer" className="btn-stroke" onClick={toggleMobileMenu}>Connect with
                     Us</a>
                   <a href="https://www.linkedin.com/newsletters/cherryontech-newsletter-7164685602104225792"
-                     target="_blank" rel="noopener noreferrer" className="btn-secondary" onClick={toggleMobileMenu}>Get Fresh News</a>                  
+                     target="_blank" rel="noopener noreferrer" className="btn-secondary btn" onClick={toggleMobileMenu}>
+                      <span>Get Fresh News</span>
+                      <img src="src/assets/li_move-right.svg" alt="right arrow" className="right-arrow" />
+                    </a>                  
                 </div>
               </nav>
           </div>
