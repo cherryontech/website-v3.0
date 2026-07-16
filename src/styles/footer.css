@@ -1,0 +1,48 @@
+.footer {
+    background-color: var(--color-background-brand-blue);
+    color: white;
+    width: 100%;
+}
+
+.footer-container {
+    padding: var(--spacing-x16, 64px) var(--spacing-x33, 132px);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-x4, 16px);
+}
+
+.footer-container div{
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+.footer-container h4 {
+    margin-bottom: 3px;
+}
+
+.img-logo {
+    width: 200px;
+    height: 75px;
+}
+
+.div-container{
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    gap: var(--spacing-x4, 16px)
+}
+.div-container li {
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.div-container li a {
+}
+
+.footer a {
+    text-decoration: underline;
+}
+
+@media (min-width: 64rem){
+
+}
