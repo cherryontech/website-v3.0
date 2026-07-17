@@ -1,0 +1,45 @@
+---
+type IconName = 'arrow-right' | 'close' | 'menu';
+
+interface Props {
+  name?: IconName;
+  class?: string;
+  decorative?: boolean;
+}
+
+const {
+  name = 'arrow-right',
+  class: className = '',
+  decorative = true,
+} = Astro.props;
+
+const paths: Record<IconName, string[]> = {
+  'arrow-right': [
+    'M5 12h14',
+    'm13 6 6 6-6 6',
+  ],
+  close: [
+    'm6 6 12 12',
+    'M18 6 6 18',
+  ],
+  menu: [
+    'M4 7h16',
+    'M4 12h16',
+    'M4 17h16',
+  ],
+};
+---
+
+<svg
+  class:list={['icon', className]}
+  aria-hidden={decorative ? 'true' : undefined}
+  role={decorative ? undefined : 'img'}
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+>
+  {paths[name].map((d) => <path d={d} />)}
+</svg>

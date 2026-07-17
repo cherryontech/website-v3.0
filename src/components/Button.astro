@@ -1,0 +1,75 @@
+---
+import Icon from './Icon.astro';
+
+type ButtonVariant = 'primary' | 'secondary' | 'stroke' | 'link';
+type ButtonSize = 'large' | 'small';
+type ButtonState = 'default' | 'hover' | 'active' | 'disabled';
+type ButtonKind = 'button' | 'submit' | 'reset';
+type IconName = 'arrow-right' | 'close' | 'menu';
+
+interface Props {
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+  state?: ButtonState;
+  icon?: IconName;
+  iconOnly?: boolean;
+  label?: string;
+  href?: string;
+  type?: ButtonKind;
+  disabled?: boolean;
+  class?: string;
+}
+
+const {
+  variant = 'primary',
+  size = 'large',
+  state = 'default',
+  icon,
+  iconOnly = false,
+  label,
+  href,
+  type = 'button',
+  disabled = false,
+  class: className = '',
+} = Astro.props;
+
+const isDisabled = disabled || state === 'disabled';
+const isLink = variant === 'link' || Boolean(href);
+const hasIcon = iconOnly || Boolean(icon);
+const iconName = icon ?? 'arrow-right';
+const buttonClass = [
+  variant === 'link' ? (size === 'small' ? 'link-small' : 'link') : 'btn',
+  variant !== 'link' ? `btn-${variant}` : '',
+  variant !== 'link' && size === 'small' ? 'btn-small' : '',
+  iconOnly ? 'btn-icon-only' : '',
+  hasIcon && !iconOnly ? (variant === 'link' ? 'link-with-icon' : 'btn-with-icon') : '',
+  state === 'hover' ? 'is-hover' : '',
+  state === 'active' ? 'is-active' : '',
+  isDisabled ? 'is-disabled' : '',
+  className,
+].filter(Boolean).join(' ');
+
+const ariaLabel = iconOnly ? label : undefined;
+---
+
+{isLink ? (
+  <a
+    class={buttonClass}
+    href={isDisabled ? undefined : href ?? '#'}
+    aria-disabled={isDisabled ? 'true' : undefined}
+    aria-label={ariaLabel}
+  >
+    {!iconOnly && <slot />}
+    {hasIcon && <Icon name={iconName} class="btn__icon" />}
+  </a>
+) : (
+  <button
+    class={buttonClass}
+    type={type}
+    disabled={isDisabled}
+    aria-label={ariaLabel}
+  >
+    {!iconOnly && <slot />}
+    {hasIcon && <Icon name={iconName} class="btn__icon" />}
+  </button>
+)}
