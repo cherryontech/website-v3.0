@@ -1,0 +1,59 @@
+name: autofix.ci
+on:
+    pull_request:
+    push:
+permissions: 
+    contents: write
+jobs:
+    autofix:
+        if: >
+         github.head_ref != 'main' &&
+         github.event_name == 'pull_request'
+
+        runs-on: ubuntu-latest
+        env:
+            CI: true
+            HUSKY: 0
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                fetch-depth: 0
+            - uses: actions/setup-node@v4
+              with: 
+                node-version: '24'
+                cache: 'npm'
+            - name: Install dependencies
+              run: npm ci
+
+            - name: Prettier Check
+              id: prettier_check
+              run: npx prettier --check --ignore-path .prettierignore .
+              continue-on-error: true
+
+            - name: "Run Prettier with autofix"
+              if: steps.prettier_check.outcome == 'failure'
+              run: |
+                npx prettier --write --ignore-path .prettierignore .
+            - uses: autofix-ci/action@v1
+
+            - name: "Prettier re-check"
+              if: steps.prettier_check.outcome == 'failure'
+              run: npx prettier --check --ignore-path .prettierignore .
+    prettier:
+        if: github.event_name == 'pull_request' ||
+         github.event_name == 'push'
+        runs-on: ubuntu-latest
+        env:
+            CI: true
+            HUSKY: 0
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                node-version: '20'
+                cache: 'npm'
+            - name: Install dependencies
+              run: npm ci --frozen-lockfile
+            - name: Run Prettier
+              run: | 
+                npx prettier --check --ignore-path .prettierignore .
