@@ -13,8 +13,7 @@ function Header() {
     <header className="header">
       <div className="header-container">
         <a href="/">
-          {/* <img src="src/assets/cherry_on_tech.svg" aria-label="Cherry On Tech home" className="logo" /> */}
-          <img src={logo.src ?? logo} aria-label="Cherry On Tech home" className="logo" />
+          <img src={logo.src ?? logo} alt="Cherry On Tech home" className="logo" />
         </a>
 
         <button
@@ -47,7 +46,7 @@ function Header() {
         </nav>
 
         <div className="desktop-button-container">
-            <a href="/footer" className="btn-stroke btn">Connect with Us</a>
+            <a href="#footer" className="btn-stroke btn">Connect with Us</a>
             <a href="https://www.linkedin.com/newsletters/cherryontech-newsletter-7164685602104225792" target="_blank" rel="noopener noreferrer" className="btn-secondary btn">
               <span>Get Fresh News</span>
                <img src="src/assets/li_move-right.svg" alt="" className="right-arrow" />
@@ -58,7 +57,6 @@ function Header() {
         <div className={`mobile-menu ${isMobileMenuOpen ? 'active' : ''}`}>
           <div className="mobile-menu-container">
             <a href="/">
-              {/* <img src='src/assets/cherry_on_tech.svg' aria-label="Cherry On Tech home" className="logo"/> */}
               <img src={logo.src ?? logo} aria-label="Cherry On Tech home" className="logo" />
             </a>
               {/* <nav className="mobile-nav"> */}
