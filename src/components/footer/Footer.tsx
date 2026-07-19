@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import "../../styles/global.css"
 import "../../styles/footer.css"
+import logo from '../../assets/cherry_on_tech.svg'
 
 export default function Footer(){
 
@@ -8,7 +9,7 @@ export default function Footer(){
     <div className='footer'>
         <div className='footer-container'>
             <a href='/'>
-                <img className='img-logo' src="src/assets/cherry_on_tech.svg" alt="CherryOnTech logo"/>
+                <img className='img-logo' src={logo.src ?? logo} aria-label="Cherry On Tech home" />
             </a>
 
             <div>
@@ -18,9 +19,9 @@ export default function Footer(){
 
             <div>
                 <h4>Registered Canadian Non-Profit</h4>
-                <caption className='font-bold'>Incorporation Number: S0081556</caption>
+                <div className='caption'>Incorporation Number: S0081556</div>
                 <br/>
-                <caption className='font-bold'>Business Number: 79742 6962 BC0001</caption>
+                <div className='caption'>Business Number: 79742 6962 BC0001</div>
             </div>
 
             <div>
