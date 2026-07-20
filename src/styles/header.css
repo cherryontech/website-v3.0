@@ -42,7 +42,7 @@ ul.nav-list {
 
 a.subheading {
     text-decoration: none;
-    color: var(--text-primary);
+    color: var(--color-text-primary);
 }
 
 .hamburger-button {
@@ -133,9 +133,9 @@ a.subheading {
 .mobile-nav-list a {
     font-family: Lato;
     text-decoration: none;
-    color: var(--black-fonts-headings);
-    font-size: 20px;
-    font-weight: 600;
+    color: var(--color-text-primary);
+    font-size: 16px;
+    font-weight: 700;
     display: block;
     padding: 10px 0;
 }
