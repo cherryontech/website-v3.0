@@ -6,7 +6,7 @@ import logo from '../../assets/cherry_on_tech.svg'
 export default function Footer(){
 
     return (
-    <div className='footer'>
+    <div className='footer' id="footer">
         <div className='footer-container'>
             <a href='/'>
                 <img className='img-logo' src={logo.src ?? logo} aria-label="Cherry On Tech home" />
