@@ -1,11 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Button from '../components/Button.astro';
 
 const variants = [
-  { label: 'Primary', className: 'btn-primary' },
-  { label: 'Secondary', className: 'btn-secondary' },
-  { label: 'Stroke', className: 'btn-stroke' },
-  { label: 'Link', className: 'link', isLink: true },
+  { label: 'Primary', variant: 'primary' },
+  { label: 'Secondary', variant: 'secondary' },
+  { label: 'Stroke', variant: 'stroke' },
+  { label: 'Link', variant: 'link' },
 ];
 
 const states = [
@@ -16,9 +17,10 @@ const states = [
 ];
 
 const sections = [
-  { title: 'Large', sizeClass: '', linkClass: 'link', text: 'Large Button', hasIcon: false },
-  { title: 'Large with icon', sizeClass: '', linkClass: 'link', text: 'Large Button', hasIcon: true },
-  { title: 'Small', sizeClass: 'btn-small', linkClass: 'link-small', text: 'Small Button', hasIcon: false },
+  { title: 'Large', size: 'large', text: 'Large Button', hasIcon: false, iconOnly: false },
+  { title: 'Large with icon', size: 'large', text: 'Large Button', hasIcon: true, iconOnly: false },
+  { title: 'Small', size: 'small', text: 'Small Button', hasIcon: false, iconOnly: false },
+  { title: 'Icon only', size: 'large', text: 'Open menu', hasIcon: true, iconOnly: true },
 ];
 ---
 
@@ -39,35 +41,20 @@ const sections = [
           <div class="sample-grid">
             <strong>{state.label}</strong>
 
-            {variants.map((variant) => {
-              const className = variant.isLink
-                ? [
-                    section.linkClass,
-                    section.hasIcon ? 'link-with-icon' : '',
-                    state.className,
-                  ].filter(Boolean).join(' ')
-                : [
-                    'btn',
-                    variant.className,
-                    section.sizeClass,
-                    section.hasIcon ? 'btn-with-icon' : '',
-                    state.className,
-                  ].filter(Boolean).join(' ');
-
-              return variant.isLink ? (
-                <a
-                  class={className}
-                  href={state.disabled ? undefined : '#'}
-                  aria-disabled={state.disabled ? 'true' : undefined}
-                >
-                  {section.text}
-                </a>
-              ) : (
-                <button class={className} type="button" disabled={state.disabled}>
-                  {section.text}
-                </button>
-              );
-            })}
+            {variants.map((variant) => (
+              <Button
+                variant={variant.variant}
+                size={section.size}
+                state={state.className.replace('is-', '') || 'default'}
+                disabled={state.disabled}
+                href={variant.variant === 'link' ? '#' : undefined}
+                icon={section.hasIcon ? 'arrow-right' : undefined}
+                iconOnly={section.iconOnly}
+                label={section.text}
+              >
+                {section.text}
+              </Button>
+            ))}
           </div>
         ))}
       </section>
