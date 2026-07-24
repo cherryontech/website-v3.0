@@ -153,6 +153,25 @@ a.subheading {
     text-align: center;
 }
 
+/* Dimming Overlay */
+.page-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(0 85 255 / 20%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 999;
+}
+
+/* Active Overlay State */
+.page-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
