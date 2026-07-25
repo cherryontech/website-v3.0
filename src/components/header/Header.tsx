@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../../styles/header.css';
+import Icon from '../Icon';
 import logo from '../../assets/cherry_on_tech.svg'
 
 function Header() {
@@ -22,10 +23,7 @@ function Header() {
           aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
           aria-expanded={isMobileMenuOpen}
         >
-          <span className={`hamburger-line ${isMobileMenuOpen ? 'active' : ''}`}></span>
-          <span className={`hamburger-line ${isMobileMenuOpen ? 'active' : ''}`}></span>
-          <span className={`hamburger-line ${isMobileMenuOpen ? 'active' : ''}`}></span>
-
+          <Icon name={isMobileMenuOpen ? 'close' : 'menu'} className="btn__icon" />
         </button>
 
         <nav className="desktop-nav">
@@ -47,9 +45,9 @@ function Header() {
 
         <div className="desktop-button-container">
             <a href="#footer" className="btn-stroke btn">Connect with Us</a>
-            <a href="https://www.linkedin.com/newsletters/cherryontech-newsletter-7164685602104225792" target="_blank" rel="noopener noreferrer" className="btn-secondary btn">
+            <a href="https://www.linkedin.com/newsletters/cherryontech-newsletter-7164685602104225792" target="_blank" rel="noopener noreferrer" className="btn-secondary btn btn-with-icon">
               <span>Get Fresh News</span>
-               {/* <img src="src/assets/li_move-right.svg" alt="" className="right-arrow" /> */}
+               <Icon name="arrow-right" className="btn__icon" />
                <span className="sr-only">(opens in a new tab)</span>
             </a>  
         </div>
@@ -78,9 +76,9 @@ function Header() {
                   <a href="#footer" className="btn-stroke btn" onClick={toggleMobileMenu}>Connect with
                     Us</a>
                   <a href="https://www.linkedin.com/newsletters/cherryontech-newsletter-7164685602104225792"
-                     target="_blank" rel="noopener noreferrer" className="btn-secondary btn" onClick={toggleMobileMenu}>
+                     target="_blank" rel="noopener noreferrer" className="btn-secondary btn btn-with-icon" onClick={toggleMobileMenu}>
                       <span>Get Fresh News</span>
-                      {/* <img src="src/assets/li_move-right.svg" alt="" className="right-arrow" /> */}
+                      <Icon name="arrow-right" className="btn__icon" />
                       <span className="sr-only">(opens in a new tab)</span>
                     </a>                  
                 </div>
