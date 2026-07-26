@@ -160,7 +160,7 @@ a.subheading {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgb(0 85 255 / 20%);
+  background-color: var(--color-primary-01-20);
   opacity: 0;
   pointer-events: none;
   z-index: 999;
