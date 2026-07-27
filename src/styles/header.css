@@ -213,4 +213,8 @@ a.subheading {
     .hamburger-button {
         display: none !important;
     }
+
+    .page-overlay {
+        display: none !important;
+    }
 }
