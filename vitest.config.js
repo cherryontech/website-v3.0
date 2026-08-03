@@ -10,6 +10,7 @@ export default getViteConfig({
     // globals true - avoids having to import the keywords into every test file, it's automatically included and available for use
     globals: true,
 
-    // TO DO : look into cleanup after test runs, possibly setupFile config
+    // cleanup after test runs and importing middleware-like behavior before tests run
+    setupFiles: ['./vitest.setup.js']
   },
 });
