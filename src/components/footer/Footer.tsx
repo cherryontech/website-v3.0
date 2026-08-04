@@ -8,12 +8,12 @@ export default function Footer(){
     <div className='footer' id="footer">
         <div className='footer-container'>
             <a href='/'>
-                <img className='img-logo-footer' src={logo.src ?? logo} aria-label="Cherry On Tech home" />
+                <img className='img-logo-footer' src={logo.src ?? logo} alt="Cherry On Tech home"/>
             </a>
 
             <div>
                 <div className="footer-heading">Connect with Us!</div>
-                <div className="footer-section">Questions, ideas, or just saying hello? We'd love to hear from you: <a href='info@cherryontech.org'>info@cherryontech.org</a></div>
+                <div className="footer-section">Questions, ideas, or just saying hello? We'd love to hear from you: <a href='mailto:info[@cherryontech](https://github.com/cherryontech).org'>info@cherryontech.org</a></div>
             </div>
 
             <div>
@@ -33,16 +33,16 @@ export default function Footer(){
                     <div className="footer-panel">
                         <h3>Policies</h3>
                         <ul>
-                            <li><a href='/'>Terms and Conditions</a></li>
-                            <li><a href='/'>Privacy Policy</a></li>
-                            <li><a href='/'>Code of Conduct</a></li>
+                            <li><a target="_blank" href='/'>Terms and Conditions</a></li>
+                            <li><a target="_blank" href='/'>Privacy Policy</a></li>
+                            <li><a target="_blank" href='/'>Code of Conduct</a></li>
                         </ul>
                     </div>
                     <div className="footer-panel">
                         <h3>Socials</h3>
                         <ul>
-                            <li><a href='https://www.linkedin.com/company/cherry-on-tech'>LinkedIn</a></li>
-                            <li><a href='https://www.instagram.com/cherryontech/'>Instagram</a></li>
+                            <li><a target="_blank" href='https://www.linkedin.com/company/cherry-on-tech'>LinkedIn</a></li>
+                            <li><a target="_blank" href='https://www.instagram.com/cherryontech/'>Instagram</a></li>
                         </ul>
                     </div>
                 </div>
