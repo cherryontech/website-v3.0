@@ -1,43 +1,32 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import Button from '../components/Button.astro'
+import Icon from '../components/Icon'
 
 const variants = [
-    { label: 'Primary', className: 'btn-primary' },
-    { label: 'Secondary', className: 'btn-secondary' },
-    { label: 'Stroke', className: 'btn-stroke' },
-    { label: 'Link', className: 'link', isLink: true },
-]
+    { label: 'Primary', variant: 'primary' },
+    { label: 'Secondary', variant: 'secondary' },
+    { label: 'Stroke', variant: 'stroke' },
+    { label: 'Link', variant: 'link' },
+] as const
 
 const states = [
-    { label: 'Default', className: '' },
-    { label: 'Hover', className: 'is-hover' },
-    { label: 'Active', className: 'is-active' },
-    { label: 'Disabled', className: 'is-disabled', disabled: true },
-]
+    { label: 'Default', state: 'default', disabled: false },
+    { label: 'Hover', state: 'hover', disabled: false },
+    { label: 'Active', state: 'active', disabled: false },
+    { label: 'Disabled', state: 'disabled', disabled: true },
+] as const
 
 const sections = [
-    {
-        title: 'Large',
-        sizeClass: '',
-        linkClass: 'link',
-        text: 'Large Button',
-        hasIcon: false,
-    },
+    { title: 'Large', size: 'large', text: 'Large Button', hasArrow: false },
     {
         title: 'Large with icon',
-        sizeClass: '',
-        linkClass: 'link',
+        size: 'large',
         text: 'Large Button',
-        hasIcon: true,
+        hasArrow: true,
     },
-    {
-        title: 'Small',
-        sizeClass: 'btn-small',
-        linkClass: 'link-small',
-        text: 'Small Button',
-        hasIcon: false,
-    },
-]
+    { title: 'Small', size: 'small', text: 'Small Button', hasArrow: false },
+] as const
 ---
 
 <Layout>
@@ -67,49 +56,34 @@ const sections = [
                         <div class="sample-grid">
                             <strong>{state.label}</strong>
 
-                            {variants.map((variant) => {
-                                const className = variant.isLink
-                                    ? [
-                                          section.linkClass,
-                                          section.hasIcon
-                                              ? 'link-with-icon'
-                                              : '',
-                                          state.className,
-                                      ]
-                                          .filter(Boolean)
-                                          .join(' ')
-                                    : [
-                                          'btn',
-                                          variant.className,
-                                          section.sizeClass,
-                                          section.hasIcon
-                                              ? 'btn-with-icon'
-                                              : '',
-                                          state.className,
-                                      ]
-                                          .filter(Boolean)
-                                          .join(' ')
-
-                                return variant.isLink ? (
-                                    <a
-                                        class={className}
-                                        href={state.disabled ? undefined : '#'}
-                                        aria-disabled={
-                                            state.disabled ? 'true' : undefined
-                                        }
-                                    >
-                                        {section.text}
-                                    </a>
-                                ) : (
-                                    <button
-                                        class={className}
-                                        type="button"
-                                        disabled={state.disabled}
-                                    >
-                                        {section.text}
-                                    </button>
-                                )
-                            })}
+                            {variants.map((variant) => (
+                                <Button
+                                    variant={variant.variant}
+                                    size={section.size}
+                                    state={state.state}
+                                    disabled={state.disabled}
+                                    href={
+                                        variant.variant === 'link'
+                                            ? '#'
+                                            : undefined
+                                    }
+                                    class={
+                                        section.hasArrow
+                                            ? variant.variant === 'link'
+                                                ? 'link-with-icon'
+                                                : 'btn-with-icon'
+                                            : undefined
+                                    }
+                                >
+                                    {section.text}
+                                    {section.hasArrow && (
+                                        <Icon
+                                            name="arrow-right"
+                                            className="btn__icon"
+                                        />
+                                    )}
+                                </Button>
+                            ))}
                         </div>
                     ))}
                 </section>
