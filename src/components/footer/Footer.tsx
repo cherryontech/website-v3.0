@@ -13,7 +13,7 @@ export default function Footer(){
 
             <div>
                 <div className="footer-heading">Connect with Us!</div>
-                <div className="footer-section">Questions, ideas, or just saying hello? We'd love to hear from you: <a href='mailto:info[@cherryontech](https://github.com/cherryontech).org'>info@cherryontech.org</a></div>
+                <div className="footer-section">Questions, ideas, or just saying hello? We'd love to hear from you: <a href='mailto:info@cherryontech.org'>info@cherryontech.org</a></div>
             </div>
 
             <div>
