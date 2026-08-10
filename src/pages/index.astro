@@ -1,8 +1,1125 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import TextExample from '../components/TextExample.astro';
+import cherryIconBlue from '../assets/home/cherry-icon-blue.svg';
+import cherryIconGreen from '../assets/home/cherry-icon-green.svg';
+import cherryIconRed from '../assets/home/cherry-icon-red.svg';
+import cherryIconYellow from '../assets/home/cherry-icon-yellow.svg';
+import heroCommunity from '../assets/home/hero-community.svg';
+import introQuestion from '../assets/home/intro-question.svg';
+import pathCareers from '../assets/home/path-carrers.svg';
+import pathLaunchpad from '../assets/home/path-launchpad.svg';
+import pathSquads from '../assets/home/path-squads.svg';
+import supportHands from '../assets/home/support-hands.svg';
+
+const paths = [
+  {
+    title: 'Cherry Launchpad',
+    copy: 'A 15-week guided intensive to tackle real-world problems in a squad format.',
+    href: '/programs#cherry-launchpad',
+    cta: 'Explore Launchpad',
+    image: pathLaunchpad,
+    alt: '',
+  },
+  {
+    title: 'Cherry Squads',
+    copy: 'Flexible, community-led projects to grow your experience and network in a relaxed space.',
+    href: '/programs#cherry-squads',
+    cta: 'Find Your Squad',
+    image: pathSquads,
+    alt: '',
+  },
+  {
+    title: 'Cherry Careers (Coming Soon)',
+    copy: 'A 6-week journey to get job-ready with resume support and community learning.',
+    href: '/programs#cherry-careers',
+    cta: 'Coming soon',
+    image: pathCareers,
+    alt: '',
+  },
+];
+
+const supportItems = [
+  {
+    title: 'Mentoring',
+    copy: 'Share your experience and insights with someone starting out. Help them stay in tech.',
+  },
+  {
+    title: 'Volunteering',
+    copy: 'Help run events, manage communications, and support our mission from behind the scenes.',
+  },
+  {
+    title: 'Partnering',
+    copy: 'Invest in the future of tech. Sponsor our programs to help gender-diverse talent thrive.',
+  },
+];
+
+const testimonials = [
+  {
+    name: 'Yeon, Product Manager',
+    programme: '(Mint Chip Mavericks)',
+    quote:
+      'Cherry On Tech was a great program that gave me hands-on experience and the opportunity to collaborate with several amazing women in tech. It was a supportive, practical environment where I could truly learn by doing, and I really enjoyed being part of the community.',
+  },
+  {
+    name: 'Daniela, UX Designer',
+    programme: '(Rainbow Sherbet Stars)',
+    quote:
+      'It is an experience where you not only get to develop skills on your career or area of expertise but to understand and collaborate with peers from different expertise that actually match with how a real-world tech team might be like.',
+  },
+  {
+    name: 'Vasudha, UX Writer',
+    programme: '(Comet Cruisers)',
+    quote:
+      'The opportunity helped me get prepped with what I may face in a real-world scenario and get hands-on experience in terms of communication and collaboration within teams.',
+  },
+  {
+    name: 'Archaa, Developer',
+    programme: '(LemonZest)',
+    quote:
+      "Cherry On Tech is a unique organization filling a much-needed gap in the tech world. It gives cross-functional team experience (aka 'tech squad' experience) to women and marginalized genders looking to break into tech. Not only does this address the glaring gender disparity in tech, it also provides invaluable real-world experience to participants. Most importantly, Cherry On Tech's focus on equity and inclusion shines through in all of its elements.",
+  },
+  {
+    name: 'Lara, Product Manager',
+    programme: '(Venus Voyagers)',
+    quote:
+      "Cherry On Tech allowed me to expand my professional network as someone who is transitioning into tech. It was fantastic to learn about my teammates' areas of expertise and feel connected building something we can all be proud of by the end.",
+  },
+  {
+    name: 'Kayla, UX Designer',
+    programme: '(FigFusion)',
+    quote:
+      "Cherry On Tech was a great hands-on experience to work with a cross-functional tech squad. I'm grateful for the opportunity to learn and grow over the course of 13 weeks, and for all that our cohort accomplished together!",
+  },
+  {
+    name: 'Neha, Product Manager',
+    programme: '(MintyFresh)',
+    quote:
+      "Cherry On Tech is primarily for people that are new to the tech industry. However, as a Product Manager with 3 years of experience and looking for a new position, being on the cohort was extremely valuable to me too! I had the pleasure of working with very motivated team members that had mostly come out of bootcamps and haven't had the chance to work as a team. This cohort allowed me to both mentor and shake the cobwebs off Product Management and work on the most fun parts of being a Product Manager! The COT team also had fantastic group sessions and was inclusive in the way they always had queer/trans/poc people presenting on the technical topics and providing nuance without it feeling like tokenization. Heavily recommend for gender marginalized and overall more intentional people looking to move into tech!",
+  },
+];
 ---
 
-<Layout>
-	<TextExample/>
+<Layout title="Cherry On Tech | Home">
+  <section class="hero section-pink" aria-labelledby="home-title">
+    <img class="hero__decor hero__decor--left" src={cherryIconBlue.src} alt="" aria-hidden="true" />
+    <img class="hero__decor hero__decor--top" src={cherryIconYellow.src} alt="" aria-hidden="true" />
+    <img class="hero__decor hero__decor--small" src={cherryIconRed.src} alt="" aria-hidden="true" />
+    <img class="hero__decor hero__decor--right" src={cherryIconGreen.src} alt="" aria-hidden="true" />
+
+    <div class="home-container hero__grid">
+      <div class="hero__copy">
+        <h1 id="home-title">Build Your <br class="hero__title-break" /><span>Future</span> in Tech</h1>
+        <p>Empowering gender-diverse communities to thrive together.</p>
+        <a href="#explore-your-path" class="btn btn-stroke btn-small">Explore Your Path</a>
+      </div>
+      <div class="hero__image">
+        <img src={heroCommunity.src} alt="A group of Cherry On Tech community members cheering together" />
+      </div>
+    </div>
+  </section>
+
+  <section class="intro section-white" aria-labelledby="intro-title">
+    <div class="home-container split">
+      <div class="illustration illustration--question" aria-hidden="true">
+        <img src={introQuestion.src} alt="" />
+      </div>
+      <div class="section-copy">
+        <h2 id="intro-title">What is Cherry On Tech (COT)?</h2>
+        <p>We help women, non-binary, and trans folks break into the tech industry through collaborative, volunteer-led projects.</p>
+        <p>No fluff, just the connection and experience you need to get hired.</p>
+        <a href="/about" class="btn btn-stroke btn-small">Meet the Bunch</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="path section-pink" id="explore-your-path" aria-labelledby="path-title">
+    <div class="home-container">
+      <div class="section-heading">
+        <h2 id="path-title">Explore Your Path</h2>
+        <p>Whether you need an intensive deep-dive or a relaxed community space, there's a path designed for your career stage.</p>
+      </div>
+      <div class="path-grid">
+        {paths.map((item) => (
+          <a
+            class:list={['path-card', { 'is-disabled': item.disabled }]}
+            href={item.href}
+            aria-disabled={item.disabled ? 'true' : undefined}
+          >
+            <span class="path-card__art" aria-hidden="true">
+              <img src={item.image.src} alt={item.alt} />
+            </span>
+            <span class="path-card__title">{item.title}</span>
+            <span class="path-card__copy">{item.copy}</span>
+            <span class="sr-only">{item.cta}</span>
+          </a>
+        ))}
+      </div>
+      <div class="path__action">
+        <a href="/programs" class="btn btn-stroke btn-small">Find Your Squad</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="support section-white" aria-labelledby="support-title">
+    <div class="home-container split split--support">
+      <div class="illustration illustration--hands" aria-hidden="true">
+        <img src={supportHands.src} alt="" />
+      </div>
+      <div class="section-copy support-list">
+        <h2 id="support-title">Support Us By</h2>
+        {supportItems.map((item) => (
+          <article class="support-item">
+            <h3>{item.title}</h3>
+            <p>{item.copy}</p>
+          </article>
+        ))}
+        <a href="/get-involved" class="btn btn-stroke btn-small">Become a Cherry</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="stories section-pink" aria-labelledby="stories-title">
+    <div class="home-container">
+      <h2 id="stories-title">Cherry Stories</h2>
+      <div class="carousel" data-carousel>
+        <div class="carousel__viewport">
+          <div class="carousel__track">
+            {testimonials.map((story, index) => (
+              <article class:list={['story-card', { 'is-active': index === 0 }]} data-slide>
+                <div class="story-card__avatar" aria-hidden="true"></div>
+                <h3>{story.name}</h3>
+                <p class="story-card__programme">{story.programme}</p>
+                <p id={`story-${index}-quote`} class="story-card__quote">{story.quote}</p>
+                <button
+                  class="story-card__toggle"
+                  type="button"
+                  aria-expanded="false"
+                  aria-controls={`story-${index}-quote`}
+                  data-story-toggle
+                  hidden
+                >
+                  <span data-story-toggle-label>Read More</span>
+                  <span class="sr-only"> of {story.name}'s testimonial</span>
+                </button>
+              </article>
+            ))}
+          </div>
+        </div>
+        <div class="carousel__controls" aria-label="Cherry Stories carousel controls">
+          <button class="carousel__button" type="button" data-prev aria-label="Scroll testimonials backward">
+            <svg viewBox="0 0 18 18" aria-hidden="true">
+              <path d="M5.03 5.47a.75.75 0 0 0-1.06 0l-3 3a.75.75 0 0 0 0 1.06l3 3a.75.75 0 1 0 1.06-1.06L2.56 9l2.47-2.47a.75.75 0 0 0 0-1.06Z"></path>
+              <path d="M17.25 9a.75.75 0 0 0-.75-.75h-15a.75.75 0 0 0 0 1.5h15a.75.75 0 0 0 .75-.75Z"></path>
+            </svg>
+          </button>
+          <a href="/programs" class="btn btn-stroke btn-small">Start Your Story</a>
+          <button class="carousel__button" type="button" data-next aria-label="Scroll testimonials forward">
+            <svg viewBox="0 0 18 18" aria-hidden="true">
+              <path d="M12.97 5.47a.75.75 0 0 1 1.06 0l3 3a.75.75 0 0 1 0 1.06l-3 3a.75.75 0 1 1-1.06-1.06L15.44 9l-2.47-2.47a.75.75 0 0 1 0-1.06Z"></path>
+              <path d="M.75 9a.75.75 0 0 1 .75-.75h15a.75.75 0 0 1 0 1.5h-15A.75.75 0 0 1 .75 9Z"></path>
+            </svg>
+          </button>
+        </div>
+        <p class="sr-only" aria-live="polite" data-carousel-status>Showing story 1 of {testimonials.length}</p>
+      </div>
+    </div>
+  </section>
 </Layout>
+
+<script>
+  const carousel = document.querySelector('[data-carousel]');
+
+  if (carousel) {
+    const slides = Array.from(carousel.querySelectorAll('[data-slide]'));
+    const prev = carousel.querySelector('[data-prev]');
+    const next = carousel.querySelector('[data-next]');
+    const status = carousel.querySelector('[data-carousel-status]');
+    const storyToggles = Array.from(carousel.querySelectorAll('[data-story-toggle]'));
+    let activeIndex = 0;
+    let startX = 0;
+
+    const getVisibleSlideCount = () => {
+      if (window.matchMedia('(min-width: 1024px)').matches) return 3;
+      if (window.matchMedia('(min-width: 768px)').matches) return 2;
+      return 1;
+    };
+
+    const update = (index) => {
+      const maxIndex = Math.max(0, slides.length - getVisibleSlideCount());
+      activeIndex = index > maxIndex ? 0 : index < 0 ? maxIndex : index;
+      slides.forEach((slide, slideIndex) => {
+        slide.classList.toggle('is-active', slideIndex === activeIndex);
+      });
+      carousel.style.setProperty('--active-slide', String(activeIndex));
+      if (status) {
+        status.textContent = `Showing story ${activeIndex + 1} of ${slides.length}`;
+      }
+    };
+
+    const updateStoryToggleVisibility = () => {
+      storyToggles.forEach((toggle) => {
+        const quoteId = toggle.getAttribute('aria-controls');
+        const quote = quoteId ? document.getElementById(quoteId) : null;
+        const card = toggle.closest('[data-slide]');
+        if (!quote || !card) return;
+
+        const wasExpanded = card.classList.contains('is-expanded');
+        if (wasExpanded) {
+          card.classList.remove('is-expanded');
+        }
+
+        const hasOverflow = quote.scrollHeight > quote.clientHeight + 1;
+
+        if (wasExpanded) {
+          card.classList.add('is-expanded');
+        }
+
+        toggle.hidden = !hasOverflow;
+        if (!hasOverflow) {
+          toggle.setAttribute('aria-expanded', 'false');
+          card.classList.remove('is-expanded');
+          const label = toggle.querySelector('[data-story-toggle-label]');
+          if (label) {
+            label.textContent = 'Read More';
+          }
+        }
+      });
+    };
+
+    prev?.addEventListener('click', () => update(activeIndex - 1));
+    next?.addEventListener('click', () => update(activeIndex + 1));
+    window.addEventListener('resize', () => {
+      update(activeIndex);
+      updateStoryToggleVisibility();
+    });
+    storyToggles.forEach((toggle) => {
+      toggle.addEventListener('click', (event) => {
+        event.preventDefault();
+        const card = toggle.closest('[data-slide]');
+        const label = toggle.querySelector('[data-story-toggle-label]');
+        const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!isExpanded));
+        card?.classList.toggle('is-expanded', !isExpanded);
+        if (label) {
+          label.textContent = isExpanded ? 'Read More' : 'Read Less';
+        }
+      });
+    });
+    carousel.addEventListener('touchstart', (event) => {
+      startX = event.changedTouches[0].clientX;
+    }, { passive: true });
+    carousel.addEventListener('touchend', (event) => {
+      const distance = event.changedTouches[0].clientX - startX;
+      if (Math.abs(distance) > 40) {
+        update(activeIndex + (distance < 0 ? 1 : -1));
+      }
+    }, { passive: true });
+
+    update(0);
+    updateStoryToggleVisibility();
+    document.fonts?.ready.then(updateStoryToggleVisibility);
+  }
+</script>
+
+<style>
+  :global(body) {
+    background: var(--color-background-white);
+    color: var(--color-text-primary);
+  }
+
+  .home-container {
+    width: min(100% - 160px, 1216px);
+    margin-inline: auto;
+  }
+
+  .section-pink {
+    background: var(--color-background-secondary-pink);
+  }
+
+  .section-white {
+    background: var(--color-background-white);
+  }
+
+  .hero {
+    position: relative;
+    overflow: hidden;
+    min-height: 628px;
+    display: flex;
+    align-items: center;
+  }
+
+  .hero__grid,
+  .split {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 120px;
+  }
+
+  .hero__grid {
+    align-items: end;
+    grid-template-columns: minmax(0, 1.1fr) minmax(380px, 0.9fr);
+    gap: 120px;
+    min-height: inherit;
+  }
+
+  .hero__copy {
+    align-self: end;
+    margin-bottom: 112px;
+    max-width: 720px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero h1 {
+    color: var(--color-text-primary);
+    font-family: var(--font-geologica);
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin: 0 0 22px;
+    letter-spacing: 0;
+    white-space: nowrap;
+  }
+
+  .hero h1 span {
+    color: var(--color-primary-03);
+  }
+
+  .hero__title-break {
+    display: none;
+  }
+
+  .hero p {
+    color: var(--color-text-primary);
+    font-family: var(--font-geologica);
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    max-width: 700px;
+    margin: 0 0 30px;
+  }
+
+  .hero__image img,
+  .illustration img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .hero__image {
+    align-self: end;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero__image img {
+    margin-inline: auto 0;
+    max-width: 520px;
+  }
+
+  .hero__decor {
+    position: absolute;
+    pointer-events: none;
+  }
+
+  .hero__decor--left {
+    top: 0;
+    left: -10px;
+    width: 410px;
+  }
+
+  .hero__decor--top {
+    top: 0;
+    right: 17%;
+    width: 220px;
+  }
+
+  .hero__decor--small {
+    top: 92px;
+    left: 53%;
+    width: 140px;
+  }
+
+  .hero__decor--right {
+    right: -46px;
+    top: 246px;
+    width: 160px;
+  }
+
+  .intro,
+  .support {
+    padding-block: 150px;
+  }
+
+  .split .illustration {
+    justify-self: center;
+    width: min(100%, 560px);
+  }
+
+  .section-copy {
+    max-width: 440px;
+  }
+
+  .section-copy h2,
+  .section-heading h2,
+  .stories h2 {
+    font-size: 30px;
+    line-height: 1.1;
+    margin: 0 0 18px;
+  }
+
+  .section-copy p,
+  .section-heading p {
+    color: var(--color-text-primary);
+    font-size: 1rem;
+    line-height: 1.55;
+    margin: 0 0 14px;
+  }
+
+  .intro .section-copy h2 {
+    font-size: 30px;
+  }
+
+  .intro .section-copy p {
+    font-size: 16px;
+  }
+
+  .path .section-heading h2 {
+    font-size: 30px;
+  }
+
+  .path .section-heading p {
+    font-size: 16px;
+  }
+
+  .path,
+  .stories {
+    padding-block: 110px;
+  }
+
+  .path {
+    padding-block: 100px;
+  }
+
+  .path .home-container {
+    width: min(100% - 160px, 1464px);
+  }
+
+  .section-heading {
+    margin-bottom: 38px;
+    max-width: 900px;
+  }
+
+  .path-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 57px;
+  }
+
+  .path-card,
+  .story-card {
+    background: var(--color-background-white);
+    border: 3px solid var(--color-border-interactive);
+    border-radius: 4px;
+  }
+
+  .path-card {
+    min-height: 450px;
+    padding: 60px 40px 48px;
+    color: var(--color-text-primary);
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    transition: transform 140ms ease, box-shadow 140ms ease;
+  }
+
+  .path-card:hover {
+    box-shadow: 8px 8px 0 var(--color-primary-01);
+    transform: translate(-2px, -2px);
+  }
+
+  .path-card:focus-visible,
+  .story-card__toggle:focus-visible,
+  .carousel__button:focus-visible {
+    outline: 3px solid var(--color-border-interactive);
+    outline-offset: 3px;
+  }
+
+  .path-card.is-disabled {
+    cursor: default;
+  }
+
+  .path-card.is-disabled:hover {
+    box-shadow: none;
+    transform: none;
+  }
+
+  .path-card__art {
+    align-items: center;
+    display: flex;
+    height: 220px;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .path-card__art img {
+    display: block;
+    max-height: 220px;
+    max-width: 310px;
+    width: 100%;
+  }
+
+  .path-card__title {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 32px;
+  }
+
+  .path-card__copy {
+    font-size: 16px;
+    line-height: normal;
+  }
+
+  .path__action {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--spacing-8, 32px);
+  }
+
+  .split--support {
+    grid-template-columns: 1.08fr 0.92fr;
+  }
+
+  .support-list {
+    max-width: 500px;
+  }
+
+  .support-list h2 {
+    font-size: 30px;
+    margin-bottom: var(--spacing-8, 32px);
+  }
+
+  .support-item {
+    border-bottom: 1px solid var(--color-border-subtle-00);
+    margin-bottom: var(--spacing-8, 32px);
+    padding: 0 0 var(--spacing-8, 32px);
+  }
+
+  .support-item:last-of-type {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .support-item h3 {
+    font-size: 24px;
+    line-height: normal;
+    margin: 0 0 var(--spacing-4, 16px);
+  }
+
+  .support-item p {
+    font-size: 16px;
+    line-height: normal;
+    margin: 0;
+  }
+
+  .support-list .btn {
+    margin-top: 0;
+  }
+
+  .stories {
+    overflow: hidden;
+  }
+
+  .carousel {
+    --active-slide: 0;
+    --carousel-gap: 16px;
+    --story-card-width: 342px;
+    margin-top: 28px;
+  }
+
+  .carousel__viewport {
+    margin-right: calc((100% - 100vw) / 2);
+    overflow: hidden;
+  }
+
+  .carousel__track {
+    display: flex;
+    gap: var(--carousel-gap);
+    transform: translateX(calc(var(--active-slide) * -1 * (var(--story-card-width) + var(--carousel-gap))));
+    transition: transform 280ms ease;
+  }
+
+  .story-card {
+    box-sizing: border-box;
+    flex: 0 0 var(--story-card-width);
+    height: 386px;
+    padding: 28px 22px 22px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .story-card.is-expanded {
+    height: auto;
+    min-height: 386px;
+  }
+
+  .story-card__avatar {
+    width: 52px;
+    aspect-ratio: 1;
+    border-radius: 999px;
+    background: radial-gradient(circle at 30% 30%, var(--color-border-subtle-00), #f3f3f3 62%);
+    margin-bottom: 26px;
+  }
+
+  .story-card h3 {
+    font-size: 0.95rem;
+    line-height: 1.25;
+    margin: 0 0 4px;
+  }
+
+  .story-card__programme,
+  .story-card p {
+    font-size: 0.88rem;
+    line-height: 1.45;
+  }
+
+  .story-card__programme {
+    font-weight: 700;
+    margin: 0 0 12px;
+  }
+
+  .story-card__quote {
+    max-height: 8.7em;
+    overflow: hidden;
+    transition: max-height 260ms ease;
+  }
+
+  .story-card.is-expanded .story-card__quote {
+    max-height: 40rem;
+  }
+
+  .story-card p:last-of-type {
+    margin: 0 0 20px;
+  }
+
+  .story-card__toggle {
+    appearance: none;
+    background: transparent;
+    border: 0;
+    color: var(--color-text-primary);
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 800;
+    margin-top: auto;
+    padding: 0;
+    text-decoration: none;
+    width: fit-content;
+  }
+
+  .story-card__toggle:hover {
+    color: var(--color-link-primary-hover);
+    text-decoration: underline;
+  }
+
+  .carousel__controls {
+    align-items: center;
+    display: flex;
+    gap: 92px;
+    justify-content: center;
+    margin-top: 30px;
+  }
+
+  .carousel__button {
+    border: 0;
+    background: transparent;
+    color: var(--color-primary-01);
+    cursor: pointer;
+    display: grid;
+    height: 44px;
+    place-items: center;
+    width: 44px;
+  }
+
+  .carousel__button svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+  }
+
+  @media (min-width: 1024px) and (max-width: 1270px) {
+    .hero__decor--left {
+      left: -36px;
+      top: -54px;
+      width: 360px;
+    }
+  }
+
+  @media (max-width: 1023px) {
+    .home-container {
+      width: min(100% - 32px, 720px);
+    }
+
+    .hero {
+      min-height: auto;
+      padding-block: 82px 42px;
+    }
+
+    .hero__grid,
+    .split,
+    .split--support {
+      grid-template-columns: 1fr;
+      gap: 34px;
+      min-height: auto;
+    }
+
+    .hero__image {
+      max-width: 520px;
+      margin-inline: auto;
+    }
+
+    .hero__copy {
+      margin-bottom: 0;
+      max-width: 620px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      line-height: normal;
+      white-space: normal;
+    }
+
+    .hero__title-break {
+      display: block;
+    }
+
+    .hero p {
+      font-size: 20px;
+      line-height: normal;
+    }
+
+    .hero__decor--top {
+      right: 5%;
+    }
+
+    .hero__decor--small {
+      left: 46%;
+    }
+
+    .hero__decor--right {
+      display: none;
+    }
+
+    .intro .section-copy,
+    .support .section-copy {
+      justify-self: center;
+      max-width: 620px;
+    }
+
+    .intro .section-copy h2 {
+      font-size: 24px;
+    }
+
+    .path .section-heading h2 {
+      font-size: 24px;
+    }
+
+    .stories h2 {
+      font-size: 24px;
+    }
+
+    .support-list h2 {
+      font-size: 24px;
+    }
+
+    .support-item h3 {
+      font-size: 20px;
+    }
+
+    .path-grid {
+      grid-template-columns: 1fr;
+      gap: 22px;
+    }
+
+    .path-card {
+      min-height: 260px;
+    }
+
+    .carousel__viewport {
+      overflow: hidden;
+    }
+
+    .carousel {
+      --carousel-gap: 0px;
+      --visible-slides: 1;
+    }
+
+    .carousel__track {
+      display: flex;
+    }
+
+    .story-card {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 260ms ease;
+    }
+
+    .story-card.is-active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .home-container {
+      width: min(100% - 72px, 900px);
+    }
+
+    .intro .split {
+      align-items: center;
+      display: grid;
+      grid-template-columns: minmax(250px, 356px) minmax(0, 500px);
+      gap: 40px;
+    }
+
+    .intro .illustration--question {
+      justify-self: start;
+      width: min(100%, 289px);
+    }
+
+    .intro .section-copy {
+      justify-self: end;
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .hero {
+      min-height: 530px;
+      padding-block: 0;
+    }
+
+    .hero__grid {
+      grid-template-columns: minmax(320px, 0.95fr) minmax(280px, 1.05fr);
+      align-items: end;
+      gap: 24px;
+      min-height: inherit;
+    }
+
+    .hero__copy {
+      align-self: end;
+      margin-bottom: 100px;
+      max-width: 440px;
+    }
+
+    .hero h1 {
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      margin-bottom: 30px;
+      max-width: 440px;
+    }
+
+    .hero__image {
+      align-self: end;
+      max-width: 430px;
+    }
+
+    .hero__image img {
+      max-width: 430px;
+    }
+
+    .hero__decor--left {
+      left: -24px;
+      top: -18px;
+      width: 230px;
+    }
+
+    .hero__decor--top {
+      right: 24%;
+      top: 0;
+      width: 136px;
+    }
+
+    .hero__decor--small {
+      left: 40%;
+      top: 22px;
+      width: 104px;
+    }
+
+    .hero__decor--right {
+      display: block;
+      right: -16px;
+      top: 112px;
+      width: 104px;
+    }
+
+    .support .split--support {
+      align-items: center;
+      display: grid;
+      grid-template-columns: 315px minmax(0, 500px);
+      gap: 48px;
+    }
+
+    .support .illustration--hands {
+      justify-self: start;
+      width: 315px;
+    }
+
+    .support .section-copy {
+      justify-self: end;
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .path .home-container {
+      width: min(100% - 120px, 904px);
+    }
+
+    .path-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 28px;
+    }
+
+    .path-card {
+      min-height: 370px;
+      padding: 36px 24px 28px;
+    }
+
+    .path-card__art {
+      height: 160px;
+      margin-bottom: 22px;
+    }
+
+    .path-card__art img {
+      max-height: 160px;
+      max-width: 190px;
+    }
+
+    .path-card__title {
+      font-size: 18px;
+      margin-bottom: 16px;
+    }
+
+    .carousel {
+      --carousel-gap: 16px;
+    }
+
+    .carousel__track {
+      gap: var(--carousel-gap);
+    }
+
+    .story-card {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .hero {
+      min-height: 724px;
+      padding-block: 0;
+    }
+
+    .home-container {
+      width: min(100% - 88px, 430px);
+    }
+
+    .hero__grid {
+      gap: 58px;
+      padding-top: 174px;
+    }
+
+    .hero__copy {
+      max-width: 350px;
+    }
+
+    .hero h1 {
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      margin-bottom: 30px;
+      max-width: 350px;
+    }
+
+    .hero .btn {
+      align-self: center;
+      display: flex;
+      margin-inline: auto;
+    }
+
+    .hero__image {
+      max-width: 292px;
+    }
+
+    .hero__image img {
+      max-width: 292px;
+    }
+
+    .hero__decor--left {
+      left: -14px;
+      top: 20px;
+      width: 116px;
+    }
+
+    .hero__decor--top {
+      top: 52px;
+      right: 104px;
+      width: 76px;
+    }
+
+    .hero__decor--small {
+      top: 68px;
+      left: 34%;
+      width: 56px;
+    }
+
+    .hero__decor--right {
+      display: block;
+      right: -10px;
+      top: 110px;
+      width: 62px;
+    }
+
+    .intro,
+    .support,
+    .path,
+    .stories {
+      padding-block: 58px;
+    }
+
+    .path-card {
+      padding: 28px 24px;
+    }
+
+    .path-card__title {
+      font-size: 20px;
+      margin-bottom: 16px;
+    }
+
+    .carousel__controls {
+      gap: 18px;
+    }
+
+    .carousel {
+      --story-card-width: 270px;
+    }
+
+    .carousel__viewport {
+      margin-inline: auto;
+      width: var(--story-card-width);
+    }
+
+    .story-card {
+      height: 316px;
+    }
+
+    .story-card.is-expanded {
+      min-height: 316px;
+    }
+  }
+</style>
