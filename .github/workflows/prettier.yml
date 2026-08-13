@@ -1,21 +1,19 @@
 name: prettier-check
-on:
-    push:
+on: [push]
+
 jobs:
     prettier:
-        if: github.event_name == 'push'
         runs-on: ubuntu-latest
-        env:
-            CI: true
-            HUSKY: 0
         steps:
-            - uses: actions/checkout@v5
-            - uses: actions/setup-node@v5
+            - name: Checkout repository
+              uses: actions/checkout@v5
+
+            - name: Set up node
+              uses: actions/setup-node@v5
               with:
                 node-version: '24'
                 cache: 'npm'
             - name: Install dependencies
               run: npm ci
-            - name: Run Prettier
-              run: | 
-                npx prettier --check --ignore-path .prettierignore .
+            - name: Run Prettier Check
+              run: npm run prettier-ci
