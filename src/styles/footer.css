@@ -5,14 +5,15 @@
 }
 
 .footer-container {
-    padding: var(--spacing-x15, 60px) var(--spacing-x6, 24px) var(--spacing-x33, 132px);
+    padding: var(--spacing-x15, 60px) var(--spacing-x6, 24px)
+        var(--spacing-x33, 132px);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: var(--spacing-x11, 44px);
 }
 
-.footer-container div{
+.footer-container div {
     margin-top: 1px;
     margin-bottom: 1px;
 }
@@ -32,7 +33,7 @@
     gap: 6.154px;
 }
 
-.footer-panel-container{
+.footer-panel-container {
     display: flex;
     flex-direction: column;
     align-content: space-between;
@@ -67,35 +68,37 @@
     font-weight: var(--font-weight-normal);
 }
 
-@media (min-width: 48rem){
+@media (min-width: 48rem) {
     .footer-container {
-        padding: var(--spacing-x16, 64px) var(--spacing-x15, 60px) var(--spacing-x33, 132px) var(--spacing-x15, 60px);
+        padding: var(--spacing-x16, 64px) var(--spacing-x15, 60px)
+            var(--spacing-x33, 132px) var(--spacing-x15, 60px);
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         gap: var(--spacing-x15, 60px);
     }
-    .footer-panel-container{
+    .footer-panel-container {
         display: flex;
         flex-direction: row;
         align-content: space-between;
-        gap: var(--spacing-x16, 64px)
+        gap: var(--spacing-x16, 64px);
     }
-    .footer-heading{
+    .footer-heading {
         font-weight: var(--font-weight-bold);
         font-size: var(--text-xl);
     }
 }
 
-@media (min-width: 64rem){
+@media (min-width: 64rem) {
     .footer {
         background-color: var(--color-background-brand-blue);
         color: white;
         width: 100%;
     }
-    
+
     .footer-container {
-        padding: var(--spacing-x16, 64px) var(--spacing-x33, 132px) var(--spacing-x33, 132px);
+        padding: var(--spacing-x16, 64px) var(--spacing-x33, 132px)
+            var(--spacing-x33, 132px);
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -105,12 +108,12 @@
     .footer-section-two {
         width: 781px;
     }
-        
-    .footer-panel-container{
+
+    .footer-panel-container {
         display: flex;
         flex-direction: row;
         align-content: space-between;
-        gap: var(--spacing-x15, 60px)
+        gap: var(--spacing-x15, 60px);
     }
 
     .footer-panel {
@@ -118,14 +121,14 @@
         flex-direction: column;
         gap: var(--spacing-x4, 16px);
     }
-    
+
     .footer-panel ul {
         display: flex;
         flex-direction: column;
         gap: var(--spacing-x4, 16px);
     }
 
-    .footer-heading{
+    .footer-heading {
         font-weight: var(--font-weight-bold);
         font-size: var(--text-xl);
     }

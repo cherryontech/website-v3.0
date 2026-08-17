@@ -1,106 +1,137 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Button from '../components/Button.astro';
-import Icon from '../components/Icon';
+import Layout from '../layouts/Layout.astro'
+import Button from '../components/Button.astro'
+import Icon from '../components/Icon'
 
 const variants = [
-  { label: 'Primary', variant: 'primary' },
-  { label: 'Secondary', variant: 'secondary' },
-  { label: 'Stroke', variant: 'stroke' },
-  { label: 'Link', variant: 'link' },
-] as const;
+    { label: 'Primary', variant: 'primary' },
+    { label: 'Secondary', variant: 'secondary' },
+    { label: 'Stroke', variant: 'stroke' },
+    { label: 'Link', variant: 'link' },
+] as const
 
 const states = [
-  { label: 'Default', state: 'default', disabled: false },
-  { label: 'Hover', state: 'hover', disabled: false },
-  { label: 'Active', state: 'active', disabled: false },
-  { label: 'Disabled', state: 'disabled', disabled: true },
-] as const;
+    { label: 'Default', state: 'default', disabled: false },
+    { label: 'Hover', state: 'hover', disabled: false },
+    { label: 'Active', state: 'active', disabled: false },
+    { label: 'Disabled', state: 'disabled', disabled: true },
+] as const
 
 const sections = [
-  { title: 'Large', size: 'large', text: 'Large Button', hasArrow: false },
-  { title: 'Large with icon', size: 'large', text: 'Large Button', hasArrow: true },
-  { title: 'Small', size: 'small', text: 'Small Button', hasArrow: false },
-] as const;
+    { title: 'Large', size: 'large', text: 'Large Button', hasArrow: false },
+    {
+        title: 'Large with icon',
+        size: 'large',
+        text: 'Large Button',
+        hasArrow: true,
+    },
+    { title: 'Small', size: 'small', text: 'Small Button', hasArrow: false },
+] as const
 ---
 
 <Layout>
-  <main class="button-samples">
-    <h1>Button Samples</h1>
+    <main class="button-samples">
+        <h1>Button Samples</h1>
 
-    {sections.map((section) => (
-      <section class="sample-section" aria-labelledby={`section-${section.title.toLowerCase().replaceAll(' ', '-')}`}>
-        <h2 id={`section-${section.title.toLowerCase().replaceAll(' ', '-')}`}>{section.title}</h2>
+        {
+            sections.map((section) => (
+                <section
+                    class="sample-section"
+                    aria-labelledby={`section-${section.title.toLowerCase().replaceAll(' ', '-')}`}
+                >
+                    <h2
+                        id={`section-${section.title.toLowerCase().replaceAll(' ', '-')}`}
+                    >
+                        {section.title}
+                    </h2>
 
-        <div class="sample-grid sample-header" aria-hidden="true">
-          <div></div>
-          {variants.map((variant) => <strong>{variant.label}</strong>)}
-        </div>
+                    <div class="sample-grid sample-header" aria-hidden="true">
+                        <div />
+                        {variants.map((variant) => (
+                            <strong>{variant.label}</strong>
+                        ))}
+                    </div>
 
-        {states.map((state) => (
-          <div class="sample-grid">
-            <strong>{state.label}</strong>
+                    {states.map((state) => (
+                        <div class="sample-grid">
+                            <strong>{state.label}</strong>
 
-            {variants.map((variant) => (
-              <Button
-                variant={variant.variant}
-                size={section.size}
-                state={state.state}
-                disabled={state.disabled}
-                href={variant.variant === 'link' ? '#' : undefined}
-                class={section.hasArrow ? (variant.variant === 'link' ? 'link-with-icon' : 'btn-with-icon') : undefined}
-              >
-                {section.text}
-                {section.hasArrow && <Icon name="arrow-right" className="btn__icon" />}
-              </Button>
-            ))}
-          </div>
-        ))}
-      </section>
-    ))}
-  </main>
+                            {variants.map((variant) => (
+                                <Button
+                                    variant={variant.variant}
+                                    size={section.size}
+                                    state={state.state}
+                                    disabled={state.disabled}
+                                    href={
+                                        variant.variant === 'link'
+                                            ? '#'
+                                            : undefined
+                                    }
+                                    class={
+                                        section.hasArrow
+                                            ? variant.variant === 'link'
+                                                ? 'link-with-icon'
+                                                : 'btn-with-icon'
+                                            : undefined
+                                    }
+                                >
+                                    {section.text}
+                                    {section.hasArrow && (
+                                        <Icon
+                                            name="arrow-right"
+                                            className="btn__icon"
+                                        />
+                                    )}
+                                </Button>
+                            ))}
+                        </div>
+                    ))}
+                </section>
+            ))
+        }
+    </main>
 </Layout>
 
 <style>
-  .button-samples {
-    color: var(--color-text-primary);
-    margin: 0 auto;
-    max-width: 1120px;
-    padding: 48px 32px;
-  }
+    .button-samples {
+        color: var(--color-text-primary);
+        margin: 0 auto;
+        max-width: 1120px;
+        padding: 48px 32px;
+    }
 
-  .button-samples h1 {
-    font-size: 32px;
-    line-height: 1.2;
-    margin: 0 0 32px;
-  }
+    .button-samples h1 {
+        font-size: 32px;
+        line-height: 1.2;
+        margin: 0 0 32px;
+    }
 
-  .sample-section {
-    margin-top: 40px;
-  }
+    .sample-section {
+        margin-top: 40px;
+    }
 
-  .sample-section h2 {
-    background-color: var(--color-background-accent-blue-light);
-    font-size: 20px;
-    line-height: 1.2;
-    margin: 0 0 20px;
-    padding: 10px 16px;
-    text-align: center;
-  }
+    .sample-section h2 {
+        background-color: var(--color-background-accent-blue-light);
+        font-size: 20px;
+        line-height: 1.2;
+        margin: 0 0 20px;
+        padding: 10px 16px;
+        text-align: center;
+    }
 
-  .sample-grid {
-    align-items: center;
-    column-gap: 28px;
-    display: grid;
-    grid-template-columns: 100px repeat(4, minmax(140px, 1fr));
-    min-height: 64px;
-  }
+    .sample-grid {
+        align-items: center;
+        column-gap: 28px;
+        display: grid;
+        grid-template-columns: 100px repeat(4, minmax(140px, 1fr));
+        min-height: 64px;
+    }
 
-  .sample-header {
-    min-height: 32px;
-  }
+    .sample-header {
+        min-height: 32px;
+    }
 
-  .sample-grid > strong {
-    font-size: 16px;
-  }
+    .sample-grid > strong {
+        font-size: 16px;
+    }
 </style>
