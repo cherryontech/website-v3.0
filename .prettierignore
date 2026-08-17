@@ -2,6 +2,8 @@
 build
 coverage
 
+.astro/
+dist/
 
 .github/
 node_modules/
