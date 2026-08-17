@@ -1,0 +1,26 @@
+.hero {
+    /* position: relative;
+    overflow: hidden;
+    min-height: 628px;
+    display: flex; */
+    align-items: center;
+}
+
+.section-pink {
+    background: var(--color-background-secondary-pink);
+  }
+
+.section-white {
+    background: var(--color-background-white);
+  }
+
+.hero__title-break {
+    color: var(--text-emphasis-accent, #D20A2E);
+
+/* Desktop/Display 1 [Bold] */
+    font-family: Geologica;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
