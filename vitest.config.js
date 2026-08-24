@@ -11,6 +11,8 @@ export default getViteConfig({
     globals: true,
 
     // cleanup after test runs and importing middleware-like behavior before tests run
-    setupFiles: ['./vitest.setup.js']
+    setupFiles: ['./vitest.setup.js'],
+
+    pool: 'forks'
   },
 });
