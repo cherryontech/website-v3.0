@@ -1,25 +1,61 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import blueMeeting from '../assets/get_involved/blue_meeting.svg';
+import '../styles/get_involved.css';
+import blueHero from '../assets/get_involved/01_get involved - hero.svg';
+import greenMentoring from '../assets/get_involved/02_get involved - mentoring.svg';
+import redVolunteering from '../assets/get_involved/03_get involved - volunteering.svg';
+import purplePartnering from '../assets/get_involved/04_get involved - partnering.svg';
+
+
+const growActions = [
+    {
+        image: greenMentoring.src,
+        action: 'Mentoring',
+        copy_keyphrase: 'Guide the Next Wave: ',
+        copy_details: 'Shape the future of tech equity. Share your expertise to help new talent navigate transformative and meaningful projects, as well as career milestones. Be the mentor you wish you had.',
+    },
+    {
+        image: redVolunteering.src,
+        action: 'Volunteering',
+        copy_keyphrase: 'Build With Us: ',
+        copy_details: 'Join the heart of our bunch as one of our helping cherries. By organizing events and managing resources, your energy builds the community for every member to grow.',
+    },
+    {
+        image: purplePartnering.src,
+        action: 'Partnering',
+        copy_keyphrase: 'Power Our Mission: ',
+        copy_details: 'Join the heart of our bunch as one of our helping cherries. By organizing events and managing resources, your energy builds the community for every member to grow.',
+    },
+];
 ---
 
 <Layout title="Cherry On Tech | Get Involved">
 	<section class="hero section-pink">
         <div class="hero__container">
             <div class="hero__copy">
-                <h1 id="get-involved-title">Your Role in <br class="hero__title-break" /><span>Tech Equity</span> Starts Here</h1>
+                <h1 id="get-involved-title">Your Role in <span>Tech Equity</span> <br class="hero__title-break" />Starts Here</h1>
                 <p>Claim your space in tech by showing up with intention.</p>
-                <a href="#help-us-grow" class="btn btn-stroke btn-small">Help Us Grow</a>
-                <a href="#grow-and-fuel-the-mission" class="btn btn-secondary btn-small">Fuel the Mission</a>
+                <div class="desktop-button-container">
+                    <a href="#help-us-grow" class="btn btn-stroke btn-small">Help Us Grow</a>
+                    <a href="#grow-and-fuel-the-mission" class="btn btn-secondary btn-small">Fuel the Mission</a>
+                </div>
             </div>
-        <div class="hero__image">
-        <img src={blueMeeting.src} alt="2 people discussing an idea" />
+            <div class="hero__image">
+                <img src={blueHero.src} alt="2 people discussing an idea" />
             </div>
         </div>
     </section>
 
-    <section id="help-us-grow">
-
+    <section class="help-us-grow section-white">
+        <div class="help-us-grow__container">
+            <h2 id="help-us-grow__title">Help Us Grow</h2>
+            {growActions.map((action) => (
+                <article class=grow-action-card>
+                    <img src={action.image} />
+                    <div class=grow-action-content-block></div>
+                </article>
+            ))}
+        </div>
     </section>
 
     <section id="grow-and-fuel-the-mission">
