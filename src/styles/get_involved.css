@@ -17,7 +17,7 @@
   }
 
 .hero__container {
-    display: flex;
+    display: grid;
     align-items: center;
     /* gap: 118px; */
 }
