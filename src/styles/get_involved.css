@@ -19,8 +19,15 @@
 .hero__container {
     display: flex;
     align-items: center;
-    gap: 118px;
+    /* gap: 118px; */
 }
+
+.hero__grid {
+    align-items: end;
+    grid-template-columns: minmax(0, 1.1fr) minmax(380px, 0.9fr);
+    gap: 118px;
+    min-height: inherit;
+  }
 
 .hero__copy {
     display: flex;
@@ -62,12 +69,13 @@
     align-self: end;
     position: relative;
     z-index: 1;
+    height: inherit
   }
 
   .hero__image img {
     display: block;
     width: 100%;
-    height: auto;
+    
     margin-inline: auto 0;
     max-width: 572px;
   }
@@ -92,8 +100,6 @@
     font-weight: 700;
     line-height: normal;
   }
-  
-  
 
   .help-us-grow__container {
     display: flex;
@@ -101,6 +107,17 @@
     align-items: center;
     gap: var(--spacing-15, 60px);
     align-self: stretch;
+  }
+
+  .help-us-grow h3 {
+    color: var(--color-text-primary);
+
+    /* Desktop/Heading 1 [Bold] */
+    font-family: var(--font-lato);
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
   }
 
   .grow-action-card {
@@ -124,6 +141,8 @@
     align-items: flex-start;
     gap: var(--spacing-8, 32px);
   }
+
+
 
   @media (min-width: 1024px) {
     .desktop-button-container{

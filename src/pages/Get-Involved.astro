@@ -31,7 +31,7 @@ const growActions = [
 
 <Layout title="Cherry On Tech | Get Involved">
 	<section class="hero section-pink">
-        <div class="hero__container">
+        <div class="hero__container hero__grid">
             <div class="hero__copy">
                 <h1 id="get-involved-title">Your Role in <span>Tech Equity</span> <br class="hero__title-break" />Starts Here</h1>
                 <p>Claim your space in tech by showing up with intention.</p>
@@ -46,13 +46,15 @@ const growActions = [
         </div>
     </section>
 
-    <section class="help-us-grow section-white">
+    <section id="help-us-grow" class="help-us-grow section-white">
         <div class="help-us-grow__container">
             <h2 id="help-us-grow__title">Help Us Grow</h2>
-            {growActions.map((action) => (
+            {growActions.map((item) => (
                 <article class=grow-action-card>
-                    <img src={action.image} />
-                    <div class=grow-action-content-block></div>
+                    <img src={item.image} />
+                    <div class=grow-action-content-block>
+                        <h3>{item.action}</h3>
+                    </div>
                 </article>
             ))}
         </div>
