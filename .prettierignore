@@ -1,0 +1,11 @@
+# Ignore artifacts:
+build
+coverage
+
+.astro/
+dist/
+
+.github/
+node_modules/
+package-lock.json
+

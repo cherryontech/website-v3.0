@@ -1,0 +1,19 @@
+name: prettier-check
+on: [push]
+
+jobs:
+    prettier:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v5
+
+            - name: Set up node
+              uses: actions/setup-node@v5
+              with:
+                node-version: '24'
+                cache: 'npm'
+            - name: Install dependencies
+              run: npm ci
+            - name: Run Prettier Check
+              run: npm run prettier-ci
