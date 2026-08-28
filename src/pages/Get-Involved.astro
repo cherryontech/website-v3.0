@@ -5,7 +5,7 @@ import blueHero from '../assets/get_involved/01_get involved - hero.svg';
 import greenMentoring from '../assets/get_involved/02_get involved - mentoring.svg';
 import redVolunteering from '../assets/get_involved/03_get involved - volunteering.svg';
 import purplePartnering from '../assets/get_involved/04_get involved - partnering.svg';
-
+import Icon from '../components/Icon';
 
 const growActions = [
     {
@@ -13,18 +13,24 @@ const growActions = [
         action: 'Mentoring',
         copy_keyphrase: 'Guide the Next Wave: ',
         copy_details: 'Shape the future of tech equity. Share your expertise to help new talent navigate transformative and meaningful projects, as well as career milestones. Be the mentor you wish you had.',
+        link: 'https://docs.google.com/forms/d/e/1FAIpQLSecu_QLirIwBQQT1abV-dBkTXYMXeBTCqtfujrujDVKM5WAXw/viewform',
+        cta: 'Become a Mentor',
     },
     {
         image: redVolunteering.src,
         action: 'Volunteering',
         copy_keyphrase: 'Build With Us: ',
         copy_details: 'Join the heart of our bunch as one of our helping cherries. By organizing events and managing resources, your energy builds the community for every member to grow.',
+        link: 'https://docs.google.com/forms/d/e/1FAIpQLSecu_QLirIwBQQT1abV-dBkTXYMXeBTCqtfujrujDVKM5WAXw/viewform',
+        cta: 'Apply to Help',
     },
     {
         image: purplePartnering.src,
         action: 'Partnering',
         copy_keyphrase: 'Power Our Mission: ',
         copy_details: 'Join the heart of our bunch as one of our helping cherries. By organizing events and managing resources, your energy builds the community for every member to grow.',
+        link: 'TBD',
+        cta: 'Start a Partnership',
     },
 ];
 ---
@@ -54,13 +60,35 @@ const growActions = [
                     <img src={item.image} />
                     <div class=grow-action-content-block>
                         <h3>{item.action}</h3>
+                        <p><b>{item.copy_keyphrase}</b>{item.copy_details}</p>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSecu_QLirIwBQQT1abV-dBkTXYMXeBTCqtfujrujDVKM5WAXw/viewform" target="_blank" rel="noopener noreferrer" class="btn-stroke btn">
+                            <span>{item.cta}</span>
+                                <Icon name="arrow-right" class="btn__icon" />
+                                <span class="sr-only">(form opens in a new tab)</span>
+                        </a>
                     </div>
                 </article>
             ))}
         </div>
     </section>
 
-    <section id="grow-and-fuel-the-mission">
+    <section id="grow-and-fuel-the-mission" class="grow-n-fuel section-pink">
+        <div class="grow-n-fuel-content-container">
+            <div>
+                <h3>Grow with Us</h3>
+                <p><b>Discover Your Path:</b> Join a squad to learn, grow, and ship live projects. From cohorts to job prep, you'll gain the hands-on skills and community support to thrive in tech—together.</p>
+                <a href="../programs" class="btn-primary btn">Find Your Squad</a>
+            </div>
 
+            <div>
+                <h3>Fuel the Mission</h3>
+                <p><b>Support Our Cherries:</b> Your contribution provides the fuel they need to thrive, ensuring our programs remain free and impactful for underrepresented and marginalized talent.</p>
+                <a href="https://www.zeffy.com/en-CA/donation-form/help-underrepresented-genders-break-into-tech" target="_blank" rel="noopener noreferrer" class="btn-secondary btn btn-with-icon">
+                    <span>Donate</span>
+                        <Icon name="arrow-right" class="btn__icon" />
+                        <span class="sr-only">(opens in a new tab)</span>
+                </a>
+            </div>
+        </div>
     </section>
 </Layout>

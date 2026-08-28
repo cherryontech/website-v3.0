@@ -109,7 +109,18 @@
     align-self: stretch;
   }
 
-  .help-us-grow h3 {
+  /* .help-us-grow h3 {
+    color: var(--color-text-primary);
+
+    
+    font-family: var(--font-lato);
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  } */
+
+  .h3 {
     color: var(--color-text-primary);
 
     /* Desktop/Heading 1 [Bold] */
@@ -142,12 +153,63 @@
     gap: var(--spacing-8, 32px);
   }
 
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  
+  .grow-n-fuel {
+    display: flex;
+    padding: var(--spacing-33, 132px);
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-5, 20px);
+  }
 
+  /* .grow-with-us {
+    display: flex;
+    width: calc((100% - 20px) / 2);
+    height: inherit;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-8, 32px);
+    flex-shrink: 0;
+  } */
+  
+  .grow-n-fuel-content-container div {
+    display: flex;
+    width: calc((100% - 20px) / 2);
+    height: inherit;
+    flex-direction: column;
+    align-items: flex-start;
+    /* gap: var(--spacing-8, 32px); */
+    flex-shrink: 0;
+  }
+
+  .grow-n-fuel-content-container div h3 {
+    margin-bottom: 16px;
+  }
+
+  .grow-n-fuel-content-container div p {
+    margin-bottom: 32px;
+  }
 
   @media (min-width: 1024px) {
     .desktop-button-container{
         display: flex;
         align-items: center;
         gap: 16px;
+    }
+
+    .grow-n-fuel-content-container {
+        display: flex;
+        gap: 20px;
     }
   }
