@@ -40,6 +40,12 @@ body {
     align-items: center;
 }
 
+.intro .split,
+.support .split--support {
+    max-width: 900px;
+    margin-inline: auto;
+}
+
 .hero__grid {
     gap: 58px;
     padding-top: 100px;
