@@ -1,18 +1,23 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import '../styles/get_involved.css';
-import blueHero from '../assets/get_involved/01_get involved - hero.svg';
-import greenMentoring from '../assets/get_involved/02_get involved - mentoring.svg';
-import redVolunteering from '../assets/get_involved/03_get involved - volunteering.svg';
-import purplePartnering from '../assets/get_involved/04_get involved - partnering.svg';
-import Icon from '../components/Icon';
+import Layout from '../layouts/Layout.astro'
+import '../styles/get_involved.css'
+import blueHero from '../assets/get_involved/01_get involved - hero.svg'
+import greenMentoring from '../assets/get_involved/02_get involved - mentoring.svg'
+import redVolunteering from '../assets/get_involved/03_get involved - volunteering.svg'
+import purplePartnering from '../assets/get_involved/04_get involved - partnering.svg'
+import Icon from '../components/Icon'
 
 const growActions = [
     {
         image: greenMentoring.src,
         action: 'Mentoring',
         copy_keyphrase: 'Guide the Next Wave: ',
-        copy_details: 'Shape the future of tech equity. Share your expertise to help new talent navigate transformative and meaningful projects, as well as career milestones. Be the mentor you wish you had.',
+        copy_details: [
+            {
+                type: 'paragraph',
+                text: 'Shape the future of tech equity. Share your expertise to help new talent navigate transformative and meaningful projects, as well as career milestones. Be the mentor you wish you had.',
+            },
+        ],
         link: 'https://docs.google.com/forms/d/e/1FAIpQLSecu_QLirIwBQQT1abV-dBkTXYMXeBTCqtfujrujDVKM5WAXw/viewform',
         cta: 'Become a Mentor',
     },
@@ -20,7 +25,12 @@ const growActions = [
         image: redVolunteering.src,
         action: 'Volunteering',
         copy_keyphrase: 'Build With Us: ',
-        copy_details: 'Join the heart of our bunch as one of our helping cherries. By organizing events and managing resources, your energy builds the community for every member to grow.',
+        copy_details: [
+            {
+                type: 'paragraph',
+                text: 'Join the heart of our bunch as one of our helping cherries. By organizing events and managing resources, your energy builds the community for every member to grow.',
+            },
+        ],
         link: 'https://docs.google.com/forms/d/e/1FAIpQLSecu_QLirIwBQQT1abV-dBkTXYMXeBTCqtfujrujDVKM5WAXw/viewform',
         cta: 'Apply to Help',
     },
@@ -28,22 +38,50 @@ const growActions = [
         image: purplePartnering.src,
         action: 'Partnering',
         copy_keyphrase: 'Power Our Mission: ',
-        copy_details: 'Join the heart of our bunch as one of our helping cherries. By organizing events and managing resources, your energy builds the community for every member to grow.',
+        copy_details: [
+            {
+                type: 'paragraph',
+                text: 'Let’s build a future of tech that includes everyone. We love collaborating with mission-aligned partners and allies to move the needle toward true equity.',
+            },
+            {
+                type: 'paragraph',
+                text: 'Partnerships can take many forms, including:',
+            },
+            {
+                type: 'list',
+                items: [
+                    'Sponsorships & mentorship support',
+                    'Event co-hosting & resource sharing',
+                    'Inclusion & talent initiatives',
+                ],
+            },
+            {
+                type: 'paragraph',
+                text: 'However you choose to show up, your solidarity helps us open new doors.',
+            },
+        ],
         link: 'TBD',
         cta: 'Start a Partnership',
     },
-];
+]
 ---
 
 <Layout title="Cherry On Tech | Get Involved">
-	<section class="hero section-pink">
+    <section class="hero section-pink">
         <div class="hero__container hero__grid">
             <div class="hero__copy">
-                <h1 id="get-involved-title">Your Role in <span>Tech Equity</span> <br class="hero__title-break" />Starts Here</h1>
+                <h1 id="get-involved-title">
+                    Your Role in <span>Tech Equity</span> Starts Here
+                </h1>
                 <p>Claim your space in tech by showing up with intention.</p>
-                <div class="desktop-button-container">
-                    <a href="#help-us-grow" class="btn btn-stroke btn-small">Help Us Grow</a>
-                    <a href="#grow-and-fuel-the-mission" class="btn btn-secondary btn-small">Fuel the Mission</a>
+                <div class="button-container">
+                    <a href="#help-us-grow" class="btn btn-stroke"
+                        >Help Us Grow</a
+                    >
+                    <a
+                        href="#grow-and-fuel-the-mission"
+                        class="btn btn-secondary">Fuel the Mission</a
+                    >
                 </div>
             </div>
             <div class="hero__image">
@@ -54,39 +92,80 @@ const growActions = [
 
     <section id="help-us-grow" class="help-us-grow section-white">
         <div class="help-us-grow__container">
-            <h2 id="help-us-grow__title">Help Us Grow</h2>
-            {growActions.map((item) => (
-                <article class=grow-action-card hero__grid>
-                    <img src={item.image} />
-                    <div class=grow-action-content-block>
-                        <h3>{item.action}</h3>
-                        <p><b>{item.copy_keyphrase}</b>{item.copy_details}</p>
-                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSecu_QLirIwBQQT1abV-dBkTXYMXeBTCqtfujrujDVKM5WAXw/viewform" target="_blank" rel="noopener noreferrer" class="btn-stroke btn">
-                            <span>{item.cta}</span>
+            <h class="help-us-grow__title">Help Us Grow</h>
+            {
+                growActions.map((item) => (
+                    <article class="grow-action-card">
+                        <img src={item.image} />
+                        <div class="grow-action-content-block">
+                            <h2>{item.action}</h2>
+                            <div class="action__copy">
+                                {item.copy_details.map((block, index) =>
+                                    block.type === 'paragraph' ? (
+                                        <p>
+                                            {index === 0 && (
+                                                <b>{item.copy_keyphrase}</b>
+                                            )}
+                                            {index === 0 && ' '}
+                                            {block.text}
+                                        </p>
+                                    ) : (
+                                        <ul>
+                                            {block.items.map((bulletpoint) => (
+                                                <li>{bulletpoint}</li>
+                                            ))}
+                                        </ul>
+                                    )
+                                )}
+                            </div>
+                            <a
+                                href="https://docs.google.com/forms/d/e/1FAIpQLSecu_QLirIwBQQT1abV-dBkTXYMXeBTCqtfujrujDVKM5WAXw/viewform"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn-stroke btn"
+                            >
+                                <span>{item.cta}</span>
                                 <Icon name="arrow-right" class="btn__icon" />
-                                <span class="sr-only">(form opens in a new tab)</span>
-                        </a>
-                    </div>
-                </article>
-            ))}
+                                <span class="sr-only">
+                                    (form opens in a new tab)
+                                </span>
+                            </a>
+                        </div>
+                    </article>
+                ))
+            }
         </div>
     </section>
 
     <section id="grow-and-fuel-the-mission" class="grow-n-fuel section-pink">
         <div class="grow-n-fuel-content-container">
             <div>
-                <h3>Grow with Us</h3>
-                <p><b>Discover Your Path:</b> Join a squad to learn, grow, and ship live projects. From cohorts to job prep, you'll gain the hands-on skills and community support to thrive in tech—together.</p>
-                <a href="../programs" class="btn-primary btn">Find Your Squad</a>
+                <h2>Grow with Us</h2>
+                <p>
+                    <b>Discover Your Path:</b> Join a squad to learn, grow, and ship
+                    live projects. From cohorts to job prep, you'll gain the hands-on
+                    skills and community support to thrive in tech—together.
+                </p>
+                <a href="../programs" class="btn-primary btn">Find Your Squad</a
+                >
             </div>
 
             <div>
-                <h3>Fuel the Mission</h3>
-                <p><b>Support Our Cherries:</b> Your contribution provides the fuel they need to thrive, ensuring our programs remain free and impactful for underrepresented and marginalized talent.</p>
-                <a href="https://www.zeffy.com/en-CA/donation-form/help-underrepresented-genders-break-into-tech" target="_blank" rel="noopener noreferrer" class="btn-secondary btn btn-with-icon">
+                <h2>Fuel the Mission</h2>
+                <p>
+                    <b>Support Our Cherries:</b> Your contribution provides the fuel
+                    they need to thrive, ensuring our programs remain free and impactful
+                    for underrepresented and marginalized talent.
+                </p>
+                <a
+                    href="https://www.zeffy.com/en-CA/donation-form/help-underrepresented-genders-break-into-tech"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn-secondary btn btn-with-icon"
+                >
                     <span>Donate</span>
-                        <Icon name="arrow-right" class="btn__icon" />
-                        <span class="sr-only">(opens in a new tab)</span>
+                    <Icon name="arrow-right" class="btn__icon" />
+                    <span class="sr-only">(opens in a new tab)</span>
                 </a>
             </div>
         </div>
