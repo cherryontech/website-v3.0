@@ -135,7 +135,7 @@ body {
 .intro .section-copy .btn,
 .support .section-copy .btn {
     display: flex;
-    margin-inline: auto;
+    margin-left: 0;
     width: fit-content;
 }
 
