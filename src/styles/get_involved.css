@@ -1,3 +1,5 @@
+/*** HERO ***/
+
 .hero {
     display: flex;
     padding: 60px 24px;
@@ -92,6 +94,8 @@
     gap: 12px;
 }
 
+/*** HELP US GROW ***/
+
 .help-us-grow {
     display: flex;
     flex-direction: column;
@@ -125,13 +129,6 @@
     aspect-ratio: 1/1;
 }
 
-/* .grow-action-content-block {
-    display: flex;
-    max-width: 720px;
-    flex-direction: column;
-    align-items: center;
-} */
-
 .grow-action-content-block {
     display: flex;
     flex-direction: column;
@@ -149,10 +146,6 @@
     margin-bottom: 16px;
 }
 
-/* .grow-action-content-block h3 {
-    margin-bottom: 16px;
-  } */
-
 .action__copy {
     display: flex;
     flex-direction: column;
@@ -160,6 +153,7 @@
     margin-bottom: 32px;
 }
 
+/* Indentation and spacing for Partnering section's copy with bullet point list */
 .action__copy ul {
     list-style-type: disc;
     padding-left: 24px;
@@ -185,6 +179,8 @@
 .action__copy ul + p {
     margin-top: 16px;
 }
+
+/*** GROW AND FUEL THE MISSION ***/
 
 .grow-n-fuel {
     display: flex;
@@ -230,6 +226,8 @@
     white-space: nowrap;
     border: 0;
 }
+
+/*** SCREEN SIZE ADAPTATIONS ***/
 
 /* Desktop */
 @media (min-width: 1024px) {
@@ -287,7 +285,6 @@
 }
 
 /* Tablet */
-/* @media (max-width: 1023px) { */
 @media (min-width: 768px) {
     .hero {
         /* padding: 60px 24px; */
