@@ -1,0 +1,92 @@
+.section-intro {
+    background: var(--color-background-secondary-pink);
+    display: flex;
+    padding: var(--spacing-25, 100px) var(--spacing-33, 132px);
+    gap: 10px;
+    align-items: center;
+}
+
+.intro-details {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    padding: 0;
+}
+
+.section-foundation {
+    display: flex;
+    padding: var(--spacing-25, 100px) var(--spacing-33, 132px);
+    background: var(--color-background-white);
+}
+
+.section-impact {
+    background: var(--color-background-secondary-pink);
+    padding: var(--spacing-25, 100px) var(--spacing-33, 132px);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-8, 32px);
+}
+
+.card-list {
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-8, 32px);
+}
+
+.impact-card {
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    height: 450px;
+    padding: var(--spacing-10, 40px);
+    background: var(--color-background-white);
+}
+
+.section-highlights {
+    background: var(--color-background-white);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.journey-card {
+    display: flex;
+    flex-direction: column;
+    width: 270px;
+    height: 195px;
+    padding: var(--spacing-5, 20px);
+    gap: 8px;
+    border-radius: 12px;
+    border: 1px solid #ececec;
+}
+
+.journey-card .date {
+    color: #d20a2e;
+}
+
+.journey-card .title {
+}
+
+.journey-card .entry {
+    color: #5c5c5c;
+}
+
+.section-sponsors {
+    background: var(--color-background-secondary-pink);
+    padding: var(--spacing-25, 100px) var(--spacing-33, 132px);
+}
+
+.section-directors {
+    background: var(--color-background-white);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-25, 100px) var(--spacing-33, 132px);
+}
+
+.section-volunteers {
+    background: var(--color-background-white);
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-25, 100px) var(--spacing-33, 132px);
+}
