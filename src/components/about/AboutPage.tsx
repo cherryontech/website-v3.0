@@ -5,6 +5,14 @@ import redCard from '../../assets/about/illustrations/03_about - impact in actio
 import purpleCard from '../../assets/about/illustrations/04_about - impact in action - collaborators.svg'
 import greenCard from '../../assets/about/illustrations/05_about - impact in action - network.svg'
 
+import julieth from '../../assets/about/team-photos/01_about - core bunch - julieth.svg'
+import allie from '../../assets/about/team-photos/02_about - core bunch - allie.svg'
+import aiden from '../../assets/about/team-photos/03_about - core bunch - aiden.svg'
+
+import JourneyCard from './cards/JourneyCard'
+import MemberCard from './cards/MemberCard'
+import ImpactCard from './cards/ImpactCard'
+
 type Asset = string | { src: string }
 
 const assetSrc = (asset: Asset) =>
@@ -34,7 +42,7 @@ const AboutPage = () => {
             </section>
             <section className="section-foundation">
                 <img src={assetSrc(aboutFoundation)} />
-                <div>
+                <div className="foundation-content">
                     <h1>Our Foundation</h1>
                     <div>
                         <h2>Vision</h2>
@@ -45,6 +53,7 @@ const AboutPage = () => {
                             meaningful change across the global tech landscape.
                         </p>
                     </div>
+                    <hr />
                     <div>
                         <h2>Mission</h2>
                         <p>
@@ -55,6 +64,7 @@ const AboutPage = () => {
                             professional networks.
                         </p>
                     </div>
+                    <hr />
                     <div>
                         <h2>Values</h2>
                         <ul>
@@ -95,7 +105,7 @@ const AboutPage = () => {
                 </div>
             </section>
             <section className="section-impact">
-                <div>
+                <div className="impact-content">
                     <h1>Impact in Action</h1>
                     <p>
                         When marginalized genders collaborate, the results are
@@ -103,30 +113,34 @@ const AboutPage = () => {
                     </p>
                 </div>
                 <div className="card-list">
-                    <div className="impact-card">
-                        <img src={assetSrc(redCard)} />
-                    </div>
-                    <div className="impact-card">
-                        <img src={assetSrc(purpleCard)} />
-                    </div>
-                    <div className="impact-card">
-                        <img src={assetSrc(greenCard)} />
-                    </div>
+                    <ImpactCard
+                        imageName={assetSrc(redCard)}
+                        title={'20+'}
+                        text={'Projects Launched'}
+                    />
+                    <ImpactCard
+                        imageName={assetSrc(purpleCard)}
+                        title={'160+'}
+                        text={'Collaborators Connected'}
+                    />
+                    <ImpactCard
+                        imageName={assetSrc(greenCard)}
+                        title={'∞'}
+                        text={'A Global Ally Network'}
+                    />
                 </div>
             </section>
             <section className="section-highlights">
                 <h1>Our Journey Highlights</h1>
                 <div>
-                    <div className="journey-card">
-                        <label className="date">July 2020</label>
-                        <h3 className="title">Our Concept is Born</h3>
-                        <caption className="entry">
-                            Launching our very first squad as a proof of
+                    <JourneyCard
+                        date={'July 2020'}
+                        title={'Our Concept is Born'}
+                        entry={`Launching our very first squad as a proof of
                             concept. Successfully validating that a
                             collaborative, peer-led environment helps
-                            marginalized genders thrive.
-                        </caption>
-                    </div>
+                            marginalized genders thrive.`}
+                    />
                     <div className="journey-card">
                         <label className="date">Spring 2023</label>
                         <h3 className="title">1st Cohort Launch</h3>
@@ -223,16 +237,33 @@ const AboutPage = () => {
             </section>
             <section className="section-directors">
                 <div className="display-3">Meet the Bunch</div>
-                <div>
+                <div className="director-content">
                     <h1>The Core Bunch</h1>
                     <p>
                         The leadership team behind our community, programs, and
                         vision.
                     </p>
+                    <div className="member-list">
+                        <MemberCard
+                            imageName={assetSrc(julieth)}
+                            name="Julieth Fajardo"
+                            jobTitle={'Co-Executive Director'}
+                            pronouns={'She/Her'}
+                        />
+                        <MemberCard
+                            imageName={assetSrc(allie)}
+                            name="Allie Quintano"
+                            jobTitle={'Co-Executive Director'}
+                            pronouns={'She/Her'}
+                        />
+                        <MemberCard
+                            imageName={assetSrc(aiden)}
+                            name="Aiden Hirshfield"
+                            jobTitle={'Fundraiser & Grant Director'}
+                            pronouns={'He/They'}
+                        />
+                    </div>
                 </div>
-                <a href="#" className="btn btn-stroke">
-                    LinkedIn
-                </a>
             </section>
             <section className="section-volunteers">
                 <div>

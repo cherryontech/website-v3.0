@@ -1,92 +1,143 @@
-.section-intro {
-    background: var(--color-background-secondary-pink);
-    display: flex;
-    padding: var(--spacing-25, 100px) var(--spacing-33, 132px);
-    gap: 10px;
-    align-items: center;
+/* MOBILE SCREEN BY DEFAULT */
+
+@media (min-width: 48rem) {
 }
 
-.intro-details {
-    display: flex;
-    flex-direction: column;
-    height: 500px;
-    padding: 0;
-}
+@media (min-width: 64rem) {
+    .section-intro {
+        background: var(--color-background-secondary-pink);
+        display: flex;
+        padding: var(--spacing-25, 100px) var(--spacing-33, 132px);
+        gap: 10px;
+        align-items: center;
+    }
 
-.section-foundation {
-    display: flex;
-    padding: var(--spacing-25, 100px) var(--spacing-33, 132px);
-    background: var(--color-background-white);
-}
+    .intro-details {
+        display: flex;
+        flex-direction: column;
+        height: 500px;
+        padding: 0;
+    }
 
-.section-impact {
-    background: var(--color-background-secondary-pink);
-    padding: var(--spacing-25, 100px) var(--spacing-33, 132px);
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-8, 32px);
-}
+    .section-foundation {
+        display: flex;
+        padding: var(--spacing-25, 100px) var(--spacing-33, 132px);
+        background: var(--color-background-white);
+        gap: 10px;
+    }
 
-.card-list {
-    display: flex;
-    flex-direction: row;
-    gap: var(--spacing-8, 32px);
-}
+    .foundation-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: var(--spacing-x8, 32px);
+    }
 
-.impact-card {
-    display: flex;
-    flex-direction: column;
-    width: 450px;
-    height: 450px;
-    padding: var(--spacing-10, 40px);
-    background: var(--color-background-white);
-}
+    .section-impact {
+        background: var(--color-background-secondary-pink);
+        padding: var(--spacing-25, 100px) var(--spacing-33, 132px);
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-8, 32px);
+    }
 
-.section-highlights {
-    background: var(--color-background-white);
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-}
+    .impact-content {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-4, 16px);
+    }
 
-.journey-card {
-    display: flex;
-    flex-direction: column;
-    width: 270px;
-    height: 195px;
-    padding: var(--spacing-5, 20px);
-    gap: 8px;
-    border-radius: 12px;
-    border: 1px solid #ececec;
-}
+    .card-list {
+        display: flex;
+        flex-direction: row;
+        gap: var(--spacing-8, 32px);
+    }
 
-.journey-card .date {
-    color: #d20a2e;
-}
+    .impact-card {
+        display: flex;
+        flex-direction: column;
+        width: 450px;
+        height: 450px;
+        padding: var(--spacing-10, 40px);
+        background: var(--color-background-white);
+        border: 1px solid var(--color-border-subtle-00);
+        border-radius: var(--spacing-2, 8px);
+    }
 
-.journey-card .title {
-}
+    .impact-card-title {
+    }
 
-.journey-card .entry {
-    color: #5c5c5c;
-}
+    .impact-card-text {
+    }
 
-.section-sponsors {
-    background: var(--color-background-secondary-pink);
-    padding: var(--spacing-25, 100px) var(--spacing-33, 132px);
-}
+    .section-highlights {
+        background: var(--color-background-white);
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
 
-.section-directors {
-    background: var(--color-background-white);
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    padding: var(--spacing-25, 100px) var(--spacing-33, 132px);
-}
+    .journey-card {
+        display: flex;
+        flex-direction: column;
+        width: 270px;
+        height: 195px;
+        padding: var(--spacing-5, 20px);
+        gap: 8px;
+        border-radius: 12px;
+        border: 1px solid #ececec;
+    }
 
-.section-volunteers {
-    background: var(--color-background-white);
-    display: flex;
-    flex-direction: column;
-    padding: var(--spacing-25, 100px) var(--spacing-33, 132px);
+    .journey-card .date {
+        color: #d20a2e;
+    }
+
+    .journey-card .title {
+    }
+
+    .journey-card .entry {
+        color: #5c5c5c;
+    }
+
+    .section-sponsors {
+        background: var(--color-background-secondary-pink);
+        padding: var(--spacing-25, 100px) var(--spacing-33, 132px);
+    }
+
+    .section-directors {
+        background: var(--color-background-white);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        padding: var(--spacing-25, 100px) var(--spacing-33, 132px);
+    }
+
+    .director-content {
+        text-align: start;
+    }
+
+    .member-list {
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+    }
+
+    .member-card {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .member-card-image {
+        width: 450px;
+        height: 350px;
+        border-radius: 8px;
+        border: 1px solid lightgray;
+    }
+
+    .section-volunteers {
+        background: var(--color-background-white);
+        display: flex;
+        flex-direction: column;
+        padding: var(--spacing-25, 100px) var(--spacing-33, 132px);
+    }
 }
