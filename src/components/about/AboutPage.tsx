@@ -1,17 +1,12 @@
 import '../../styles/about.css'
 import aboutHero from '../../assets/about/illustrations/01_about - hero.svg'
 import aboutFoundation from '../../assets/about/illustrations/02_about - our foundation.svg'
-import redCard from '../../assets/about/illustrations/03_about - impact in action - projects.svg'
-import purpleCard from '../../assets/about/illustrations/04_about - impact in action - collaborators.svg'
-import greenCard from '../../assets/about/illustrations/05_about - impact in action - network.svg'
-
-import julieth from '../../assets/about/team-photos/01_about - core bunch - julieth.svg'
-import allie from '../../assets/about/team-photos/02_about - core bunch - allie.svg'
-import aiden from '../../assets/about/team-photos/03_about - core bunch - aiden.svg'
 
 import JourneyCard from './cards/JourneyCard'
 import MemberCard from './cards/MemberCard'
 import ImpactCard from './cards/ImpactCard'
+
+import { impactCardData, journeyCardData, memberCardData } from './data/data'
 
 type Asset = string | { src: string }
 
@@ -113,107 +108,25 @@ const AboutPage = () => {
                     </p>
                 </div>
                 <div className="card-list">
-                    <ImpactCard
-                        imageName={assetSrc(redCard)}
-                        title={'20+'}
-                        text={'Projects Launched'}
-                    />
-                    <ImpactCard
-                        imageName={assetSrc(purpleCard)}
-                        title={'160+'}
-                        text={'Collaborators Connected'}
-                    />
-                    <ImpactCard
-                        imageName={assetSrc(greenCard)}
-                        title={'∞'}
-                        text={'A Global Ally Network'}
-                    />
+                    {impactCardData.map((card) => (
+                        <ImpactCard
+                            imageName={card.imageName}
+                            title={card.title}
+                            text={card.text}
+                        />
+                    ))}
                 </div>
             </section>
             <section className="section-highlights">
                 <h1>Our Journey Highlights</h1>
-                <div>
-                    <JourneyCard
-                        date={'July 2020'}
-                        title={'Our Concept is Born'}
-                        entry={`Launching our very first squad as a proof of
-                            concept. Successfully validating that a
-                            collaborative, peer-led environment helps
-                            marginalized genders thrive.`}
-                    />
-                    <div className="journey-card">
-                        <label className="date">Spring 2023</label>
-                        <h3 className="title">1st Cohort Launch</h3>
-                        <caption className="entry">
-                            We officially scale the squad model, opening doors
-                            for hands-on, project-based learning and peer
-                            mentorship.
-                        </caption>
-                    </div>
-                    <div className="journey-card">
-                        <label className="date">Fall 2023</label>
-                        <h3 className="title">2nd Cohort Launch</h3>
-                        <caption className="entry">
-                            Our cherry bunch expands as more squads launch and
-                            our first wave of helping cherries join—bringing in
-                            new mentors and a community-building team.
-                        </caption>
-                    </div>
-                    <div className="journey-card">
-                        <label className="date">Spring 2024</label>
-                        <h3 className="title">3rd Cohort Launch</h3>
-                        <caption className="entry">
-                            Another group of tech squads begins, continuing to
-                            build, learn, and connect across a growing global
-                            network.
-                        </caption>
-                    </div>
-                    <div className="journey-card">
-                        <label className="date">Fall 2024</label>
-                        <h3 className="title">Official Non-Profit</h3>
-                        <caption className="entry">
-                            We become a registered Canadian non-profit,
-                            introducing a refreshed brand that reflects our
-                            bold, inclusive direction.
-                        </caption>
-                    </div>
-                    <div className="journey-card">
-                        <label className="date">Fall 2025</label>
-                        <h3 className="title">4th Cohort Launch</h3>
-                        <caption className="entry">
-                            Our momentum keeps building as a fresh group of tech
-                            squads takes flight to collaborate, design, and grow
-                            together.
-                        </caption>
-                    </div>
-                    <div className="journey-card">
-                        <label className="date">Spring 2026</label>
-                        <h3 className="title">Anchoring Our Roots</h3>
-                        <caption className="entry">
-                            Building our new website and strengthening our
-                            commitment to accessibility, community experience,
-                            and purpose-driven design.
-                        </caption>
-                    </div>
-                    <div className="journey-card">
-                        <label className="date">Fall 2026</label>
-                        <h3 className="title">5th Cohort Launch</h3>
-                        <caption className="entry">
-                            The momentum continues. Our next wave of tech squads
-                            begins with fresh projects, new mentors, and endless
-                            possibilities.
-                        </caption>
-                    </div>
-                    <div className="journey-card">
-                        <label className="date">Spring 2027</label>
-                        <h3 className="title">Cherry Careers Launch</h3>
-                        <caption className="entry">
-                            We roll out tailored career support, featuring mock
-                            interviews, portfolio reviews, and targeted
-                            networking to navigate the job market with
-                            confidence.
-                        </caption>
-                    </div>
+                <div className="journey-card-list">
+                    {journeyCardData.map((card) => (
+                        <JourneyCard
+                            date={card.date}
+                            title={card.title}
+                            entry={card.entry}
+                        />
+                    ))}
                 </div>
             </section>
             <section className="section-sponsors">
@@ -236,32 +149,24 @@ const AboutPage = () => {
                 </div>
             </section>
             <section className="section-directors">
-                <div className="display-3">Meet the Bunch</div>
+                <div className="display-3 font-bold">Meet the Bunch</div>
                 <div className="director-content">
-                    <h1>The Core Bunch</h1>
-                    <p>
-                        The leadership team behind our community, programs, and
-                        vision.
-                    </p>
+                    <div className="section-text">
+                        <h1>The Core Bunch</h1>
+                        <p>
+                            The leadership team behind our community, programs,
+                            and vision.
+                        </p>
+                    </div>
                     <div className="member-list">
-                        <MemberCard
-                            imageName={assetSrc(julieth)}
-                            name="Julieth Fajardo"
-                            jobTitle={'Co-Executive Director'}
-                            pronouns={'She/Her'}
-                        />
-                        <MemberCard
-                            imageName={assetSrc(allie)}
-                            name="Allie Quintano"
-                            jobTitle={'Co-Executive Director'}
-                            pronouns={'She/Her'}
-                        />
-                        <MemberCard
-                            imageName={assetSrc(aiden)}
-                            name="Aiden Hirshfield"
-                            jobTitle={'Fundraiser & Grant Director'}
-                            pronouns={'He/They'}
-                        />
+                        {memberCardData.map((card) => (
+                            <MemberCard
+                                imageName={card.imageName}
+                                name={card.name}
+                                jobTitle={card.jobTitle}
+                                pronouns={card.pronouns}
+                            />
+                        ))}
                     </div>
                 </div>
             </section>

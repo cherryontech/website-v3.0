@@ -1,12 +1,221 @@
 /* MOBILE SCREEN BY DEFAULT */
 
+.section-intro {
+    background: var(--color-background-secondary-pink);
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-15, 60px) var(--spacing-6, 24px);
+    gap: 10px;
+    align-items: center;
+}
+
+.intro-details {
+    display: flex;
+    flex-direction: column;
+    height: 345px;
+    gap: 32px var(--spacing-8, 32px);
+}
+
+.section-foundation {
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-25, 100px) var(--spacing-33, 132px);
+    background: var(--color-background-white);
+    gap: 10px;
+}
+
+.section-impact {
+    background: var(--color-background-secondary-pink);
+    padding: var(--spacing-25, 100px) var(--spacing-33, 132px);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-8, 32px);
+}
+
+.impact-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-4, 16px);
+}
+
+.card-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-8, 32px);
+}
+
+.impact-card {
+    display: flex;
+    flex-direction: column;
+    width: 293px;
+    height: 325px;
+    padding: var(--spacing-10, 40px);
+    background: var(--color-background-white);
+    border: 1px solid var(--color-border-subtle-00);
+    border-radius: var(--spacing-2, 8px);
+    text-align: center;
+}
+
+.impact-card-image {
+    display: flex;
+    align-items: center;
+}
+
+.impact-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-4, 16px);
+}
+
+.impact-card-title {
+}
+
+.impact-card-text {
+}
+
+.section-highlights {
+    background: var(--color-background-white);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.journey-card {
+    display: flex;
+    flex-direction: column;
+    width: 270px;
+    height: 195px;
+    padding: var(--spacing-5, 20px);
+    gap: 8px;
+    border-radius: 12px;
+    border: 1px solid #ececec;
+}
+
+.journey-card .date {
+    color: #d20a2e;
+}
+
+.journey-card .title {
+}
+
+.journey-card .entry {
+    color: #5c5c5c;
+}
+
+.member-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.member-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.member-card-image {
+    width: 345px;
+    height: 268px;
+    border-radius: 8px;
+    border: 2px solid lightgray;
+}
+
 @media (min-width: 48rem) {
+    .section-intro {
+        background: var(--color-background-secondary-pink);
+        display: flex;
+        flex-direction: row;
+        padding: var(--spacing-25, 100px) var(--spacing-33, 132px);
+        gap: 10px;
+        align-items: center;
+    }
+    .intro-details {
+        display: flex;
+        flex-direction: column;
+        height: 500px;
+        padding: 0;
+    }
+    .section-foundation {
+        display: flex;
+        flex-direction: row;
+        padding: var(--spacing-25, 100px) var(--spacing-33, 132px);
+        background: var(--color-background-white);
+        gap: 10px;
+    }
+
+    .section-impact {
+        background: var(--color-background-secondary-pink);
+        padding: var(--spacing-25, 100px) var(--spacing-33, 132px);
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-8, 32px);
+    }
+
+    .impact-content {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-4, 16px);
+    }
+
+    .card-list {
+        display: flex;
+        flex-direction: row;
+        gap: var(--spacing-8, 32px);
+    }
+
+    .impact-card {
+        display: flex;
+        flex-direction: column;
+        width: 450px;
+        height: 450px;
+        padding: var(--spacing-10, 40px);
+        background: var(--color-background-white);
+        border: 1px solid var(--color-border-subtle-00);
+        border-radius: var(--spacing-2, 8px);
+    }
+
+    .section-highlights {
+        background: var(--color-background-white);
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .journey-card {
+        display: flex;
+        flex-direction: column;
+        width: 270px;
+        height: 195px;
+        padding: var(--spacing-5, 20px);
+        gap: 8px;
+        border-radius: 12px;
+        border: 1px solid #ececec;
+    }
+
+    .member-list {
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+    }
+
+    .member-card {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .member-card-image {
+        width: 290px;
+        height: 226px;
+        border-radius: 8px;
+        border: 1px solid lightgray;
+    }
 }
 
 @media (min-width: 64rem) {
     .section-intro {
         background: var(--color-background-secondary-pink);
         display: flex;
+        flex-direction: row;
         padding: var(--spacing-25, 100px) var(--spacing-33, 132px);
         gap: 10px;
         align-items: center;
@@ -21,6 +230,7 @@
 
     .section-foundation {
         display: flex;
+        flex-direction: row;
         padding: var(--spacing-25, 100px) var(--spacing-33, 132px);
         background: var(--color-background-white);
         gap: 10px;
@@ -60,8 +270,16 @@
         height: 450px;
         padding: var(--spacing-10, 40px);
         background: var(--color-background-white);
-        border: 1px solid var(--color-border-subtle-00);
+        border: 2px solid var(--color-border-subtle-00);
         border-radius: var(--spacing-2, 8px);
+        gap: 8px;
+    }
+
+    .impact-card-image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 250px;
     }
 
     .impact-card-title {
@@ -75,6 +293,12 @@
         display: flex;
         flex-direction: column;
         text-align: center;
+        padding: var(--spacing-25, 100px) var(--spacing-33, 132px);
+    }
+
+    .journey-card-list {
+        display: flex;
+        flex-direction: row;
     }
 
     .journey-card {
@@ -88,17 +312,6 @@
         border: 1px solid #ececec;
     }
 
-    .journey-card .date {
-        color: #d20a2e;
-    }
-
-    .journey-card .title {
-    }
-
-    .journey-card .entry {
-        color: #5c5c5c;
-    }
-
     .section-sponsors {
         background: var(--color-background-secondary-pink);
         padding: var(--spacing-25, 100px) var(--spacing-33, 132px);
@@ -109,29 +322,36 @@
         text-align: center;
         display: flex;
         flex-direction: column;
+        gap: var(--spacing-15, 60px);
         padding: var(--spacing-25, 100px) var(--spacing-33, 132px);
     }
 
     .director-content {
+        display: flex;
+        flex-direction: column;
         text-align: start;
+        gap: var(--spacing-8x, 32px);
+    }
+
+    .section-text {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-4x, 16px);
     }
 
     .member-list {
         display: flex;
         flex-direction: row;
-        gap: 8px;
+        gap: 16px;
     }
 
     .member-card {
-        display: flex;
-        flex-direction: column;
+        gap: var(--spacing-4x, 16px);
     }
 
     .member-card-image {
-        width: 450px;
-        height: 350px;
-        border-radius: 8px;
-        border: 1px solid lightgray;
+        width: 415px;
+        height: 315px;
     }
 
     .section-volunteers {
