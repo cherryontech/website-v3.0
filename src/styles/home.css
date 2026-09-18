@@ -50,12 +50,6 @@ body {
     align-items: center;
 }
 
-.intro .split,
-.support .split--support {
-    max-width: 900px;
-    margin-inline: auto;
-}
-
 .hero__grid {
     gap: 58px;
     padding-top: 100px;
@@ -131,7 +125,7 @@ body {
 
 .intro .illustration,
 .support .illustration {
-    width: min(100%, 214px);
+    width: 214px;
 }
 
 .intro .section-copy,
@@ -481,44 +475,25 @@ body {
         width: 430px;
     }
 
-    .intro .split {
-        align-items: center;
-        display: grid;
-        grid-template-columns: minmax(250px, 356px) minmax(0, 500px);
-        gap: 40px;
-    }
-
-    .intro .illustration--question {
-        justify-self: start;
-        width: 289px;
-    }
-
-    .intro .illustration--question img {
-        width: 289px;
-    }
-
-    .intro .section-copy {
-        justify-self: end;
-        max-width: 500px;
-        width: 100%;
-    }
-
+    .intro .split,
     .support .split--support {
         align-items: center;
         display: grid;
-        grid-template-columns: 315px minmax(0, 500px);
+        grid-template-columns: 289px minmax(0, 500px);
         gap: var(--spacing-12, 48px);
     }
 
+    .support .split--support {
+        grid-template-columns: 315px minmax(0, 500px);
+    }
+
+    .intro .illustration--question,
     .support .illustration--hands {
         justify-self: start;
-        width: 315px;
+        width: 100%;
     }
 
-    .support .illustration--hands img {
-        width: 315px;
-    }
-
+    .intro .section-copy,
     .support .section-copy {
         justify-self: end;
         max-width: 500px;
@@ -657,12 +632,12 @@ body {
         padding-block: 100px;
     }
 
-    .split .illustration {
-        width: 550px;
-    }
-
-    .illustration img {
-        width: 550px;
+    .intro .split,
+    .support .split--support {
+        width: min(100% - 160px, 1335px);
+        grid-template-columns: 550px minmax(0, 500px);
+        justify-content: space-between;
+        gap: clamp(var(--spacing-12, 48px), calc(100% - 550px - 500px), 285px);
     }
 
     .section-copy h2,
