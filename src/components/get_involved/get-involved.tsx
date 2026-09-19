@@ -62,13 +62,14 @@ const growActions: GrowAction[] = [
             },
             {
                 type: 'paragraph',
-                text: 'Partnerships can take many forms, including:',
+                text: 'Partnerships can take many forms, including but not limited to:',
             },
             {
                 type: 'list',
                 items: [
-                    'Sponsorships & mentorship support',
-                    'Event co-hosting & resource sharing',
+                    'Financial sponsorship & funding support',
+                    'In-kind donations & resources',
+                    'Event co-hosting',
                     'Inclusion & talent initiatives',
                 ],
             },
