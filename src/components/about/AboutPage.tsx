@@ -32,11 +32,11 @@ const AboutPage = () => {
                     </a>
                 </div>
                 <div>
-                    <img src={assetSrc(aboutHero)} />
+                    <img src={assetSrc(aboutHero)} alt="" />
                 </div>
             </section>
             <section className="section-foundation">
-                <img src={assetSrc(aboutFoundation)} />
+                <img src={assetSrc(aboutFoundation)} alt="" />
                 <div className="foundation-content">
                     <h1>Our Foundation</h1>
                     <div>
@@ -120,7 +120,7 @@ const AboutPage = () => {
             <section className="section-highlights">
                 <h1>Our Journey Highlights</h1>
                 <div className="journey-card-list">
-                    {journeyCardData.map((card) => (
+                    {journeyCardData.map((card, index) => (
                         <JourneyCard
                             date={card.date}
                             title={card.title}
@@ -135,8 +135,8 @@ const AboutPage = () => {
                         With Gratitude to Our Cherry Supporters
                     </div>
                 </div>
-                <div>
-                    <h1>Support the Cherries</h1>
+                <div className="sponsor-text">
+                    <h1 className="sponsor-text-title">Support the Cherries</h1>
                     <p>
                         Our community runs on collective energy—including yours.
                         Whether you give time, tools, or funding, you help keep
@@ -171,7 +171,7 @@ const AboutPage = () => {
                 </div>
             </section>
             <section className="section-volunteers">
-                <div>
+                <div className="volunteer-content">
                     <h1>Our Helping Cherries</h1>
                     <p>
                         Cherry On Tech is powered by an incredible, rotating

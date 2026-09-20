@@ -1,10 +1,13 @@
 /* MOBILE SCREEN BY DEFAULT */
 
+section {
+    padding: var(--spacing-15, 60px) var(--spacing-6, 24px);
+}
+
 .section-intro {
     background: var(--color-background-secondary-pink);
     display: flex;
     flex-direction: column;
-    padding: var(--spacing-15, 60px) var(--spacing-6, 24px);
     gap: 10px;
     align-items: center;
 }
@@ -19,14 +22,19 @@
 .section-foundation {
     display: flex;
     flex-direction: column;
-    padding: var(--spacing-25, 100px) var(--spacing-33, 132px);
     background: var(--color-background-white);
     gap: 10px;
 }
 
+.foundation-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--spacing-x8, 32px);
+}
+
 .section-impact {
     background: var(--color-background-secondary-pink);
-    padding: var(--spacing-25, 100px) var(--spacing-33, 132px);
     display: flex;
     flex-direction: column;
     gap: var(--spacing-8, 32px);
@@ -41,6 +49,7 @@
 .card-list {
     display: flex;
     flex-direction: column;
+    padding: 16px;
     gap: var(--spacing-8, 32px);
 }
 
@@ -49,7 +58,7 @@
     flex-direction: column;
     width: 293px;
     height: 325px;
-    padding: var(--spacing-10, 40px);
+    padding: var(--spacing-12, 40px);
     background: var(--color-background-white);
     border: 1px solid var(--color-border-subtle-00);
     border-radius: var(--spacing-2, 8px);
@@ -57,12 +66,15 @@
 }
 
 .impact-card-image {
+    width: 200px;
+    height: 200px;
     display: flex;
-    align-items: center;
+    align-self: center;
 }
 
 .impact-card-content {
     display: flex;
+    align-items: center;
     flex-direction: column;
     gap: var(--spacing-4, 16px);
 }
@@ -78,17 +90,25 @@
     display: flex;
     flex-direction: column;
     text-align: center;
+    gap: var(--spacing-10x, 40px);
+}
+
+.journey-card-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-5x, 20px);
 }
 
 .journey-card {
     display: flex;
     flex-direction: column;
-    width: 270px;
-    height: 195px;
+    width: 350px;
+    height: 180px;
     padding: var(--spacing-5, 20px);
     gap: 8px;
     border-radius: 12px;
     border: 1px solid #ececec;
+    align-items: flex-start;
 }
 
 .journey-card .date {
@@ -102,15 +122,34 @@
     color: #5c5c5c;
 }
 
+.section-sponsors {
+    background: var(--color-background-secondary-pink);
+}
+
+.sponsor-text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing4x, 16px);
+}
+
+.sponsor-text-title {
+    text-align: center;
+}
+
+.section-directors {
+}
+
 .member-list {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    align-items: center;
 }
 
 .member-card {
     display: flex;
     flex-direction: column;
+    padding-bottom: var(--spacing-10, 40px);
 }
 
 .member-card-image {
@@ -120,12 +159,24 @@
     border: 2px solid lightgray;
 }
 
+.section-volunteers {
+    padding: var(--spacing-15, 60px) var(--spacing-6, 24px);
+}
+
+.volunteer-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-4x, 16px);
+}
+
 @media (min-width: 48rem) {
+    section {
+        padding: var(--spacing-25x, 100px) var(--spacing-15x, 60px);
+    }
     .section-intro {
         background: var(--color-background-secondary-pink);
         display: flex;
         flex-direction: row;
-        padding: var(--spacing-25, 100px) var(--spacing-33, 132px);
         gap: 10px;
         align-items: center;
     }
@@ -138,14 +189,12 @@
     .section-foundation {
         display: flex;
         flex-direction: row;
-        padding: var(--spacing-25, 100px) var(--spacing-33, 132px);
         background: var(--color-background-white);
         gap: 10px;
     }
 
     .section-impact {
         background: var(--color-background-secondary-pink);
-        padding: var(--spacing-25, 100px) var(--spacing-33, 132px);
         display: flex;
         flex-direction: column;
         gap: var(--spacing-8, 32px);
@@ -212,11 +261,13 @@
 }
 
 @media (min-width: 64rem) {
+    section {
+        padding: var(--spacing-25, 100px) var(--spacing-33, 132px);
+    }
     .section-intro {
         background: var(--color-background-secondary-pink);
         display: flex;
         flex-direction: row;
-        padding: var(--spacing-25, 100px) var(--spacing-33, 132px);
         gap: 10px;
         align-items: center;
     }
@@ -231,7 +282,6 @@
     .section-foundation {
         display: flex;
         flex-direction: row;
-        padding: var(--spacing-25, 100px) var(--spacing-33, 132px);
         background: var(--color-background-white);
         gap: 10px;
     }
@@ -245,7 +295,6 @@
 
     .section-impact {
         background: var(--color-background-secondary-pink);
-        padding: var(--spacing-25, 100px) var(--spacing-33, 132px);
         display: flex;
         flex-direction: column;
         gap: var(--spacing-8, 32px);
@@ -293,7 +342,6 @@
         display: flex;
         flex-direction: column;
         text-align: center;
-        padding: var(--spacing-25, 100px) var(--spacing-33, 132px);
     }
 
     .journey-card-list {
@@ -314,7 +362,6 @@
 
     .section-sponsors {
         background: var(--color-background-secondary-pink);
-        padding: var(--spacing-25, 100px) var(--spacing-33, 132px);
     }
 
     .section-directors {
@@ -323,7 +370,6 @@
         display: flex;
         flex-direction: column;
         gap: var(--spacing-15, 60px);
-        padding: var(--spacing-25, 100px) var(--spacing-33, 132px);
     }
 
     .director-content {
@@ -358,6 +404,5 @@
         background: var(--color-background-white);
         display: flex;
         flex-direction: column;
-        padding: var(--spacing-25, 100px) var(--spacing-33, 132px);
     }
 }
