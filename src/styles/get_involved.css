@@ -230,7 +230,7 @@
 /*** SCREEN SIZE ADAPTATIONS ***/
 
 /* Desktop */
-@media (min-width: 1024px) {
+@media (min-width: 1025px) {
     .hero {
         padding: 100px 132px;
     }
@@ -262,8 +262,8 @@
     }
 
     .grow-action-card {
-        padding: 0;
-        gap: 132px;
+        width: min(100% - 132px, 1464px);
+        margin-inline: auto;
     }
 
     .grow-action-card img {
@@ -292,11 +292,6 @@
     }
 
     .hero__container {
-        /* display: flex;
-        flex-direction: column;
-        align-items: center;
-        align-self: stretch;
-        gap: 40px; */
         display: grid;
         gap: 60px;
     }
@@ -306,14 +301,6 @@
         align-items: flex-start;
         align-self: center;
     }
-
-    /* .hero h1 {
-        font-size: 48px;
-    } */
-
-    /* .hero p {
-        font-size: 20px;
-    } */
 
     .button-container {
         /* display: flex; */
@@ -362,7 +349,7 @@
     }
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 768px) and (max-width: 1024px) {
     .grow-action-card img {
         width: 320px;
         height: 313px;
