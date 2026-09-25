@@ -587,13 +587,12 @@ body {
     .hero__copy {
         align-self: end;
         margin-bottom: 150px;
-        max-width: none;
+        max-width: 440px;
     }
 
     .hero h1 {
         font-size: 60px;
         margin-bottom: 16px;
-        white-space: nowrap;
     }
 
     .hero__title-break {
@@ -698,5 +697,11 @@ body {
 
     .carousel__button {
         display: grid;
+    }
+}
+
+@media (min-width: 84rem) {
+    .hero__copy {
+        max-width: none;
     }
 }
