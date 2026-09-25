@@ -19,9 +19,7 @@
 }
 
 .hero__container {
-    /* display: grid; */
     align-items: center;
-    /* gap: 118px; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -38,17 +36,12 @@
 
 .hero__copy {
     display: flex;
-    /* max-width: 750px; */
     flex-direction: column;
     gap: 32px;
     flex-shrink: 0;
     padding: 0px 30px;
     align-items: center;
 }
-
-/* .hero__title-break {
-    display: none;
-} */
 
 .hero h1 {
     color: var(--color-text-primary);
@@ -236,7 +229,8 @@
     }
 
     .hero__container {
-        /* display: grid; */
+        width: min(100% - 132px, 1464px);
+        margin-inline: auto;
         gap: 118px;
     }
 
@@ -293,7 +287,7 @@
 
     .hero__container {
         display: grid;
-        gap: 60px;
+        /* gap: 60px; */
     }
 
     .hero__copy {
@@ -350,6 +344,10 @@
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
+    .hero__container {
+        gap: 60px;
+    }
+
     .grow-action-card img {
         width: 320px;
         height: 313px;
