@@ -126,17 +126,45 @@ section {
     background: var(--color-background-secondary-pink);
 }
 
+.sponsor-display {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: var(--spacing-25, 100px);
+}
+
+.sponsor-display-title {
+    padding-bottom: var(--spacing-15, 60px);
+    text-align: center;
+}
+
 .sponsor-text {
     display: flex;
     flex-direction: column;
     gap: var(--spacing4x, 16px);
+    align-items: center;
+    text-align: center;
 }
 
 .sponsor-text-title {
     text-align: center;
 }
 
+.sponsor-list {
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-15, 60px);
+    flex-wrap: wrap;
+}
+
+.sponsor img {
+    height: 30px;
+}
+
 .section-directors {
+    background: var(--color-background-white);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .member-list {
@@ -160,13 +188,25 @@ section {
 }
 
 .section-volunteers {
-    padding: var(--spacing-15, 60px) var(--spacing-6, 24px);
+    padding: var(--spacing-10x, 40px);
 }
 
 .volunteer-content {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-4x, 16px);
+}
+
+.volunteer-title {
+    padding-top: var(--spacing-10x, 40px);
+    padding-bottom: var(--spacing-10x, 40px);
+}
+
+.volunteer-list {
+    background: transparent;
+    border: 1px solid #ccc;
+    height: 533px;
+    width: 100%;
 }
 
 @media (min-width: 48rem) {
@@ -346,6 +386,7 @@ section {
 
     .journey-card-list {
         display: flex;
+        flex-wrap: wrap;
         flex-direction: row;
     }
 
@@ -360,15 +401,119 @@ section {
         border: 1px solid #ececec;
     }
 
+    .timeline {
+        --spine-color: #d9232e;
+        --card-border: #e6e6e6;
+        --card-width: 155px;
+        --gap: 28px;
+
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        gap: var(--gap);
+        max-width: 820px;
+        min-height: 250px;
+        margin: 60px auto;
+        padding: 0 12px;
+    }
+
+    .timeline::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: 12px;
+        left: 12px;
+        height: 2px;
+        background: gray;
+        transform: translateY(-50%);
+    }
+
+    .timeline-item {
+        position: relative;
+        z-index: 1;
+        flex: 1 1 0;
+        min-width: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .timeline-item::before {
+        content: '';
+        position: absolute;
+        z-index: 2;
+        top: 50%;
+        width: 7px;
+        height: 7px;
+        border: 2px solid var(--spine-color);
+        border-radius: 50%;
+        background: var(--spine-color);
+        transform: translate(-50%, -50%);
+    }
+
+    .timeline-item:nth-child(odd) {
+        align-items: flex-start;
+        padding-bottom: calc(50% + 18px);
+    }
+
+    .timeline-item:nth-child(even) {
+        align-items: flex-end;
+        padding-bottom: calc(50% + 18px);
+    }
+
+    .timeline-item:nth-child(odd)::after,
+    .timeline-item:nth-child(even)::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        width: 1px;
+        height: 18px;
+        background: gray;
+        transform: translateX(-50%);
+    }
+
+    .timeline-item-odd::after {
+        top: calc(50% - 18px);
+    }
+
+    .timeline-item-even::after {
+        top: 50%;
+    }
+
     .section-sponsors {
         background: var(--color-background-secondary-pink);
     }
 
-    .section-directors {
-        background: var(--color-background-white);
-        text-align: center;
+    .sponsor-display {
         display: flex;
         flex-direction: column;
+        padding-bottom: var(--spacing-25, 100px);
+    }
+
+    .sponsor-display-title {
+        padding-bottom: var(--spacing-15, 60px);
+        text-align: center;
+    }
+
+    .sponsor-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: var(--spacing-8, 32px);
+    }
+
+    .sponsor-list {
+        display: flex;
+        flex-direction: row;
+        gap: var(--spacing-15, 60px);
+        flex-wrap: wrap;
+    }
+
+    .sponsor img {
+        height: 40px;
+    }
+
+    .section-directors {
         gap: var(--spacing-15, 60px);
     }
 
@@ -404,5 +549,12 @@ section {
         background: var(--color-background-white);
         display: flex;
         flex-direction: column;
+        padding: var(--spacing-10x, 40px);
+    }
+    .volunteer-list {
+        background: transparent;
+        border: 1px solid #ccc;
+        height: 533px;
+        width: 100%;
     }
 }

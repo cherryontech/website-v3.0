@@ -8,6 +8,8 @@ import ImpactCard from './cards/ImpactCard'
 
 import { impactCardData, journeyCardData, memberCardData } from './data/data'
 
+import SponsorList from './SponsorList'
+
 type Asset = string | { src: string }
 
 const assetSrc = (asset: Asset) =>
@@ -121,28 +123,49 @@ const AboutPage = () => {
                 <h1>Our Journey Highlights</h1>
                 <div className="journey-card-list">
                     {journeyCardData.map((card, index) => (
-                        <JourneyCard
-                            date={card.date}
-                            title={card.title}
-                            entry={card.entry}
-                        />
+                        <>
+                            <div className="timeline">
+                                <div className="timeline-item"></div>
+                                <JourneyCard
+                                    date={card.date}
+                                    title={card.title}
+                                    entry={card.entry}
+                                    index={index}
+                                />
+                            </div>
+                        </>
                     ))}
+
+                    <div className="timeline">
+                        <div className="timeline-item"></div>
+                        <div className="timeline-item"></div>
+                        <div className="timeline-item"></div>
+                        <div className="timeline-item"></div>
+                    </div>
                 </div>
             </section>
             <section className="section-sponsors">
-                <div>
-                    <div className="display-3">
+                <div className="sponsor-display">
+                    <div className="sponsor-display-title display-3 font-bold">
                         With Gratitude to Our Cherry Supporters
+                    </div>
+                    <div>
+                        <SponsorList />
                     </div>
                 </div>
                 <div className="sponsor-text">
-                    <h1 className="sponsor-text-title">Support the Cherries</h1>
-                    <p>
-                        Our community runs on collective energy—including yours.
-                        Whether you give time, tools, or funding, you help keep
-                        our programs free and accessible. Let’s work together to
-                        make the tech industry a whole lot sweeter.
-                    </p>
+                    <div>
+                        <h1 className="sponsor-text-title">
+                            Support the Cherries
+                        </h1>
+                        <p>
+                            Our community runs on collective energy—including
+                            yours. Whether you give time, tools, or funding, you
+                            help keep our programs free and accessible. Let’s
+                            work together to make the tech industry a whole lot
+                            sweeter.
+                        </p>
+                    </div>
                     <a href="#" className="btn btn-stroke">
                         Help us Grow
                     </a>
@@ -181,11 +204,23 @@ const AboutPage = () => {
                         contributor keeps our ecosystem growing.
                     </p>
                 </div>
-                <div>
-                    <h2>The Community Squad</h2>
+                <div className="volunteer-tables">
+                    <h2 className="volunteer-title">The Community Squad</h2>
+                    <div className="">
+                        <iframe
+                            className="airtable-embed volunteer-list"
+                            src="https://airtable.com/embed/appQGB7QVsOOx0rX1/shrtN10W9uJvICrBp"
+                        ></iframe>
+                    </div>
                 </div>
                 <div>
-                    <h2>Guest Cherries</h2>
+                    <h2 className="volunteer-title">Guest Cherries</h2>
+                    <div className="">
+                        <iframe
+                            className="airtable-embed volunteer-list"
+                            src="https://airtable.com/embed/appQGB7QVsOOx0rX1/shrHSd5CTlUEzeYuj"
+                        ></iframe>
+                    </div>
                 </div>
             </section>
         </>
