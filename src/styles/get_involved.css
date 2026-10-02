@@ -270,11 +270,17 @@ html {
     .grow-action-card {
         width: min(100% - 132px, 1464px);
         margin-inline: auto;
+        justify-content: center;
+        gap: 132px;
     }
 
     .grow-action-card img {
-        width: 560px;
-        height: 560px;
+        width: 550px;
+        height: 550px;
+    }
+
+    .grow-action-content-block {
+        width: 550px;
     }
 
     .grow-n-fuel {
@@ -282,11 +288,13 @@ html {
     }
 
     .grow-n-fuel-content-container {
-        gap: 20px;
+        /* width: min(100% - 132px, 1464px); */
+        margin-inline: auto;
+        gap: 132px;
     }
 
     .grow-n-fuel-content-container div {
-        width: calc((100% - 20px) / 2);
+        width: 550px;
     }
 }
 
@@ -325,8 +333,6 @@ html {
 
     .grow-action-card {
         display: flex;
-        gap: 100px;
-        justify-content: flex-end;
         align-items: center;
         align-self: stretch;
     }
@@ -342,7 +348,7 @@ html {
 
     .grow-n-fuel-content-container {
         display: flex;
-        gap: 48px;
+        /* gap: 48px; */
     }
 
     .grow-n-fuel-content-container div {
@@ -350,7 +356,6 @@ html {
         height: 194px;
         flex-direction: column;
         align-items: flex-start;
-        /* gap: 32px; */
         flex: 1 0 0;
     }
 }
@@ -360,8 +365,17 @@ html {
         gap: 60px;
     }
 
+    .grow-action-card {
+        gap: 100px;
+        justify-content: flex-end;
+    }
+
     .grow-action-card img {
         width: 320px;
         height: 313px;
+    }
+
+    .grow-n-fuel-content-container {
+        gap: 48px;
     }
 }
