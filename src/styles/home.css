@@ -501,7 +501,7 @@ body {
     }
 
     .path .home-container {
-        width: min(100% - 120px, 904px);
+        width: min(100% - 72px, 900px);
     }
 
     .stories .home-container {
@@ -633,7 +633,7 @@ body {
 
     .intro .split,
     .support .split--support {
-        width: min(100% - 160px, 1335px);
+        width: min(100% - 160px, 1216px);
         grid-template-columns: 550px minmax(0, 500px);
         justify-content: space-between;
         gap: clamp(var(--spacing-12, 48px), calc(100% - 550px - 500px), 285px);
@@ -655,7 +655,7 @@ body {
     }
 
     .path .home-container {
-        width: min(100% - 160px, 1464px);
+        width: min(100% - 160px, 1216px);
     }
 
     .stories .home-container {
