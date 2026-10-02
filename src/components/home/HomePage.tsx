@@ -36,10 +36,10 @@ const paths = [
         alt: '',
     },
     {
-        title: 'Cherry Careers (Coming Soon)',
+        title: 'Cherry Careers',
         copy: 'A 6-week journey to get job-ready with resume support and community learning.',
         href: '/programs#cherry-careers',
-        cta: 'Coming soon',
+        cta: 'Cherry Careers',
         image: pathCareers,
         alt: '',
     },
