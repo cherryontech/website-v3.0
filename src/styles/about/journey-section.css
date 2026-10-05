@@ -1,0 +1,264 @@
+.section-journey {
+    background: var(--color-background-white);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: var(--spacing-10x, 40px);
+}
+
+.journey-card-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-5x, 20px);
+    height: 130%;
+}
+
+.journey-card-list::before {
+    position: absolute;
+    width: 5px;
+    height: inherit;
+    left: calc(5% + 1px); /* 10px */
+    content: '';
+    background: var(--color-border-subtle-00);
+    z-index: 0;
+    height: calc(140%);
+}
+
+.journey-card-list-item {
+    position: relative;
+    z-index: 1;
+    min-height: 82px;
+    padding-left: 28px;
+    margin-bottom: 14px;
+}
+
+/* Red marker */
+.journey-card-list-item::before {
+    position: absolute;
+    content: '';
+    left: 0; /* 50% */
+    top: 15%;
+    border: 1px solid var(--color-primary-03);
+    border-radius: 50%;
+    height: 14px;
+    width: 14px;
+    background: var(--color-primary-03);
+    z-index: 2;
+    transform: translate(-50%, -50%);
+}
+
+.journey-card-list-item:last-child::before {
+    border: 2px solid var(--color-primary-03);
+    background: #fff;
+}
+
+.journey-card {
+    display: flex;
+    flex-direction: column;
+    width: 330px;
+    height: 180px;
+    padding: var(--spacing-5, 20px);
+    gap: 8px;
+    border-radius: 12px;
+    border: 1px solid #ececec;
+    align-items: flex-start;
+    text-align: start;
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.07);
+}
+
+.journey-card .date {
+    color: var(--color-primary-03);
+}
+
+.journey-card .title {
+}
+
+.journey-card .entry {
+    color: #5c5c5c;
+    display: flex;
+    text-align: start;
+}
+
+/* gray spines */
+.journey-card-list-item:nth-child(odd)::after,
+.journey-card-list-item:nth-child(even)::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 3px;
+    background: #ececec;
+    transform: translateX(-50%);
+    left: 5%;
+    top: 15%;
+    transform: translate(-50%, -50%);
+}
+
+@media (min-width: 48rem) {
+    .journey-card-list {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-5x, 20px);
+    }
+
+    .journey-card-list::before {
+        position: absolute;
+        width: 5px;
+        height: inherit;
+        left: 50%;
+        content: '';
+        background: var(--color-border-subtle-00);
+        z-index: 0;
+        height: calc(100% + 250px);
+        transform: translateX(-50%);
+    }
+
+    .journey-card-list-item {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        z-index: 1;
+        min-height: 82px;
+        margin-bottom: 14px;
+    }
+
+    .journey-card-list-item:nth-child(odd) {
+        align-items: flex-start;
+        .journey-card {
+            right: 65%;
+        }
+    }
+
+    .journey-card-list-item:nth-child(even) {
+        align-items: flex-end;
+        .journey-card {
+            left: 60%;
+        }
+    }
+
+    .journey-card-list-item::before {
+        position: absolute;
+        content: '';
+        left: 50%;
+        top: 50%;
+        border: 1px solid var(--color-primary-03);
+        border-radius: 50%;
+        height: 14px;
+        width: 14px;
+        background: var(--color-primary-03);
+        z-index: 2;
+        transform: translate(-50%, -50%);
+    }
+
+    .journey-card-list-item:nth-child(odd)::after,
+    .journey-card-list-item:nth-child(even)::after {
+        content: '';
+        position: absolute;
+        width: 35px;
+        height: 3px;
+        background: #ececec;
+        transform: translateX(-50%);
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .journey-card-list-item:nth-child(odd)::after {
+        left: calc(50% - 25px);
+    }
+    .journey-card-list-item:nth-child(even)::after {
+        left: calc(50% + 25px);
+    }
+
+    .journey-card {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        width: 350px;
+        height: 180px;
+        padding: var(--spacing-5, 20px);
+        gap: 8px;
+        border-radius: 12px;
+        border: 1px solid #ececec;
+    }
+}
+
+@media (min-width: 64rem) {
+    .journey-card-list {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        max-width: 1200px;
+        min-height: 250px;
+        gap: 110px;
+    }
+    .journey-card-list::before {
+        content: '';
+        position: absolute;
+        height: 5px;
+        width: 100%;
+        top: 50%;
+        left: 10px;
+        transform: translateY(-50%);
+    }
+    .journey-card-list-item {
+        position: relative;
+        display: flex;
+        z-index: 1;
+        justify-content: center;
+        flex: 1 1 0;
+        min-width: 0;
+    }
+    .journey-card-list-item::before {
+        /* red marker */
+        position: absolute;
+        top: calc(50% + 5px);
+        left: 50%;
+        z-index: 2;
+        transform: translate(-50%, -50%);
+    }
+    .journey-card {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        width: 270px;
+        height: 195px;
+        padding: var(--spacing-5, 20px);
+        gap: 4px;
+        border-radius: 12px;
+        border: 1px solid #ececec;
+    }
+
+    .journey-card-list-item:nth-child(odd) {
+        align-items: flex-start;
+        padding-bottom: calc(22%);
+        .journey-card {
+            right: 0;
+        }
+    }
+
+    .journey-card-list-item:nth-child(even) {
+        align-items: flex-end;
+        padding-top: calc(22%);
+        .journey-card {
+            left: 0;
+        }
+    }
+
+    .journey-card-list-item:nth-child(odd)::after, /* gray spines */
+    .journey-card-list-item:nth-child(even)::after {
+        content: '';
+        position: absolute;
+        width: 3px;
+        height: 30px;
+        background: #ececec;
+        transform: translateX(-50%);
+        left: 50%;
+    }
+    .journey-card-list-item:nth-child(odd)::after {
+        top: calc(50% - 25px);
+    }
+    .journey-card-list-item:nth-child(even)::after {
+        top: 50%;
+    }
+}

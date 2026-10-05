@@ -1,4 +1,5 @@
-import '../../styles/about.css'
+import '../../styles/about/about.css'
+import '../../styles/about/journey-section.css'
 import aboutHero from '../../assets/about/illustrations/01_about - hero.svg'
 import aboutFoundation from '../../assets/about/illustrations/02_about - our foundation.svg'
 
@@ -8,6 +9,7 @@ import ImpactCard from './cards/ImpactCard'
 
 import { impactCardData, journeyCardData, memberCardData } from './data/data'
 
+import VolunteerSection from './VolunteerSection'
 import SponsorList from './SponsorList'
 
 type Asset = string | { src: string }
@@ -22,7 +24,8 @@ const AboutPage = () => {
                 <div className="intro-details">
                     <div>
                         <div className="display-1 font-geologica font-bold">
-                            The Spark Behind the Movement
+                            The <span className="word-highlight">Spark</span>{' '}
+                            Behind the Movement
                         </div>
                         <h1 className="font-normal">
                             Building a tech industry that looks like the real
@@ -30,7 +33,7 @@ const AboutPage = () => {
                         </h1>
                     </div>
                     <a href="#" className="btn btn-stroke">
-                        Help us Grow
+                        Meet the Bunch
                     </a>
                 </div>
                 <div>
@@ -38,11 +41,15 @@ const AboutPage = () => {
                 </div>
             </section>
             <section className="section-foundation">
-                <img src={assetSrc(aboutFoundation)} alt="" />
+                <img
+                    className="foundaton-image"
+                    src={assetSrc(aboutFoundation)}
+                    alt=""
+                />
                 <div className="foundation-content">
-                    <h1>Our Foundation</h1>
-                    <div>
-                        <h2>Vision</h2>
+                    <h1 className="title">Our Foundation</h1>
+                    <div className="subsection-content">
+                        <h2 className="subsection-title">Vision</h2>
                         <p>
                             A tech industry where every voice is valued and
                             empowered to lead. We envision a future where
@@ -50,9 +57,9 @@ const AboutPage = () => {
                             meaningful change across the global tech landscape.
                         </p>
                     </div>
-                    <hr />
-                    <div>
-                        <h2>Mission</h2>
+                    <hr className="impact-header" />
+                    <div className="subsection-content">
+                        <h2 className="subsection-title">Mission</h2>
                         <p>
                             To empower women, non-binary, and trans individuals
                             through the power of the tech squad. We provide the
@@ -61,9 +68,9 @@ const AboutPage = () => {
                             professional networks.
                         </p>
                     </div>
-                    <hr />
-                    <div>
-                        <h2>Values</h2>
+                    <hr className="impact-header" />
+                    <div className="subsection-content">
+                        <h2 className="subsection-title">Values</h2>
                         <ul>
                             <li>
                                 <span className="font-bold">
@@ -119,28 +126,22 @@ const AboutPage = () => {
                     ))}
                 </div>
             </section>
-            <section className="section-highlights">
+            <section className="section-journey">
                 <h1>Our Journey Highlights</h1>
-                <div className="journey-card-list">
-                    {journeyCardData.map((card, index) => (
-                        <>
-                            <div className="timeline">
-                                <div className="timeline-item"></div>
-                                <JourneyCard
-                                    date={card.date}
-                                    title={card.title}
-                                    entry={card.entry}
-                                    index={index}
-                                />
-                            </div>
-                        </>
-                    ))}
-
-                    <div className="timeline">
-                        <div className="timeline-item"></div>
-                        <div className="timeline-item"></div>
-                        <div className="timeline-item"></div>
-                        <div className="timeline-item"></div>
+                <div>
+                    <div className="journey-card-list">
+                        {journeyCardData.map((card, index) => (
+                            <>
+                                <div className="journey-card-list-item">
+                                    <JourneyCard
+                                        date={card.date}
+                                        title={card.title}
+                                        entry={card.entry}
+                                        index={index}
+                                    />
+                                </div>
+                            </>
+                        ))}
                     </div>
                 </div>
             </section>
@@ -154,7 +155,7 @@ const AboutPage = () => {
                     </div>
                 </div>
                 <div className="sponsor-text">
-                    <div>
+                    <div className="text-container">
                         <h1 className="sponsor-text-title">
                             Support the Cherries
                         </h1>
@@ -172,7 +173,9 @@ const AboutPage = () => {
                 </div>
             </section>
             <section className="section-directors">
-                <div className="display-3 font-bold">Meet the Bunch</div>
+                <div className="display-3 section-title font-bold">
+                    Meet the Bunch
+                </div>
                 <div className="director-content">
                     <div className="section-text">
                         <h1>The Core Bunch</h1>
@@ -193,36 +196,7 @@ const AboutPage = () => {
                     </div>
                 </div>
             </section>
-            <section className="section-volunteers">
-                <div className="volunteer-content">
-                    <h1>Our Helping Cherries</h1>
-                    <p>
-                        Cherry On Tech is powered by an incredible, rotating
-                        squad of mentors and community members who dedicate
-                        their time to building together. Whether sharing
-                        industry expertise or helping behind the scenes, every
-                        contributor keeps our ecosystem growing.
-                    </p>
-                </div>
-                <div className="volunteer-tables">
-                    <h2 className="volunteer-title">The Community Squad</h2>
-                    <div className="">
-                        <iframe
-                            className="airtable-embed volunteer-list"
-                            src="https://airtable.com/embed/appQGB7QVsOOx0rX1/shrtN10W9uJvICrBp"
-                        ></iframe>
-                    </div>
-                </div>
-                <div>
-                    <h2 className="volunteer-title">Guest Cherries</h2>
-                    <div className="">
-                        <iframe
-                            className="airtable-embed volunteer-list"
-                            src="https://airtable.com/embed/appQGB7QVsOOx0rX1/shrHSd5CTlUEzeYuj"
-                        ></iframe>
-                    </div>
-                </div>
-            </section>
+            <VolunteerSection />
         </>
     )
 }

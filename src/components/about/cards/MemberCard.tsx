@@ -20,10 +20,10 @@ const MemberCard = ({
                 <h2 className="name">{name}</h2>
                 <h4 className="job-title">{jobTitle}</h4>
                 <div className="pronouns">{pronouns}</div>
-                <a href="#" className="btn btn-primary">
-                    {name}'s LinkedIn
-                </a>
             </div>
+            <a href="#" className="btn btn-primary">
+                {name}'s LinkedIn
+            </a>
         </div>
     )
 }

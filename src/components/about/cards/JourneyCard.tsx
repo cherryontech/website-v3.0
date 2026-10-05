@@ -10,11 +10,13 @@ const JourneyCard = ({ date, title, entry, index }: JourneyCardProps) => {
 
     return (
         <div
-            className={`journey-card ${isEven() ? 'timeline-item-even' : 'timeline-item-odd'}`}
+            className={`${isEven() ? 'timeline-item-even' : 'timeline-item-odd'}`}
         >
-            <label className="date">{date}</label>
-            <h3 className="title">{title}</h3>
-            <caption className="entry">{entry}</caption>
+            <div className={`journey-card`}>
+                <label className="date font-semibold">{date}</label>
+                <h3 className="title">{title}</h3>
+                <caption className="caption entry">{entry}</caption>
+            </div>
         </div>
     )
 }
