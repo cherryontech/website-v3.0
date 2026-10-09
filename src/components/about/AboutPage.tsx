@@ -12,16 +12,13 @@ import { impactCardData, journeyCardData, memberCardData } from './data/data'
 import VolunteerSection from './VolunteerSection'
 import SponsorList from './SponsorList'
 
-type Asset = string | { src: string }
-
-const assetSrc = (asset: Asset) =>
-    typeof asset === 'string' ? asset : asset.src
+import { assetSrc } from '../../util/assetSrc'
 
 const AboutPage = () => {
     return (
         <>
-            <section className="section-intro">
-                <div className="intro-details">
+            <section className="section-hero">
+                <div className="hero-details">
                     <div>
                         <div className="display-1 font-geologica font-bold">
                             The <span className="word-highlight">Spark</span>{' '}
@@ -32,7 +29,7 @@ const AboutPage = () => {
                             world.
                         </h1>
                     </div>
-                    <a href="#" className="btn btn-stroke">
+                    <a href="#team-members" className="btn btn-stroke">
                         Meet the Bunch
                     </a>
                 </div>
@@ -122,6 +119,7 @@ const AboutPage = () => {
                             imageName={card.imageName}
                             title={card.title}
                             text={card.text}
+                            titleSize={card.titleSize}
                         />
                     ))}
                 </div>
@@ -167,12 +165,12 @@ const AboutPage = () => {
                             sweeter.
                         </p>
                     </div>
-                    <a href="#" className="btn btn-stroke">
+                    <a href="/get-involved" className="btn btn-stroke">
                         Help us Grow
                     </a>
                 </div>
             </section>
-            <section className="section-directors">
+            <section id="team-members" className="section-directors">
                 <div className="display-3 section-title font-bold">
                     Meet the Bunch
                 </div>
@@ -188,9 +186,11 @@ const AboutPage = () => {
                         {memberCardData.map((card) => (
                             <MemberCard
                                 imageName={card.imageName}
-                                name={card.name}
+                                firstName={card.firstName}
+                                lastName={card.lastName}
                                 jobTitle={card.jobTitle}
                                 pronouns={card.pronouns}
+                                linkedIn={card.linkedIn}
                             />
                         ))}
                     </div>

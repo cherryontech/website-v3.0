@@ -18,7 +18,7 @@ const VolunteerSection = () => {
         )
             .then((response) => response.json())
             .then((data) => {
-                setRecords(data.records.length)
+                //setRecords(data.records.length)
             })
             .catch((error) => console.error(error))
     }, [])

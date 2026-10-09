@@ -1,9 +1,5 @@
 import { useState, useEffect } from 'react'
-
-type Asset = string | { src: string }
-
-const assetSrc = (asset: Asset) =>
-    typeof asset === 'string' ? asset : asset.src
+import { assetSrc } from '../../util/assetSrc'
 
 const SponsorList = () => {
     const [records, setRecords] = useState()
@@ -22,6 +18,9 @@ const SponsorList = () => {
                 setRecords(data.records)
             })
             .catch((error) => console.error(error))
+
+        console.log('records')
+        console.log(records)
     }, [])
 
     return (
@@ -31,13 +30,19 @@ const SponsorList = () => {
                     records.map((record) => {
                         return (
                             <div className="sponsor">
-                                <img
-                                    src={assetSrc(
-                                        record.fields.Logo[0].thumbnails.small
-                                            .url
-                                    )}
-                                    alt=""
-                                />
+                                <a
+                                    href={`${record.fields['Website Link']}`}
+                                    target="_blank"
+                                    aria-label={`${record.fields['Sponsor Name']} logo (website opens in a new tab)`}
+                                >
+                                    <img
+                                        src={assetSrc(
+                                            record.fields.Logo[0].thumbnails
+                                                .small.url
+                                        )}
+                                        alt=""
+                                    />
+                                </a>
                             </div>
                         )
                     })}

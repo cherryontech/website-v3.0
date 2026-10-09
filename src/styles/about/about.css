@@ -4,7 +4,7 @@ section {
     padding: var(--spacing-15, 60px) var(--spacing-6, 24px);
 }
 
-.section-intro {
+.section-hero {
     background: var(--color-background-secondary-pink);
     display: flex;
     flex-direction: column;
@@ -12,7 +12,7 @@ section {
     align-items: center;
 }
 
-.intro-details {
+.hero-details {
     display: flex;
     flex-direction: column;
     height: 345px;
@@ -55,12 +55,6 @@ section {
     gap: var(--spacing-8, 32px);
 }
 
-.impact-content {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-4, 16px);
-}
-
 .card-list {
     display: flex;
     flex-direction: column;
@@ -68,36 +62,56 @@ section {
     gap: var(--spacing-8, 32px);
 }
 
+.impact-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-4, 16px);
+}
+
 .impact-card {
     display: flex;
     flex-direction: column;
     width: 293px;
     height: 325px;
-    padding: var(--spacing-12, 40px);
+    padding: var(--spacing-10, 40px);
     background: var(--color-background-white);
-    border: 1px solid var(--color-border-subtle-00);
+    border: 4px solid var(--color-border-subtle-00);
     border-radius: var(--spacing-2, 8px);
     text-align: center;
 }
 
 .impact-card-image {
-    width: 200px;
-    height: 200px;
     display: flex;
     align-self: center;
+    height: 175px;
+    border-radius: 8px;
+    img {
+        max-width: 175px;
+        max-height: 175px;
+    }
 }
 
 .impact-card-content {
+    position: relative;
+    top: 0;
     display: flex;
     align-items: center;
     flex-direction: column;
-    gap: var(--spacing-2, 8px);
+    height: 90px;
 }
 
 .impact-card-title {
+    font-family: var(--font-geologica);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--text-4xl);
+
+    & .large {
+        font-size: var(--text-4xl);
+    }
 }
 
 .impact-card-text {
+    font-size: var(--text-lg);
 }
 
 .section-sponsors {
@@ -126,6 +140,8 @@ section {
         display: flex;
         flex-direction: column;
         gap: var(--spacing-4x, 16px);
+        width: 550px;
+        margin-bottom: 16px;
     }
 }
 
@@ -186,8 +202,16 @@ section {
 .member-card-image {
     width: 345px;
     height: 268px;
+    overflow: hidden;
+    border: 4px solid var(--color-border-subtle-03);
     border-radius: 8px;
-    border: 2px solid lightgray;
+
+    img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+    }
 }
 
 .member-card-text {
@@ -229,6 +253,8 @@ section {
         display: flex;
         flex-direction: column;
         align-items: center;
+        width: 550px;
+        text-align: center;
         gap: var(--spacing-4x, 16px);
     }
 }
@@ -237,16 +263,14 @@ section {
     section {
         padding: var(--spacing-25x, 100px) var(--spacing-15x, 60px);
     }
-    .section-intro {
+    .section-hero {
         background: var(--color-background-secondary-pink);
         display: flex;
         flex-direction: row;
         gap: 10px;
         align-items: center;
     }
-    .intro-details {
-        display: flex;
-        flex-direction: column;
+    .hero-details {
         height: 500px;
         padding: 0;
         align-items: start;
@@ -272,12 +296,6 @@ section {
         gap: var(--spacing-8, 32px);
     }
 
-    .impact-content {
-        display: flex;
-        flex-direction: column;
-        gap: var(--spacing-4, 16px);
-    }
-
     .card-list {
         display: flex;
         flex-direction: row;
@@ -286,21 +304,34 @@ section {
     }
 
     .impact-card {
-        display: flex;
-        flex-direction: column;
         width: 293px;
         height: 325px;
         padding: var(--spacing-10, 40px);
-        background: var(--color-background-white);
-        border: 1px solid var(--color-border-subtle-00);
         border-radius: var(--spacing-2, 8px);
     }
 
-    .section-directors {
-        background: var(--color-background-white);
-        text-align: center;
+    .impact-card-image {
         display: flex;
-        flex-direction: column;
+        align-self: center;
+        height: 200px;
+        width: 200px;
+
+        img {
+            max-width: 200px;
+            min-height: 150px;
+            max-height: 180px;
+        }
+    }
+
+    .impact-card-content {
+        gap: var(--spacing-4, 12px);
+        width: 213px;
+    }
+
+    .impact-card-title {
+        &.large {
+            font-size: var(--text-4xl);
+        }
     }
 
     .section-text {
@@ -313,7 +344,7 @@ section {
     .member-list {
         display: flex;
         flex-direction: row;
-        gap: 8px;
+        gap: 12px;
     }
 
     .member-card {
@@ -325,7 +356,6 @@ section {
         width: 290px;
         height: 226px;
         border-radius: 8px;
-        border: 1px solid lightgray;
     }
 
     .volunteer-content {
@@ -337,7 +367,7 @@ section {
     section {
         padding: var(--spacing-25, 100px) var(--spacing-33, 132px);
     }
-    .section-intro {
+    .section-hero {
         background: var(--color-background-secondary-pink);
         display: flex;
         flex-direction: row;
@@ -345,9 +375,7 @@ section {
         align-items: center;
     }
 
-    .intro-details {
-        display: flex;
-        flex-direction: column;
+    .hero-details {
         height: 500px;
         padding: 0;
     }
@@ -372,13 +400,6 @@ section {
         flex-direction: column;
         gap: var(--spacing-8, 32px);
     }
-
-    .impact-content {
-        display: flex;
-        flex-direction: column;
-        gap: var(--spacing-4, 16px);
-    }
-
     .card-list {
         display: flex;
         flex-direction: row;
@@ -386,13 +407,9 @@ section {
     }
 
     .impact-card {
-        display: flex;
-        flex-direction: column;
         width: 450px;
         height: 450px;
         padding: var(--spacing-10, 40px);
-        background: var(--color-background-white);
-        border: 2px solid var(--color-border-subtle-00);
         border-radius: var(--spacing-2, 8px);
         gap: 8px;
     }
@@ -402,12 +419,20 @@ section {
         justify-content: center;
         align-items: center;
         height: 250px;
+        img {
+            max-width: 250px;
+            max-height: 250px;
+        }
     }
-
-    .impact-card-title {
+    .impact-card-content {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-4, 16px);
+        width: auto;
     }
 
     .impact-card-text {
+        font-size: var(--text-2xl);
     }
 
     .section-sponsors {
@@ -427,7 +452,7 @@ section {
 
     .sponsor-text {
         display: flex;
-        .container {
+        &.container {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -455,7 +480,7 @@ section {
     .member-list {
         display: flex;
         flex-direction: row;
-        gap: 16px;
+        gap: 40px;
     }
 
     .member-card {
@@ -471,7 +496,6 @@ section {
         background: var(--color-background-white);
         display: flex;
         flex-direction: column;
-        padding: var(--spacing-10x, 40px);
     }
     .volunteer-list {
         background: transparent;

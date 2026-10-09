@@ -6,26 +6,26 @@ import julieth from '../../../assets/about/team-photos/01_about - core bunch - j
 import allie from '../../../assets/about/team-photos/02_about - core bunch - allie.svg'
 import aiden from '../../../assets/about/team-photos/03_about - core bunch - aiden.svg'
 
-type Asset = string | { src: string }
-
-const assetSrc = (asset: Asset) =>
-    typeof asset === 'string' ? asset : asset.src
+import { assetSrc } from '../../../util/assetSrc'
 
 export const impactCardData = [
     {
         imageName: assetSrc(redCard),
         title: '20+',
         text: 'Projects Launched',
+        titleSize: 'normal',
     },
     {
         imageName: assetSrc(purpleCard),
         title: '160+',
         text: 'Collaborators Connected',
+        titleSize: 'normal',
     },
     {
         imageName: assetSrc(greenCard),
         title: '∞',
         text: 'A Global Ally Network',
+        titleSize: 'large',
     },
 ]
 
@@ -100,19 +100,28 @@ export const memberCardData = [
     {
         imageName: assetSrc(julieth),
         name: 'Julieth Fajardo',
+        firstName: 'Julieth',
+        lastName: 'Fajardo',
         jobTitle: 'Co-Executive Director',
         pronouns: 'She/Her',
+        linkedIn: 'https://www.linkedin.com/in/julietafb/',
     },
     {
         imageName: assetSrc(allie),
         name: 'Allie Quintano',
+        firstName: 'Allie',
+        lastName: 'Quintano',
         jobTitle: 'Co-Executive Director',
         pronouns: 'She/Her',
+        linkedIn: 'https://www.linkedin.com/in/alliequintano/',
     },
     {
         imageName: assetSrc(aiden),
         name: 'Aiden Hirshfield',
+        firstName: 'Aiden',
+        lastName: 'Hirshfield',
         jobTitle: 'Fundraiser & Grant Director',
         pronouns: 'He/They',
+        linkedIn: 'https://www.linkedin.com/in/aidenhirshfield/',
     },
 ]
