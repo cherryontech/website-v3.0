@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { assetSrc } from '../../util/assetSrc'
 
 const SponsorList = () => {
-    const [records, setRecords] = useState()
+    const [records, setRecords] = useState<any>()
 
     useEffect(() => {
         fetch(
@@ -15,12 +15,17 @@ const SponsorList = () => {
         )
             .then((response) => response.json())
             .then((data) => {
-                setRecords(data.records)
+                setRecords(
+                    data.records.filter(
+                        (r) => r.fields['Active Status'] !== 'No'
+                    )
+                )
+                console.log('data.records')
+                console.log(data.records)
+                //Need to filter data.records by active status
+                //and create a container around individual sponsor logos
             })
             .catch((error) => console.error(error))
-
-        console.log('records')
-        console.log(records)
     }, [])
 
     return (
@@ -40,7 +45,7 @@ const SponsorList = () => {
                                             record.fields.Logo[0].thumbnails
                                                 .small.url
                                         )}
-                                        alt=""
+                                        alt={`${record.fields['Sponsor Name']} logo image`}
                                     />
                                 </a>
                             </div>
@@ -50,7 +55,5 @@ const SponsorList = () => {
         </>
     )
 }
-
-const Sponsor = () => {}
 
 export default SponsorList

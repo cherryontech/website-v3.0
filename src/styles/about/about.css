@@ -83,6 +83,7 @@ section {
 .impact-card-image {
     display: flex;
     align-self: center;
+    justify-content: center;
     height: 175px;
     border-radius: 8px;
     img {
@@ -140,7 +141,7 @@ section {
         display: flex;
         flex-direction: column;
         gap: var(--spacing-4x, 16px);
-        width: 550px;
+        width: 345px;
         margin-bottom: 16px;
     }
 }
@@ -222,12 +223,13 @@ section {
 
 .section-volunteers {
     padding: var(--spacing-10x, 40px);
-}
 
-.volunteer-content {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-4x, 16px);
+    .text-container {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-4x, 16px);
+        width: 345px;
+    }
 }
 
 .volunteer-title {
@@ -249,11 +251,11 @@ section {
     gap: var(--spacing-8x, 32px);
     align-items: center;
 
-    .card-content {
+    .text-container {
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: 550px;
+        width: 345px;
         text-align: center;
         gap: var(--spacing-4x, 16px);
     }
@@ -299,7 +301,7 @@ section {
     .card-list {
         display: flex;
         flex-direction: row;
-        gap: var(--spacing-8, 32px);
+        gap: var(--spacing-4, 16px);
         padding: 0;
     }
 
@@ -311,8 +313,6 @@ section {
     }
 
     .impact-card-image {
-        display: flex;
-        align-self: center;
         height: 200px;
         width: 200px;
 
@@ -341,6 +341,12 @@ section {
         text-align: start;
     }
 
+    .sponsor-text {
+        .text-container {
+            width: 550px;
+        }
+    }
+
     .member-list {
         display: flex;
         flex-direction: row;
@@ -358,8 +364,20 @@ section {
         border-radius: 8px;
     }
 
+    .section-volunteers {
+        .text-container {
+            width: 550px;
+        }
+    }
+
     .volunteer-content {
         max-width: 550px;
+    }
+
+    .empty-state-card {
+        .text-container {
+            width: 550px;
+        }
     }
 }
 
@@ -470,7 +488,8 @@ section {
     }
 
     .sponsor img {
-        height: 40px;
+        min-height: 50px;
+        width: 200px;
     }
 
     .section-directors {

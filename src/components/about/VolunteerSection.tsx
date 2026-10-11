@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 
 interface VolunteerTableProps {
     url: string
+    title: string
 }
 
 const VolunteerSection = () => {
@@ -18,15 +19,18 @@ const VolunteerSection = () => {
         )
             .then((response) => response.json())
             .then((data) => {
-                //setRecords(data.records.length)
+                setRecords(data.records.length)
             })
             .catch((error) => console.error(error))
     }, [])
 
     return (
         <>
-            <section className="section-volunteers">
-                <div className="volunteer-content">
+            <section
+                className="section-volunteers"
+                aria-labelledby="volunteers-title"
+            >
+                <div className="text-container">
                     <h1>Our Helping Cherries</h1>
                     <p>
                         Cherry On Tech is powered by an incredible, rotating
@@ -40,6 +44,7 @@ const VolunteerSection = () => {
                     <h2 className="volunteer-title">The Community Squad</h2>
                     {records && records ? (
                         <VolunteerTable
+                            title="Community Squad members"
                             url={
                                 'https://airtable.com/embed/appQGB7QVsOOx0rX1/shrtN10W9uJvICrBp'
                             }
@@ -52,6 +57,7 @@ const VolunteerSection = () => {
                     <h2 className="volunteer-title">Guest Cherries</h2>
                     {records && records ? (
                         <VolunteerTable
+                            title="Guest cherries"
                             url={
                                 'https://airtable.com/embed/appQGB7QVsOOx0rX1/shrHSd5CTlUEzeYuj'
                             }
@@ -65,13 +71,14 @@ const VolunteerSection = () => {
     )
 }
 
-const VolunteerTable = ({ url }: VolunteerTableProps) => {
+const VolunteerTable = ({ url, title }: VolunteerTableProps) => {
     return (
         <div>
             <div className="">
                 <iframe
                     className="airtable-embed volunteer-list"
                     src={`${url}`}
+                    title={title}
                 ></iframe>
             </div>
         </div>
@@ -81,7 +88,7 @@ const VolunteerTable = ({ url }: VolunteerTableProps) => {
 const EmptyStateCard = () => {
     return (
         <div className="empty-state-card">
-            <div className="card-content">
+            <div className="text-container">
                 <h3 className="font-bold">
                     No active cherries listed right now! 🍒
                 </h3>
@@ -92,7 +99,7 @@ const EmptyStateCard = () => {
                     Tech!
                 </p>
             </div>
-            <a href="#" className="btn btn-stroke">
+            <a href="/get-involved" className="btn btn-stroke">
                 Find Your Role
             </a>
         </div>

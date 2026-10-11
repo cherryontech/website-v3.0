@@ -11,7 +11,6 @@
     display: flex;
     flex-direction: column;
     gap: var(--spacing-5x, 20px);
-    /*height: 130%;*/
 }
 
 .journey-card-list::before {
@@ -19,7 +18,7 @@
     width: 5px;
     height: inherit;
     top: 20px;
-    left: calc(5% - 21px); /* 10px */
+    left: calc(5% - 21px);
     content: '';
     background: var(--color-border-subtle-00);
     z-index: 0;
@@ -38,7 +37,7 @@
 .journey-card-list-item::before {
     position: absolute;
     content: '';
-    left: -1px; /* 50% */
+    left: calc(5% - 18px);
     top: 15%;
     border: 1px solid var(--color-primary-03);
     border-radius: 50%;
@@ -102,12 +101,12 @@
     .journey-card-list::before {
         position: absolute;
         width: 5px;
-        top: 90px; /* calc(200% + 175px);*/
+        top: 90px;
         left: 50%;
         content: '';
         background: var(--color-border-subtle-00);
         z-index: 0;
-        height: calc(100% - 185px); /* calc(110% + 350px)*/
+        height: calc(100% - 190px);
         transform: translateX(-50%);
     }
 
@@ -195,7 +194,7 @@
         content: '';
         position: absolute;
         height: 5px;
-        width: calc(100% - 20px);
+        width: calc(100% - 25px);
         top: 50%;
         left: 10px;
         transform: translateY(-50%);
@@ -211,7 +210,7 @@
     .journey-card-list-item::before {
         /* red marker */
         position: absolute;
-        top: calc(50% + 5px);
+        top: calc(50% + 6px);
         left: 50%;
         z-index: 2;
         transform: translate(-50%, -50%);
@@ -230,7 +229,7 @@
 
     .journey-card-list-item:nth-child(odd) {
         align-items: flex-start;
-        padding-bottom: calc(22%);
+        padding-bottom: calc(24%);
         .journey-card {
             right: 0;
         }
@@ -238,7 +237,7 @@
 
     .journey-card-list-item:nth-child(even) {
         align-items: flex-end;
-        padding-top: calc(22%);
+        padding-top: calc(24%);
         .journey-card {
             left: 0;
         }
@@ -249,7 +248,7 @@
         content: '';
         position: absolute;
         width: 3px;
-        height: 30px;
+        height: 38px;
         background: #ececec;
         transform: translateX(-50%);
         left: 50%;

@@ -17,7 +17,7 @@ import { assetSrc } from '../../util/assetSrc'
 const AboutPage = () => {
     return (
         <>
-            <section className="section-hero">
+            <section className="section-hero" aria-labelledby="home-title">
                 <div className="hero-details">
                     <div>
                         <div className="display-1 font-geologica font-bold">
@@ -37,7 +37,10 @@ const AboutPage = () => {
                     <img src={assetSrc(aboutHero)} alt="" />
                 </div>
             </section>
-            <section className="section-foundation">
+            <section
+                className="section-foundation"
+                aria-labelledby="foundation-title"
+            >
                 <img
                     className="foundaton-image"
                     src={assetSrc(aboutFoundation)}
@@ -105,7 +108,7 @@ const AboutPage = () => {
                     </div>
                 </div>
             </section>
-            <section className="section-impact">
+            <section className="section-impact" aria-labelledby="impact-title">
                 <div className="impact-content">
                     <h1>Impact in Action</h1>
                     <p>
@@ -124,7 +127,10 @@ const AboutPage = () => {
                     ))}
                 </div>
             </section>
-            <section className="section-journey">
+            <section
+                className="section-journey"
+                aria-labelledby="journey-title"
+            >
                 <h1>Our Journey Highlights</h1>
                 <div>
                     <div className="journey-card-list">
@@ -143,7 +149,10 @@ const AboutPage = () => {
                     </div>
                 </div>
             </section>
-            <section className="section-sponsors">
+            <section
+                className="section-sponsors"
+                aria-labelledby="sponsor-title"
+            >
                 <div className="sponsor-display">
                     <div className="sponsor-display-title display-3 font-bold">
                         With Gratitude to Our Cherry Supporters
@@ -170,7 +179,11 @@ const AboutPage = () => {
                     </a>
                 </div>
             </section>
-            <section id="team-members" className="section-directors">
+            <section
+                id="team-members"
+                className="section-directors"
+                aria-labelledby="team-members-title"
+            >
                 <div className="display-3 section-title font-bold">
                     Meet the Bunch
                 </div>
