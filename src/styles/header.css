@@ -3,6 +3,11 @@
     top: 0;
     z-index: 1000;
     background-color: var(--color-background-white);
+    transition: transform 180ms ease;
+}
+
+.header--hidden {
+    transform: translateY(-100%);
 }
 
 .header-container {
@@ -171,6 +176,12 @@ a.subheading {
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .header {
+        transition: none;
+    }
 }
 
 @media (max-width: 1023px) {

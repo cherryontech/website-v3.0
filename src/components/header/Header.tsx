@@ -1,17 +1,47 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import '../../styles/header.css'
 import Icon from '../Icon'
 import logo from '../../assets/cherry_on_tech.svg'
 
 function Header() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+    const [isHeaderVisible, setIsHeaderVisible] = useState(true)
+    const headerRef = useRef<HTMLElement>(null)
 
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen)
     }
 
+    useEffect(() => {
+        let previousScrollY = window.scrollY
+
+        const updateHeaderVisibility = () => {
+            const currentScrollY = Math.max(window.scrollY, 0)
+            const headerHeight = headerRef.current?.offsetHeight ?? 0
+
+            if (isMobileMenuOpen || currentScrollY <= headerHeight) {
+                setIsHeaderVisible(true)
+            } else if (currentScrollY < previousScrollY) {
+                setIsHeaderVisible(true)
+            } else if (currentScrollY > previousScrollY) {
+                setIsHeaderVisible(false)
+            }
+
+            previousScrollY = currentScrollY
+        }
+
+        window.addEventListener('scroll', updateHeaderVisibility, {
+            passive: true,
+        })
+        return () =>
+            window.removeEventListener('scroll', updateHeaderVisibility)
+    }, [isMobileMenuOpen])
+
     return (
-        <header className="header">
+        <header
+            ref={headerRef}
+            className={`header ${isHeaderVisible ? '' : 'header--hidden'}`}
+        >
             <div className="header-container">
                 <a href="/">
                     <img
