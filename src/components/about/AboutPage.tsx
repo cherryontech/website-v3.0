@@ -41,70 +41,76 @@ const AboutPage = () => {
                 className="section-foundation"
                 aria-labelledby="foundation-title"
             >
-                <img
-                    className="foundaton-image"
-                    src={assetSrc(aboutFoundation)}
-                    alt=""
-                />
+                <div className="foundaton-image-container">
+                    <img
+                        src={assetSrc(aboutFoundation)}
+                        alt="foundation image"
+                    />
+                </div>
                 <div className="foundation-content">
-                    <h1 className="title">Our Foundation</h1>
-                    <div className="subsection-content">
-                        <h2 className="subsection-title">Vision</h2>
-                        <p>
-                            A tech industry where every voice is valued and
-                            empowered to lead. We envision a future where
-                            underrepresented talent shapes innovation and drives
-                            meaningful change across the global tech landscape.
-                        </p>
-                    </div>
-                    <hr className="impact-header" />
-                    <div className="subsection-content">
-                        <h2 className="subsection-title">Mission</h2>
-                        <p>
-                            To empower women, non-binary, and trans individuals
-                            through the power of the tech squad. We provide the
-                            hands-on experience and mentorship needed to build
-                            confidence, launch careers, and create lasting
-                            professional networks.
-                        </p>
-                    </div>
-                    <hr className="impact-header" />
-                    <div className="subsection-content">
-                        <h2 className="subsection-title">Values</h2>
-                        <ul>
-                            <li>
-                                <span className="font-bold">
-                                    Community First:
-                                </span>{' '}
-                                We rise by lifting each other up.
-                            </li>
-                            <li>
-                                <span className="font-bold">
-                                    Collaboration Over Competition:
-                                </span>{' '}
-                                We grow faster and better, together.
-                            </li>
-                            <li>
-                                <span className="font-bold">
-                                    Equity in Action:
-                                </span>{' '}
-                                Centring the voices historically excluded from
-                                tech.
-                            </li>
-                            <li>
-                                <span className="font-bold">
-                                    Reliable Accountability:
-                                </span>{' '}
-                                We show up for our squads and ourselves.
-                            </li>
-                            <li>
-                                <span className="font-bold">
-                                    Learn by Doing:
-                                </span>{' '}
-                                Real-world experience is a right, not a
-                                privilege.
-                            </li>
-                        </ul>
+                    <div className="text-container">
+                        <h1 className="title">Our Foundation</h1>
+                        <div className="subsection-content">
+                            <h2 className="subsection-title">Vision</h2>
+                            <p>
+                                A tech industry where every voice is valued and
+                                empowered to lead. We envision a future where
+                                underrepresented talent shapes innovation and
+                                drives meaningful change across the global tech
+                                landscape.
+                            </p>
+                        </div>
+                        <hr className="impact-header" />
+                        <div className="subsection-content">
+                            <h2 className="subsection-title">Mission</h2>
+                            <p>
+                                To empower women, non-binary, and trans
+                                individuals through the power of the tech squad.
+                                We provide the hands-on experience and
+                                mentorship needed to build confidence, launch
+                                careers, and create lasting professional
+                                networks.
+                            </p>
+                        </div>
+                        <hr className="impact-header" />
+                        <div className="subsection-content">
+                            <h2 className="subsection-title">Values</h2>
+                            <ul>
+                                <li>
+                                    <span className="font-bold">
+                                        Community First:
+                                    </span>
+                                    &nbsp;We rise by lifting each other up.
+                                </li>
+                                <li>
+                                    <span className="font-bold">
+                                        Collaboration Over Competition:
+                                    </span>
+                                    &nbsp;We grow faster and better, together.
+                                </li>
+                                <li>
+                                    <span className="font-bold">
+                                        Equity in Action:
+                                    </span>
+                                    &nbsp;Centring the voices historically
+                                    excluded from tech.
+                                </li>
+                                <li>
+                                    <span className="font-bold">
+                                        Reliable Accountability:
+                                    </span>
+                                    &nbsp;We show up for our squads and
+                                    ourselves.
+                                </li>
+                                <li>
+                                    <span className="font-bold">
+                                        Learn by Doing:
+                                    </span>
+                                    &nbsp;Real-world experience is a right, not
+                                    a privilege.
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </section>

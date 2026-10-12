@@ -20,10 +20,6 @@ const SponsorList = () => {
                         (r) => r.fields['Active Status'] !== 'No'
                     )
                 )
-                console.log('data.records')
-                console.log(data.records)
-                //Need to filter data.records by active status
-                //and create a container around individual sponsor logos
             })
             .catch((error) => console.error(error))
     }, [])
@@ -32,9 +28,9 @@ const SponsorList = () => {
         <>
             <div className="sponsor-list">
                 {records &&
-                    records.map((record) => {
+                    records.map((record, index) => {
                         return (
-                            <div className="sponsor">
+                            <div className="sponsor" key={index}>
                                 <a
                                     href={`${record.fields['Website Link']}`}
                                     target="_blank"
@@ -43,7 +39,7 @@ const SponsorList = () => {
                                     <img
                                         src={assetSrc(
                                             record.fields.Logo[0].thumbnails
-                                                .small.url
+                                                .large.url
                                         )}
                                         alt={`${record.fields['Sponsor Name']} logo image`}
                                     />

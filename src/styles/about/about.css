@@ -46,6 +46,14 @@ section {
     flex-direction: column;
     justify-content: center;
     gap: var(--spacing-x8, 32px);
+
+    .text-container {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-4x, 16px);
+        width: 345px;
+        margin-bottom: 16px;
+    }
 }
 
 .section-impact {
@@ -151,15 +159,21 @@ section {
 }
 
 .sponsor-list {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
     gap: var(--spacing-15, 60px);
-    flex-wrap: wrap;
-    justify-content: center;
+}
+
+.sponsor {
+    display: flex;
+    align-self: center;
+    min-height: 35px;
+    min-width: 90px;
 }
 
 .sponsor img {
-    height: 30px;
+    min-height: 100%;
+    min-width: 100%;
 }
 
 .section-directors {
@@ -281,7 +295,12 @@ section {
         display: flex;
         flex-direction: row;
         background: var(--color-background-white);
-        gap: 10px;
+        gap: 12px;
+    }
+
+    .foundaton-image-container {
+        display: flex;
+        justify-content: center;
     }
 
     .foundation-content {
@@ -289,6 +308,9 @@ section {
         flex-direction: column;
         justify-content: center;
         gap: var(--spacing-x8, 32px);
+        .text-container {
+            width: 450px;
+        }
     }
 
     .section-impact {
@@ -347,6 +369,16 @@ section {
         }
     }
 
+    .sponsor-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
+        gap: var(--spacing-15, 60px);
+    }
+
+    .sponsor img {
+        width: 150px;
+    }
+
     .member-list {
         display: flex;
         flex-direction: row;
@@ -403,13 +435,13 @@ section {
         flex-direction: row;
         background: var(--color-background-white);
         gap: 10px;
+        justify-content: space-between;
     }
 
     .foundation-content {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: var(--spacing-x8, 32px);
+        .text-container {
+            width: 550px;
+        }
     }
 
     .section-impact {
@@ -481,15 +513,19 @@ section {
     }
 
     .sponsor-list {
-        display: flex;
-        flex-direction: row;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
         gap: var(--spacing-15, 60px);
-        flex-wrap: wrap;
+    }
+
+    .sponsor {
+        min-height: 55px;
+        min-width: 200px;
     }
 
     .sponsor img {
-        min-height: 50px;
-        width: 200px;
+        min-height: 55px;
+        min-width: 200px;
     }
 
     .section-directors {
