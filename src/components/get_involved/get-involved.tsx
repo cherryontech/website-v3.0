@@ -172,7 +172,7 @@ const Get_Involved_Page = () => {
                 className="grow-n-fuel section-pink"
             >
                 <div className="grow-n-fuel-content-container">
-                    <div>
+                    <div className="grow-n-fuel-content-block">
                         <h2>Grow with Us</h2>
                         <p>
                             <b>Discover Your Path:</b> Join a squad to learn,
@@ -185,7 +185,7 @@ const Get_Involved_Page = () => {
                         </a>
                     </div>
 
-                    <div>
+                    <div className="grow-n-fuel-content-block">
                         <h2>Fuel the Mission</h2>
                         <p>
                             <b>Support Our Cherries:</b> Your contribution
