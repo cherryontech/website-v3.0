@@ -119,7 +119,9 @@ const Get_Involved_Page = () => {
 
             <section id="help-us-grow" className="help-us-grow section-white">
                 <div className="help-us-grow__container">
-                    <h2 className="help-us-grow__title">Help Us Grow</h2>
+                    <h2 className="help-us-grow__title display-2">
+                        Help Us Grow
+                    </h2>
                     {growActions.map((item) => (
                         <article className="grow-action-card">
                             <img src={item.image} alt="" />

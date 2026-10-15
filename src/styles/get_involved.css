@@ -98,14 +98,7 @@
 }
 
 .help-us-grow__title {
-    align-self: stretch;
-    text-align: center;
-    color: var(--color-text-primary);
-    font-family: var(--font-geologica);
-    font-size: 48px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
+    font-weight: var(--font-weight-bold);
 }
 
 .help-us-grow__container {
