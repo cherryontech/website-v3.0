@@ -110,6 +110,7 @@ function Header() {
 
                 <div
                     className={`mobile-menu ${isMobileMenuOpen ? 'active' : ''}`}
+                    aria-hidden={!isMobileMenuOpen}
                 >
                     <div className="mobile-menu-container">
                         <a href="/">
