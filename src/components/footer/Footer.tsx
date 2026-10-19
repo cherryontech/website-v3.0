@@ -2,7 +2,11 @@ import '../../styles/global.css'
 import '../../styles/footer.css'
 import logo from '../../assets/cherry_on_tech.svg'
 
-export default function Footer() {
+interface FooterProps {
+    currentPath?: string
+}
+
+export default function Footer({ currentPath }: FooterProps) {
     return (
         <div className="footer" id="footer">
             <div className="footer-container">
@@ -57,7 +61,14 @@ export default function Footer() {
                         <h3>Policies</h3>
                         <ul>
                             <li>
-                                <a target="_blank" href="/">
+                                <a
+                                    href="/terms-and-conditions"
+                                    aria-current={
+                                        currentPath === '/terms-and-conditions'
+                                            ? 'page'
+                                            : undefined
+                                    }
+                                >
                                     Terms and Conditions
                                 </a>
                             </li>
