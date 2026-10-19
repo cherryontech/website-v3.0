@@ -9,7 +9,7 @@
         "dev": "astro dev",
         "build": "astro build",
         "preview": "astro preview",
-        "terms-worker:dev": "wrangler dev --config workers/terms-api/wrangler.jsonc",
+        "terms-worker:dev": "wrangler dev --config workers/terms-api/wrangler.jsonc --var CACHE_TTL_SECONDS:604800",
         "terms-worker:deploy": "wrangler deploy --config workers/terms-api/wrangler.jsonc",
         "astro": "astro",
         "prettier": "npx prettier --write --ignore-path .prettierignore .",

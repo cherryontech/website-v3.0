@@ -62,6 +62,8 @@ Pages that use Airtable should retrieve data through the Cloudflare Worker. Keep
 
 For local development, copy `workers/terms-api/.dev.vars.example` to `workers/terms-api/.dev.vars`, then set `AIRTABLE_PAT` and the base ID variables required by the pages you are working on. Set `PUBLIC_TERMS_API_URL` in the root `.env` to the Worker origin; use `http://localhost:8787` locally. Run `npm run terms-worker:dev` and `npm run dev` in separate terminals.
 
+The local Worker caches Airtable responses for one week to reduce API calls during development. The deployed Worker uses a five-minute cache by default. Airtable changes appear after the cached response expires; to show an update immediately, delete or purge the corresponding cached Worker response.
+
 To deploy, set `AIRTABLE_PAT` as a Cloudflare Worker secret and configure the base ID variables used by the implemented endpoints, then run `npm run terms-worker:deploy`.
 
 The current implementation is the Terms and Conditions endpoint, `GET /api/terms-and-conditions`. It reads published records from the `Terms and Conditions` table in the base configured by `AIRTABLE_POLICIES_BASE_ID`, in display order. Other page endpoints can use their own base ID variables and data mappings.

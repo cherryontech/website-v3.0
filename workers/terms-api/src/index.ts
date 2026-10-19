@@ -2,6 +2,7 @@ interface Env {
     AIRTABLE_PAT: string
     AIRTABLE_POLICIES_BASE_ID: string
     AIRTABLE_TABLE_NAME: string
+    CACHE_TTL_SECONDS?: string
 }
 
 interface AirtableRecord {
@@ -40,15 +41,21 @@ const fields = [
 const jsonHeaders = {
     'Content-Type': 'application/json; charset=utf-8',
     'Access-Control-Allow-Origin': '*',
-    'Cache-Control': 'public, max-age=300',
 }
 
-const jsonResponse = (body: unknown, status = 200, cache = true) =>
+const jsonResponse = (
+    body: unknown,
+    status = 200,
+    cache = true,
+    cacheTtlSeconds = 300
+) =>
     Response.json(body, {
         status,
         headers: {
             ...jsonHeaders,
-            ...(cache ? {} : { 'Cache-Control': 'no-store' }),
+            'Cache-Control': cache
+                ? `public, max-age=${cacheTtlSeconds}`
+                : 'no-store',
         },
     })
 
@@ -152,6 +159,12 @@ export default {
         }
 
         const cache = caches.default
+        // Production defaults to five minutes; the local dev script overrides this to one week.
+        const configuredCacheTtl = Number(env.CACHE_TTL_SECONDS)
+        const cacheTtlSeconds =
+            Number.isFinite(configuredCacheTtl) && configuredCacheTtl > 0
+                ? Math.floor(configuredCacheTtl)
+                : 300
         const cacheKey = new Request(new URL(endpointPath, url.origin), {
             method: 'GET',
         })
@@ -160,7 +173,12 @@ export default {
 
         try {
             const records = await fetchPublishedRecords(env)
-            const response = jsonResponse(toTermsPayload(records))
+            const response = jsonResponse(
+                toTermsPayload(records),
+                200,
+                true,
+                cacheTtlSeconds
+            )
             await cache.put(cacheKey, response.clone())
             return response
         } catch {
