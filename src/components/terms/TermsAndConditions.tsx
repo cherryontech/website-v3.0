@@ -32,7 +32,10 @@ const TermsAndConditions = () => {
     const [error, setError] = useState<string | null>(null)
 
     useEffect(() => {
-        const apiUrl = import.meta.env.PUBLIC_TERMS_API_URL?.replace(/\/$/, '')
+        const apiUrl = import.meta.env.PUBLIC_CONTENT_API_URL?.replace(
+            /\/$/,
+            ''
+        )
         if (!apiUrl) {
             setError('Terms and Conditions are temporarily unavailable.')
             return
@@ -40,7 +43,7 @@ const TermsAndConditions = () => {
 
         const controller = new AbortController()
 
-        fetch(`${apiUrl}/api/terms-and-conditions`, {
+        fetch(`${apiUrl}/api/v1/policies/terms-and-conditions`, {
             signal: controller.signal,
         })
             .then((response) => {

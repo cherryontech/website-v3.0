@@ -28,7 +28,7 @@ interface TermsSection {
     displayOrder: number
 }
 
-const endpointPath = '/api/terms-and-conditions'
+const endpointPath = '/api/v1/policies/terms-and-conditions'
 const fields = [
     'Heading Text',
     'Heading Style',
@@ -47,7 +47,7 @@ const jsonResponse = (
     body: unknown,
     status = 200,
     cache = true,
-    cacheTtlSeconds = 300
+    cacheTtlSeconds = 86400
 ) =>
     Response.json(body, {
         status,
@@ -159,12 +159,12 @@ export default {
         }
 
         const cache = caches.default
-        // Production defaults to five minutes; the local dev script overrides this to one week.
+        // Production defaults to one day; the local dev script overrides this to one week.
         const configuredCacheTtl = Number(env.CACHE_TTL_SECONDS)
         const cacheTtlSeconds =
             Number.isFinite(configuredCacheTtl) && configuredCacheTtl > 0
                 ? Math.floor(configuredCacheTtl)
-                : 300
+                : 86400
         const cacheKey = new Request(new URL(endpointPath, url.origin), {
             method: 'GET',
         })
