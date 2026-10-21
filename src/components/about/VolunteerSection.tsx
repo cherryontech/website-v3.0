@@ -30,41 +30,43 @@ const VolunteerSection = () => {
                 className="section-volunteers"
                 aria-labelledby="volunteers-title"
             >
-                <div className="text-container">
-                    <h1>Our Helping Cherries</h1>
-                    <p>
-                        Cherry On Tech is powered by an incredible, rotating
-                        squad of mentors and community members who dedicate
-                        their time to building together. Whether sharing
-                        industry expertise or helping behind the scenes, every
-                        contributor keeps our ecosystem growing.
-                    </p>
-                </div>
-                <div className="volunteer-tables">
-                    <h2 className="volunteer-title">The Community Squad</h2>
-                    {records && records ? (
-                        <VolunteerTable
-                            title="Community Squad members"
-                            url={
-                                'https://airtable.com/embed/appQGB7QVsOOx0rX1/shrtN10W9uJvICrBp'
-                            }
-                        />
-                    ) : (
-                        <EmptyStateCard />
-                    )}
-                </div>
-                <div>
-                    <h2 className="volunteer-title">Guest Cherries</h2>
-                    {records && records ? (
-                        <VolunteerTable
-                            title="Guest cherries"
-                            url={
-                                'https://airtable.com/embed/appQGB7QVsOOx0rX1/shrHSd5CTlUEzeYuj'
-                            }
-                        />
-                    ) : (
-                        <EmptyStateCard />
-                    )}
+                <div className="section-container">
+                    <div className="text-container header-content-container">
+                        <h1>Our Helping Cherries</h1>
+                        <p>
+                            Cherry On Tech is powered by an incredible, rotating
+                            squad of mentors and community members who dedicate
+                            their time to building together. Whether sharing
+                            industry expertise or helping behind the scenes,
+                            every contributor keeps our ecosystem growing.
+                        </p>
+                    </div>
+                    <div className="volunteer-tables">
+                        <h2 className="volunteer-title">The Community Squad</h2>
+                        {records && records ? (
+                            <VolunteerTable
+                                title="Community Squad members"
+                                url={
+                                    'https://airtable.com/embed/appQGB7QVsOOx0rX1/shrtN10W9uJvICrBp'
+                                }
+                            />
+                        ) : (
+                            <EmptyStateCard />
+                        )}
+                    </div>
+                    <div>
+                        <h2 className="volunteer-title">Guest Cherries</h2>
+                        {records && records ? (
+                            <VolunteerTable
+                                title="Guest cherries"
+                                url={
+                                    'https://airtable.com/embed/appQGB7QVsOOx0rX1/shrHSd5CTlUEzeYuj'
+                                }
+                            />
+                        ) : (
+                            <EmptyStateCard />
+                        )}
+                    </div>
                 </div>
             </section>
         </>

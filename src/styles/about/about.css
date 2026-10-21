@@ -1,7 +1,12 @@
 /* MOBILE SCREEN BY DEFAULT */
 
+html {
+    scroll-behavior: smooth;
+}
+
 section {
     padding: var(--spacing-15, 60px) var(--spacing-6, 24px);
+    overflow: hidden;
 }
 
 .section-hero {
@@ -12,16 +17,29 @@ section {
     align-items: center;
 }
 
+.section-grid {
+    display: grid;
+    gap: 34px;
+    min-height: auto;
+    align-items: center;
+    width: auto;
+}
+
+.section-grid .hero {
+    grid-template-columns: 1fr;
+}
+
+.section-container {
+    width: min(100% - var(--spacing-12, 48px), 430px);
+    margin-inline: auto;
+}
+
 .hero-details {
     display: flex;
     flex-direction: column;
     height: 345px;
     gap: 32px var(--spacing-8, 32px);
     align-items: center;
-}
-
-.impact-header {
-    color: var(--color-border-subtle-00);
 }
 
 .word-highlight {
@@ -33,6 +51,11 @@ section {
     flex-direction: column;
     background: var(--color-background-white);
     gap: 10px;
+}
+
+.section-grid .foundation {
+    grid-template-columns: 2fr;
+    gap: 40px;
 }
 
 .subsection-content {
@@ -63,17 +86,38 @@ section {
     gap: var(--spacing-8, 32px);
 }
 
-.card-list {
+.impact-grid {
     display: flex;
     flex-direction: column;
-    padding: 16px;
     gap: var(--spacing-8, 32px);
+    align-items: center;
+    width: 100%;
 }
 
 .impact-content {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-4, 16px);
+}
+
+.header-content-container {
+    width: min(100% - var(--spacing-12, 48px), 430px);
+}
+
+.section-grid .impact {
+    grid-template-columns: 2fr;
+}
+
+.impact-header {
+    color: var(--color-border-subtle-00);
+}
+
+.card-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 16px;
+    gap: var(--spacing-8, 32px);
 }
 
 .impact-card {
@@ -127,6 +171,12 @@ section {
     background: var(--color-background-secondary-pink);
 }
 
+.sponsor-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-8, 32px);
+}
+
 .sponsor-display {
     display: flex;
     flex-direction: column;
@@ -162,6 +212,7 @@ section {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
     gap: var(--spacing-15, 60px);
+    justify-content: center;
 }
 
 .sponsor {
@@ -183,11 +234,19 @@ section {
     flex-direction: column;
 }
 
+.team-members-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 22px;
+}
+
 .director-content {
     display: flex;
     flex-direction: column;
     text-align: start;
+    align-items: center;
     gap: var(--spacing-8x, 32px);
+    width: 100%;
 }
 
 .section-title {
@@ -204,6 +263,7 @@ section {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    justify-content: center;
     align-items: center;
 }
 
@@ -286,6 +346,19 @@ section {
         gap: 10px;
         align-items: center;
     }
+
+    .section-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 34px;
+        min-height: auto;
+        align-items: center;
+    }
+
+    .section-container {
+        width: min(100% - 72px, 900px);
+    }
+
     .hero-details {
         height: 500px;
         padding: 0;
@@ -294,6 +367,8 @@ section {
     .section-foundation {
         display: flex;
         flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
         background: var(--color-background-white);
         gap: 12px;
     }
@@ -318,6 +393,12 @@ section {
         display: flex;
         flex-direction: column;
         gap: var(--spacing-8, 32px);
+    }
+
+    .header-content-container,
+    .card-list,
+    .member-list {
+        width: min(100%, 900px);
     }
 
     .card-list {
@@ -357,8 +438,6 @@ section {
     }
 
     .section-text {
-        display: flex;
-        flex-direction: column;
         margin-bottom: var(--spacing-8x, 32px);
         text-align: start;
     }
@@ -383,11 +462,6 @@ section {
         display: flex;
         flex-direction: row;
         gap: 12px;
-    }
-
-    .member-card {
-        display: flex;
-        flex-direction: column;
     }
 
     .member-card-image {
@@ -417,6 +491,11 @@ section {
     section {
         padding: var(--spacing-25, 100px) var(--spacing-33, 132px);
     }
+
+    .section-container {
+        width: min(100% - 160px, 1216px);
+    }
+
     .section-hero {
         background: var(--color-background-secondary-pink);
         display: flex;
@@ -450,14 +529,21 @@ section {
         flex-direction: column;
         gap: var(--spacing-8, 32px);
     }
+
     .card-list {
         display: flex;
         flex-direction: row;
         gap: var(--spacing-8, 32px);
     }
 
+    .header-content-container,
+    .card-list,
+    .member-list {
+        width: min(100%, 1216px);
+    }
+
     .impact-card {
-        width: 450px;
+        min-width: 415px;
         height: 450px;
         padding: var(--spacing-10, 40px);
         border-radius: var(--spacing-2, 8px);

@@ -18,140 +18,150 @@ const AboutPage = () => {
     return (
         <>
             <section className="section-hero" aria-labelledby="home-title">
-                <div className="hero-details">
-                    <div>
-                        <div className="display-1 font-geologica font-bold">
-                            The <span className="word-highlight">Spark</span>{' '}
-                            Behind the Movement
+                <div className="section-grid hero section-container">
+                    <div className="hero-details">
+                        <div>
+                            <div className="display-1 font-geologica font-bold">
+                                The{' '}
+                                <span className="word-highlight">Spark</span>{' '}
+                                Behind the Movement
+                            </div>
+                            <h1 className="font-normal">
+                                Building a tech industry that looks like the
+                                real world.
+                            </h1>
                         </div>
-                        <h1 className="font-normal">
-                            Building a tech industry that looks like the real
-                            world.
-                        </h1>
+                        <a href="#team-members" className="btn btn-stroke">
+                            Meet the Bunch
+                        </a>
                     </div>
-                    <a href="#team-members" className="btn btn-stroke">
-                        Meet the Bunch
-                    </a>
-                </div>
-                <div>
-                    <img src={assetSrc(aboutHero)} alt="" />
+                    <div>
+                        <img src={assetSrc(aboutHero)} alt="" />
+                    </div>
                 </div>
             </section>
             <section
                 className="section-foundation"
                 aria-labelledby="foundation-title"
             >
-                <div className="foundaton-image-container">
-                    <img
-                        src={assetSrc(aboutFoundation)}
-                        alt="foundation image"
-                    />
-                </div>
-                <div className="foundation-content">
-                    <div className="text-container">
-                        <h1 className="title">Our Foundation</h1>
-                        <div className="subsection-content">
-                            <h2 className="subsection-title">Vision</h2>
-                            <p>
-                                A tech industry where every voice is valued and
-                                empowered to lead. We envision a future where
-                                underrepresented talent shapes innovation and
-                                drives meaningful change across the global tech
-                                landscape.
-                            </p>
-                        </div>
-                        <hr className="impact-header" />
-                        <div className="subsection-content">
-                            <h2 className="subsection-title">Mission</h2>
-                            <p>
-                                To empower women, non-binary, and trans
-                                individuals through the power of the tech squad.
-                                We provide the hands-on experience and
-                                mentorship needed to build confidence, launch
-                                careers, and create lasting professional
-                                networks.
-                            </p>
-                        </div>
-                        <hr className="impact-header" />
-                        <div className="subsection-content">
-                            <h2 className="subsection-title">Values</h2>
-                            <ul>
-                                <li>
-                                    <span className="font-bold">
-                                        Community First:
-                                    </span>
-                                    &nbsp;We rise by lifting each other up.
-                                </li>
-                                <li>
-                                    <span className="font-bold">
-                                        Collaboration Over Competition:
-                                    </span>
-                                    &nbsp;We grow faster and better, together.
-                                </li>
-                                <li>
-                                    <span className="font-bold">
-                                        Equity in Action:
-                                    </span>
-                                    &nbsp;Centring the voices historically
-                                    excluded from tech.
-                                </li>
-                                <li>
-                                    <span className="font-bold">
-                                        Reliable Accountability:
-                                    </span>
-                                    &nbsp;We show up for our squads and
-                                    ourselves.
-                                </li>
-                                <li>
-                                    <span className="font-bold">
-                                        Learn by Doing:
-                                    </span>
-                                    &nbsp;Real-world experience is a right, not
-                                    a privilege.
-                                </li>
-                            </ul>
+                <div className="section-grid foundation section-container">
+                    <div className="foundaton-image-container">
+                        <img
+                            src={assetSrc(aboutFoundation)}
+                            alt="foundation image"
+                        />
+                    </div>
+                    <div className="foundation-content">
+                        <div className="text-container">
+                            <h1 className="title">Our Foundation</h1>
+                            <div className="subsection-content">
+                                <h2 className="subsection-title">Vision</h2>
+                                <p>
+                                    A tech industry where every voice is valued
+                                    and empowered to lead. We envision a future
+                                    where underrepresented talent shapes
+                                    innovation and drives meaningful change
+                                    across the global tech landscape.
+                                </p>
+                            </div>
+                            <hr className="impact-header" />
+                            <div className="subsection-content">
+                                <h2 className="subsection-title">Mission</h2>
+                                <p>
+                                    To empower women, non-binary, and trans
+                                    individuals through the power of the tech
+                                    squad. We provide the hands-on experience
+                                    and mentorship needed to build confidence,
+                                    launch careers, and create lasting
+                                    professional networks.
+                                </p>
+                            </div>
+                            <hr className="impact-header" />
+                            <div className="subsection-content">
+                                <h2 className="subsection-title">Values</h2>
+                                <ul>
+                                    <li>
+                                        <span className="font-bold">
+                                            Community First:
+                                        </span>
+                                        &nbsp;We rise by lifting each other up.
+                                    </li>
+                                    <li>
+                                        <span className="font-bold">
+                                            Collaboration Over Competition:
+                                        </span>
+                                        &nbsp;We grow faster and better,
+                                        together.
+                                    </li>
+                                    <li>
+                                        <span className="font-bold">
+                                            Equity in Action:
+                                        </span>
+                                        &nbsp;Centring the voices historically
+                                        excluded from tech.
+                                    </li>
+                                    <li>
+                                        <span className="font-bold">
+                                            Reliable Accountability:
+                                        </span>
+                                        &nbsp;We show up for our squads and
+                                        ourselves.
+                                    </li>
+                                    <li>
+                                        <span className="font-bold">
+                                            Learn by Doing:
+                                        </span>
+                                        &nbsp;Real-world experience is a right,
+                                        not a privilege.
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
             <section className="section-impact" aria-labelledby="impact-title">
-                <div className="impact-content">
-                    <h1>Impact in Action</h1>
-                    <p>
-                        When marginalized genders collaborate, the results are
-                        powerful.
-                    </p>
-                </div>
-                <div className="card-list">
-                    {impactCardData.map((card) => (
-                        <ImpactCard
-                            imageName={card.imageName}
-                            title={card.title}
-                            text={card.text}
-                            titleSize={card.titleSize}
-                        />
-                    ))}
+                <div className="impact-grid">
+                    <div className="impact-content header-content-container">
+                        <h1>Impact in Action</h1>
+                        <p>
+                            When marginalized genders collaborate, the results
+                            are powerful.
+                        </p>
+                    </div>
+                    <div className="card-list">
+                        {impactCardData.map((card) => (
+                            <ImpactCard
+                                imageName={card.imageName}
+                                title={card.title}
+                                text={card.text}
+                                titleSize={card.titleSize}
+                            />
+                        ))}
+                    </div>
                 </div>
             </section>
             <section
                 className="section-journey"
                 aria-labelledby="journey-title"
             >
-                <h1>Our Journey Highlights</h1>
-                <div>
-                    <div className="journey-card-list">
-                        {journeyCardData.map((card, index) => (
-                            <>
-                                <div className="journey-card-list-item">
-                                    <JourneyCard
-                                        date={card.date}
-                                        title={card.title}
-                                        entry={card.entry}
-                                        index={index}
-                                    />
-                                </div>
-                            </>
-                        ))}
+                <div className="journey-grid">
+                    <h1>Our Journey Highlights</h1>
+                    <div>
+                        <div className="journey-card-list">
+                            {journeyCardData.map((card, index) => (
+                                <>
+                                    <div className="journey-card-list-item">
+                                        <JourneyCard
+                                            date={card.date}
+                                            title={card.title}
+                                            entry={card.entry}
+                                            index={index}
+                                        />
+                                    </div>
+                                </>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </section>
@@ -159,30 +169,32 @@ const AboutPage = () => {
                 className="section-sponsors"
                 aria-labelledby="sponsor-title"
             >
-                <div className="sponsor-display">
-                    <div className="sponsor-display-title display-3 font-bold">
-                        With Gratitude to Our Cherry Supporters
+                <div className="section-container">
+                    <div className="sponsor-display">
+                        <div className="sponsor-display-title display-3 font-bold">
+                            With Gratitude to Our Cherry Supporters
+                        </div>
+                        <div>
+                            <SponsorList />
+                        </div>
                     </div>
-                    <div>
-                        <SponsorList />
+                    <div className="sponsor-text">
+                        <div className="text-container">
+                            <h1 className="sponsor-text-title">
+                                Support the Cherries
+                            </h1>
+                            <p>
+                                Our community runs on collective
+                                energy—including yours. Whether you give time,
+                                tools, or funding, you help keep our programs
+                                free and accessible. Let’s work together to make
+                                the tech industry a whole lot sweeter.
+                            </p>
+                        </div>
+                        <a href="/get-involved" className="btn btn-stroke">
+                            Help us Grow
+                        </a>
                     </div>
-                </div>
-                <div className="sponsor-text">
-                    <div className="text-container">
-                        <h1 className="sponsor-text-title">
-                            Support the Cherries
-                        </h1>
-                        <p>
-                            Our community runs on collective energy—including
-                            yours. Whether you give time, tools, or funding, you
-                            help keep our programs free and accessible. Let’s
-                            work together to make the tech industry a whole lot
-                            sweeter.
-                        </p>
-                    </div>
-                    <a href="/get-involved" className="btn btn-stroke">
-                        Help us Grow
-                    </a>
                 </div>
             </section>
             <section
@@ -194,7 +206,7 @@ const AboutPage = () => {
                     Meet the Bunch
                 </div>
                 <div className="director-content">
-                    <div className="section-text">
+                    <div className="section-text header-content-container">
                         <h1>The Core Bunch</h1>
                         <p>
                             The leadership team behind our community, programs,

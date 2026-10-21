@@ -7,13 +7,6 @@ interface ImpactCardProps {
     titleSize: string
 }
 
-//heading 3 for mobile and tablet
-//heading 2 for desktop
-
-//Display 3 for first two cards on desktop
-//Display 2 for first two cards on desktop
-//Display 1 for infinity symbol, regardless of screen size
-
 const ImpactCard = ({ imageName, title, text, titleSize }: ImpactCardProps) => {
     return (
         <div className="impact-card">
