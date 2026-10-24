@@ -23,13 +23,13 @@ const Programs_Page = () => {
                                 Cherry Launchpad
                             </a>
                             <a
-                                href="cherry-squads"
+                                href="#cherry-squads"
                                 className="btn btn-secondary"
                             >
                                 Cherry Squads
                             </a>
                             <a
-                                href="cherry-careers"
+                                href="#cherry-careers"
                                 className="btn btn-secondary"
                             >
                                 Cherry Careers
