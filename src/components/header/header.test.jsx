@@ -8,6 +8,8 @@ describe('Header component - basic rendering test group', () => {
         // get all by role for th accessible name aka the alt text - get all because there are two logo imports for desktop and mobile - returns array - use regex for case insensitivity
         const logoImages = screen.getAllByRole('img', {
             name: /cherry on tech home/i,
+            // add this since with the new aria-hidden attribute for the mobile menu, the test starts with the menu closed to ensure the tests render first for the default nav - testing ignores elements with hidden true by default
+            hidden: true,
         })
 
         // check there are two rendering
@@ -37,7 +39,10 @@ describe('Header component - basic rendering test group', () => {
         // check for each
         navLinks.forEach(({ name, href }) => {
             // get the full array - get all by role
-            const links = screen.getAllByRole('link', { name })
+            const links = screen.getAllByRole('link', {
+                name,
+                hidden: true,
+            })
 
             expect(links).toHaveLength(2)
 
@@ -54,6 +59,7 @@ describe('Header component - basic rendering test group', () => {
         // get all instance of the button in desktop and mobile menu - gives array
         const connectButtons = screen.getAllByRole('link', {
             name: /connect with u/i,
+            hidden: true,
         })
 
         // do both exist
@@ -72,6 +78,7 @@ describe('Header component - basic rendering test group', () => {
         // arr of links with this name
         const newsletterLinks = screen.getAllByRole('link', {
             name: /get fresh news/i,
+            hidden: true,
         })
 
         // expect it in both desktop and mobile
