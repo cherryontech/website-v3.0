@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import ReactMarkdown from 'react-markdown'
 import privacyIllustration from '../../assets/policies/privacy.svg'
-import '../../styles/terms-and-conditions.css'
+import '../../styles/policies.css'
 
 interface PolicySection {
     heading: string
