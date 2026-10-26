@@ -15,6 +15,14 @@ interface TermsResponse {
     sections: TermsSection[]
 }
 
+const systemMessages = {
+    loading_msg_branded: 'Cherry-picking the goods...🍒',
+    global_err_fetch_failed: {
+        headline: 'Temporarily unavailable.',
+        uiCopy: 'Unable to fetch {content_type} right now.',
+    },
+}
+
 const formatDate = (date: string) => {
     const parsedDate = new Date(`${date.slice(0, 10)}T00:00:00Z`)
     if (Number.isNaN(parsedDate.getTime())) return date
@@ -37,7 +45,12 @@ const TermsAndConditions = () => {
             ''
         )
         if (!apiUrl) {
-            setError('Terms and Conditions are temporarily unavailable.')
+            setError(
+                systemMessages.global_err_fetch_failed.uiCopy.replace(
+                    '{content_type}',
+                    'Terms and Conditions'
+                )
+            )
             return
         }
 
@@ -58,7 +71,12 @@ const TermsAndConditions = () => {
                 ) {
                     return
                 }
-                setError('Terms and Conditions are temporarily unavailable.')
+                setError(
+                    systemMessages.global_err_fetch_failed.uiCopy.replace(
+                        '{content_type}',
+                        'Terms and Conditions'
+                    )
+                )
             })
 
         return () => controller.abort()
@@ -100,8 +118,20 @@ const TermsAndConditions = () => {
                 aria-label="Terms and Conditions"
             >
                 <div className="terms-body" aria-live="polite">
-                    {!content && !error && <p>Loading Terms and Conditions…</p>}
-                    {error && <p role="alert">{error}</p>}
+                    {!content && !error && (
+                        <p>{systemMessages.loading_msg_branded}</p>
+                    )}
+                    {error && (
+                        <div role="alert">
+                            <h2>
+                                {
+                                    systemMessages.global_err_fetch_failed
+                                        .headline
+                                }
+                            </h2>
+                            <p>{error}</p>
+                        </div>
+                    )}
                     {content?.sections.map((section) => (
                         <article
                             className="terms-section"
