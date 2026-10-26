@@ -85,7 +85,14 @@ export default function Footer({ currentPath }: FooterProps) {
                                 </a>
                             </li>
                             <li>
-                                <a target="_blank" href="/">
+                                <a
+                                    href="/code-of-conduct"
+                                    aria-current={
+                                        currentPath === '/code-of-conduct'
+                                            ? 'page'
+                                            : undefined
+                                    }
+                                >
                                     Code of Conduct
                                 </a>
                             </li>

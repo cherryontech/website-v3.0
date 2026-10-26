@@ -22,7 +22,7 @@ interface AirtableResponse {
 }
 
 interface TermsSection {
-    heading: string
+    heading?: string
     headingLevel: 2 | 3
     body: string
     displayOrder: number
@@ -31,6 +31,7 @@ interface TermsSection {
 const policyEndpoints: Record<string, string> = {
     '/api/v1/policies/terms-and-conditions': 'Terms and Conditions',
     '/api/v1/policies/privacy-policy': 'Privacy Policy',
+    '/api/v1/policies/code-of-conduct': 'Code of Conduct',
 }
 const fields = [
     'Heading Text',
@@ -100,7 +101,7 @@ async function fetchPublishedRecords(
     return records.filter((record) => record.fields.Published === true)
 }
 
-function toTermsPayload(records: AirtableRecord[]) {
+function toPolicyPayload(records: AirtableRecord[]) {
     let lastUpdated: string | null = null
     const sections: TermsSection[] = []
 
@@ -108,9 +109,7 @@ function toTermsPayload(records: AirtableRecord[]) {
         const { fields: recordFields } = record
         const heading = recordFields['Heading Text']?.trim()
 
-        if (!heading) continue
-
-        if (heading.toLowerCase() === 'last updated') {
+        if (heading?.toLowerCase() === 'last updated') {
             lastUpdated = recordFields['Last Updated'] ?? null
             continue
         }
@@ -119,7 +118,7 @@ function toTermsPayload(records: AirtableRecord[]) {
         if (!body) continue
 
         sections.push({
-            heading,
+            heading: heading || undefined,
             headingLevel: recordFields['Heading Style'] === 'Heading 2' ? 3 : 2,
             body,
             displayOrder: recordFields['Display Order'] ?? 0,
@@ -185,7 +184,7 @@ export default {
                     : tableName
             )
             const response = jsonResponse(
-                toTermsPayload(records),
+                toPolicyPayload(records),
                 200,
                 true,
                 cacheTtlSeconds
