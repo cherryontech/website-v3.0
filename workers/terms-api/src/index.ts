@@ -28,7 +28,10 @@ interface TermsSection {
     displayOrder: number
 }
 
-const endpointPath = '/api/v1/policies/terms-and-conditions'
+const policyEndpoints: Record<string, string> = {
+    '/api/v1/policies/terms-and-conditions': 'Terms and Conditions',
+    '/api/v1/policies/privacy-policy': 'Privacy Policy',
+}
 const fields = [
     'Heading Text',
     'Heading Style',
@@ -59,8 +62,10 @@ const jsonResponse = (
         },
     })
 
-async function fetchPublishedRecords(env: Env): Promise<AirtableRecord[]> {
-    const tableName = env.AIRTABLE_TABLE_NAME || 'Terms and Conditions'
+async function fetchPublishedRecords(
+    env: Env,
+    tableName: string
+): Promise<AirtableRecord[]> {
     let offset: string | undefined
     const records: AirtableRecord[] = []
 
@@ -142,7 +147,8 @@ export default {
             })
         }
 
-        if (url.pathname !== endpointPath) {
+        const tableName = policyEndpoints[url.pathname]
+        if (!tableName) {
             return jsonResponse({ error: 'Not found' }, 404, false)
         }
 
@@ -165,14 +171,19 @@ export default {
             Number.isFinite(configuredCacheTtl) && configuredCacheTtl > 0
                 ? Math.floor(configuredCacheTtl)
                 : 86400
-        const cacheKey = new Request(new URL(endpointPath, url.origin), {
+        const cacheKey = new Request(new URL(url.pathname, url.origin), {
             method: 'GET',
         })
         const cached = await cache.match(cacheKey)
         if (cached) return cached
 
         try {
-            const records = await fetchPublishedRecords(env)
+            const records = await fetchPublishedRecords(
+                env,
+                url.pathname === '/api/v1/policies/terms-and-conditions'
+                    ? env.AIRTABLE_TABLE_NAME || tableName
+                    : tableName
+            )
             const response = jsonResponse(
                 toTermsPayload(records),
                 200,
@@ -183,7 +194,7 @@ export default {
             return response
         } catch {
             return jsonResponse(
-                { error: 'Unable to load Terms and Conditions' },
+                { error: `Unable to load ${tableName}` },
                 502,
                 false
             )
