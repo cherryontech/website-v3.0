@@ -66,4 +66,4 @@ The local Worker caches Airtable responses for one week to reduce API calls duri
 
 To deploy, set `AIRTABLE_PAT` as a Cloudflare Worker secret and configure the base ID variables used by the implemented endpoints, then run `npm run terms-worker:deploy`.
 
-The current implementation is the Terms and Conditions endpoint, `GET /api/terms-and-conditions`. It reads published records from the `Terms and Conditions` table in the base configured by `AIRTABLE_POLICIES_BASE_ID`, in display order. Other page endpoints can use their own base ID variables and data mappings.
+The implemented policy endpoints are `GET /api/v1/policies/terms-and-conditions` and `GET /api/v1/policies/privacy-policy`. They read published records from the `Terms and Conditions` and `Privacy Policy` tables in the base configured by `AIRTABLE_POLICIES_BASE_ID`, in display order.
