@@ -30,7 +30,7 @@ const VolunteerSection = () => {
                 className="section-volunteers"
                 aria-labelledby="volunteers-title"
             >
-                <div className="section-container">
+                <div className="volunteer-container">
                     <div className="text-container header-content-container">
                         <h1>Our Helping Cherries</h1>
                         <p>
