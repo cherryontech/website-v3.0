@@ -147,7 +147,7 @@ const AboutPage = () => {
             >
                 <div className="journey-grid">
                     <h1>Our Journey Highlights</h1>
-                    <div>
+                    <div className="journey-card-list-container">
                         <div className="journey-card-list">
                             {journeyCardData.map((card, index) => (
                                 <>
