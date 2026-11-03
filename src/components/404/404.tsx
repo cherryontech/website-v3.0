@@ -24,7 +24,7 @@ const Not_Found_404_Page = () => {
                 <div className="content_block">
                     <h1>Looks like this page popped!</h1>
                     <h3>Let’s get back to the sweet stuff. 🍒</h3>
-                    <a className="link" onClick={() => goBack()}>
+                    <a className="link back_button" onClick={() => goBack()}>
                         <Icon
                             name="arrow-left"
                             aria-hidden="true"

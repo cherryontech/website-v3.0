@@ -24,6 +24,14 @@
     padding-bottom: 32px;
 }
 
+.back_button {
+    display: flex;
+    padding: var(--Spacing-x3, 12px) var(--spacing-x-05, 2px);
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-2, 8px);
+}
+
 .sr-only {
     position: absolute;
     width: 1px;
