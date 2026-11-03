@@ -1,5 +1,7 @@
 .main-section {
     background: var(--color-background-white);
+    padding: var(--spacing-10, 40px) var(--spacing-6, 24px)
+        var(--spacing-25, 100px) var(--spacing-6, 24px);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -71,13 +73,5 @@
 
     .content_block {
         width: 345px;
-    }
-}
-
-/* Mobile */
-@media (max-width: 767px) {
-    .main-section {
-        padding: var(--spacing-10, 40px) var(--spacing-6, 24px)
-            var(--spacing-25, 100px) var(--spacing-6, 24px);
     }
 }
