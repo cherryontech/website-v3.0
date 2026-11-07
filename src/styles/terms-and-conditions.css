@@ -69,10 +69,10 @@
 .terms-content {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 60px;
     width: min(100%, 1120px);
     margin: 0 auto;
-    padding: 40px 24px 64px;
+    padding: 60px 24px;
     box-sizing: border-box;
 }
 
@@ -157,7 +157,8 @@
     }
 
     .terms-content {
-        padding: 100px 60px 72px;
+        gap: 100px;
+        padding: 100px 60px;
     }
 
     .terms-body {
@@ -177,7 +178,7 @@
     }
 
     .terms-intro {
-        padding: 56px 48px;
+        padding: 100px 132px;
     }
 
     .terms-intro h1 {
@@ -189,7 +190,7 @@
         grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
         align-items: stretch;
         gap: 64px;
-        padding: 56px 48px 88px;
+        padding: 100px 132px;
     }
 
     .terms-body {
