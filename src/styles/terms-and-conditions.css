@@ -131,6 +131,10 @@
     text-decoration: underline;
 }
 
+.terms-copy a[href^='mailto:'] {
+    color: var(--color-text-primary);
+}
+
 .terms-illustration {
     width: min(100%, 360px);
     margin: 0 auto;
@@ -149,11 +153,16 @@
     }
 
     .terms-intro {
-        padding: 56px 36px;
+        padding: 56px 60px;
     }
 
     .terms-content {
-        padding: 48px 36px 72px;
+        padding: 100px 60px 72px;
+    }
+
+    .terms-body {
+        width: min(100%, 550px);
+        margin: 0 auto;
     }
 
     .terms-illustration {
@@ -181,6 +190,15 @@
         align-items: stretch;
         gap: 64px;
         padding: 56px 48px 88px;
+    }
+
+    .terms-body {
+        width: auto;
+        margin: 0;
+    }
+
+    .terms-section h2 {
+        font-size: 30px;
     }
 
     .terms-illustration {
