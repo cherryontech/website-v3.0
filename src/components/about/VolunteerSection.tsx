@@ -8,21 +8,7 @@ interface VolunteerTableProps {
 const VolunteerSection = () => {
     const [records, setRecords] = useState(null)
 
-    useEffect(() => {
-        fetch(
-            `https://api.airtable.com/v0/${import.meta.env.PUBLIC_VOLUNTEER_BASE_ID}/${encodeURIComponent(import.meta.env.PUBLIC_VOLUNTEER_TABLE_NAME)}`,
-            {
-                headers: {
-                    Authorization: `Bearer ${import.meta.env.PUBLIC_AIRTABLE_PAT}`,
-                },
-            }
-        )
-            .then((response) => response.json())
-            .then((data) => {
-                setRecords(data.records.length)
-            })
-            .catch((error) => console.error(error))
-    }, [])
+    //Placeholder for fetching volunteer records
 
     return (
         <>

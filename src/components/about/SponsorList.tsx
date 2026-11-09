@@ -4,25 +4,7 @@ import { assetSrc } from '../../util/assetSrc'
 const SponsorList = () => {
     const [records, setRecords] = useState<any>()
 
-    useEffect(() => {
-        fetch(
-            `https://api.airtable.com/v0/${import.meta.env.PUBLIC_SPONSORS_BASE_ID}/${encodeURIComponent(import.meta.env.PUBLIC_SPONSORS_TABLE_NAME)}`,
-            {
-                headers: {
-                    Authorization: `Bearer ${import.meta.env.PUBLIC_AIRTABLE_PAT}`,
-                },
-            }
-        )
-            .then((response) => response.json())
-            .then((data) => {
-                setRecords(
-                    data.records.filter(
-                        (r) => r.fields['Active Status'] !== 'No'
-                    )
-                )
-            })
-            .catch((error) => console.error(error))
-    }, [])
+    //placeholder for fetching sponor records
 
     return (
         <>
