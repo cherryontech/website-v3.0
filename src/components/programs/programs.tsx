@@ -46,7 +46,15 @@ const Programs_Page = () => {
             </section>
 
             <section className="section-white">
-                <div>[...2nd-4th sections go here...]</div>
+                <div>[...2nd section go here...]</div>
+            </section>
+
+            <section className="section-pink">
+                <div>[...3rd section go here...]</div>
+            </section>
+
+            <section className="section-white">
+                <div>[...4th section go here...]</div>
             </section>
 
             <section className="section-still-have-qs section-pink">
@@ -54,7 +62,10 @@ const Programs_Page = () => {
                     <h1>Still Have Questions?</h1>
                     <p>
                         Reach out to us at{' '}
-                        <a href="mailto:programs@cherryontech.org">
+                        <a
+                            className="email"
+                            href="mailto:programs@cherryontech.org"
+                        >
                             programs@cherryontech.org
                         </a>{' '}
                         for any program questions.
