@@ -1,0 +1,627 @@
+/* MOBILE SCREEN BY DEFAULT */
+
+html {
+    scroll-behavior: smooth;
+}
+
+section {
+    padding: var(--spacing-15, 60px) var(--spacing-6, 24px);
+    overflow: hidden;
+}
+
+.section-hero {
+    background: var(--color-background-secondary-pink);
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+}
+
+.section-grid {
+    display: grid;
+    gap: 54px;
+    min-height: auto;
+    align-items: center;
+    width: auto;
+}
+
+.section-grid .hero {
+    grid-template-columns: 1fr;
+}
+
+.section-container {
+    width: min(100% - var(--spacing-12, 48px), 430px);
+    margin-inline: auto;
+}
+
+.hero-details {
+    display: flex;
+    flex-direction: column;
+    height: 345px;
+    gap: 32px;
+    align-items: center;
+}
+
+.word-highlight {
+    color: var(--color-primary-03);
+}
+
+.section-foundation {
+    display: flex;
+    flex-direction: column;
+    background: var(--color-background-white);
+    gap: 10px;
+}
+
+.subsection-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-4x, 16px);
+}
+
+.foundation-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--spacing-x8, 32px);
+
+    .text-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-4x, 16px);
+        margin-bottom: 16px;
+    }
+}
+
+.section-impact {
+    background: var(--color-background-secondary-pink);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-8, 32px);
+}
+
+.impact-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-8, 32px);
+    align-items: center;
+    width: 100%;
+}
+
+.impact-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-4, 16px);
+}
+
+.header-content-container {
+    width: min(100% - var(--spacing-12, 48px), 430px);
+}
+
+.section-grid .impact {
+    grid-template-columns: 2fr;
+}
+
+.impact-header {
+    color: var(--color-border-subtle-00);
+}
+
+.card-list {
+    display: grid;
+    gap: var(--spacing-8, 32px);
+    grid-template-columns: 1fr;
+    justify-content: center;
+    padding: 16px;
+}
+
+.impact-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 325px;
+    padding: var(--spacing-10, 40px);
+    background: var(--color-background-white);
+    border: 4px solid var(--color-border-subtle-00);
+    border-radius: var(--spacing-2, 8px);
+    text-align: center;
+}
+
+.impact-card-image {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    height: 175px;
+    border-radius: 8px;
+    img {
+        max-width: 175px;
+        max-height: 175px;
+    }
+}
+
+.impact-card-content {
+    position: relative;
+    top: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 90px;
+}
+
+.impact-card-title {
+    font-family: var(--font-geologica);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--text-4xl);
+
+    &.large {
+        font-size: var(--text-6xl);
+        font-weight: var(--font-weight-extrabold);
+        line-height: 1;
+    }
+}
+
+.impact-card-text {
+    font-size: var(--text-lg);
+}
+
+.section-sponsors {
+    background: var(--color-background-secondary-pink);
+}
+
+.sponsor-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-8, 32px);
+}
+
+.sponsor-display {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: var(--spacing-25, 100px);
+}
+
+.sponsor-display-title {
+    padding-bottom: var(--spacing-15, 60px);
+    text-align: center;
+}
+
+.sponsor-text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing4x, 16px);
+    align-items: center;
+    text-align: center;
+
+    .text-container {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-4x, 16px);
+        width: 345px;
+        margin-bottom: 16px;
+    }
+}
+
+.sponsor-text-title {
+    text-align: center;
+}
+
+.sponsor-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    gap: var(--spacing-15, 60px);
+    justify-content: center;
+}
+
+.sponsor {
+    display: flex;
+    align-self: center;
+    min-height: 35px;
+}
+
+.sponsor img {
+    min-height: 100%;
+    min-width: 100%;
+}
+
+.section-directors {
+    background: var(--color-background-white);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.team-members-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 22px;
+}
+
+.director-content {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    align-items: center;
+    gap: var(--spacing-8x, 32px);
+    width: 100%;
+}
+
+.section-title {
+    margin-bottom: var(--spacing-10x, 40px);
+}
+
+.section-text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-10x, 16px);
+}
+
+.member-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+}
+
+.member-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-4x, 16px);
+    padding-bottom: var(--spacing-10, 40px);
+}
+
+.member-card-image {
+    height: 268px;
+    overflow: hidden;
+    border: 4px solid var(--color-border-subtle-03);
+    border-radius: 8px;
+
+    img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+    }
+}
+
+.member-card-text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2x, 8px);
+}
+
+.section-volunteers {
+    padding: var(--spacing-10x, 40px);
+
+    .text-container {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-4x, 16px);
+        width: 345px;
+    }
+}
+
+.volunteer-title {
+    padding-top: var(--spacing-10x, 40px);
+    padding-bottom: var(--spacing-10x, 40px);
+    text-align: center;
+}
+
+.volunteer-list {
+    background: transparent;
+    border: 1px solid #ccc;
+    height: 533px;
+    width: 100%;
+}
+
+.empty-state-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-8x, 32px);
+    align-items: center;
+
+    .text-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 345px;
+        text-align: center;
+        gap: var(--spacing-4x, 16px);
+    }
+}
+
+@media (min-width: 48rem) {
+    section {
+        padding: var(--spacing-25x, 100px) var(--spacing-15x, 60px);
+    }
+    .section-hero {
+        background: var(--color-background-secondary-pink);
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .section-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 34px;
+        min-height: auto;
+        align-items: center;
+    }
+
+    .section-container {
+        width: min(100% - 72px, 900px);
+    }
+
+    .hero-details {
+        height: 500px;
+        padding: 0;
+        align-items: start;
+    }
+    .section-foundation {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        background: var(--color-background-white);
+        gap: 12px;
+    }
+
+    .foundaton-image-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .foundation-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: var(--spacing-x8, 32px);
+    }
+
+    .section-impact {
+        background: var(--color-background-secondary-pink);
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-8, 32px);
+    }
+
+    .header-content-container,
+    .card-list,
+    .member-list {
+        width: min(100%, 900px);
+    }
+
+    .card-list {
+        display: grid;
+        gap: var(--spacing-4, 16px);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        padding: 0;
+    }
+
+    .impact-card {
+        min-height: 325px;
+        padding: var(--spacing-10, 40px);
+        border-radius: var(--spacing-2, 8px);
+    }
+
+    .impact-card-image {
+        height: 200px;
+        width: 200px;
+
+        img {
+            max-width: 200px;
+            min-height: 150px;
+            max-height: 180px;
+        }
+    }
+
+    .impact-card-content {
+        gap: var(--spacing-4, 12px);
+    }
+
+    .impact-card-title {
+        &.large {
+            font-size: var(--text-6xl);
+            font-weight: var(--font-weight-extrabold);
+            line-height: 0.9;
+        }
+    }
+
+    .section-text {
+        margin-bottom: var(--spacing-8x, 32px);
+        text-align: start;
+    }
+
+    .sponsor-text {
+        .text-container {
+            width: 550px;
+        }
+    }
+
+    .sponsor-list {
+        grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
+        gap: var(--spacing-15, 60px);
+    }
+
+    .member-list {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .member-card-image {
+        height: 226px;
+        border-radius: 8px;
+    }
+
+    .section-volunteers {
+        .text-container {
+            width: 550px;
+        }
+    }
+
+    .volunteer-content {
+        max-width: 550px;
+    }
+
+    .empty-state-card {
+        .text-container {
+            width: 550px;
+        }
+    }
+}
+
+@media (min-width: 64rem) {
+    section {
+        padding: var(--spacing-25, 100px);
+    }
+
+    .section-container {
+        width: min(100% - 160px, 1216px);
+    }
+
+    .section-hero {
+        background: var(--color-background-secondary-pink);
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .hero-details {
+        height: 500px;
+        padding: 0;
+    }
+
+    .section-foundation {
+        display: flex;
+        flex-direction: row;
+        background: var(--color-background-white);
+        gap: 10px;
+        justify-content: space-between;
+    }
+
+    .section-impact {
+        background: var(--color-background-secondary-pink);
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-8, 32px);
+    }
+
+    .card-list {
+        display: grid;
+        gap: var(--spacing-8, 32px);
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .header-content-container,
+    .card-list,
+    .member-list,
+    .volunteer-container {
+        width: min(100%, 1316px);
+    }
+
+    .impact-card {
+        min-height: 450px;
+        padding: var(--spacing-10, 40px);
+        border-radius: var(--spacing-2, 8px);
+        gap: 8px;
+    }
+
+    .impact-card-image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 250px;
+        img {
+            max-width: 250px;
+            max-height: 250px;
+        }
+    }
+    .impact-card-content {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-4, 16px);
+        width: auto;
+    }
+
+    .impact-card-text {
+        font-size: var(--text-2xl);
+    }
+
+    .section-sponsors {
+        background: var(--color-background-secondary-pink);
+    }
+
+    .sponsor-display {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: var(--spacing-25, 100px);
+    }
+
+    .sponsor-display-title {
+        padding-bottom: var(--spacing-15, 60px);
+        text-align: center;
+    }
+
+    .sponsor-text {
+        display: flex;
+        &.container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: var(--spacing-8, 32px);
+            width: 550px;
+        }
+    }
+
+    .sponsor-list {
+        grid-template-columns: repeat(5, 1fr);
+        gap: var(--spacing-15, 60px);
+    }
+
+    .sponsor {
+        min-height: 55px;
+    }
+
+    .sponsor img {
+        min-height: 55px;
+    }
+
+    .section-directors {
+        gap: var(--spacing-15, 60px);
+    }
+
+    .member-list {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+    }
+
+    .member-card {
+        gap: var(--spacing-4x, 16px);
+    }
+
+    .member-card-image {
+        min-height: 315px;
+    }
+
+    .section-volunteers {
+        background: var(--color-background-white);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .volunteer-container {
+        display: flex;
+        flex-direction: column;
+        margin-inline: auto;
+    }
+
+    .volunteer-list {
+        background: transparent;
+        border: 1px solid #ccc;
+        height: 533px;
+        width: 100%;
+    }
+}
