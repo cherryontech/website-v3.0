@@ -2,12 +2,14 @@
 import '../styles/global.css'
 import Header from '../components/header/Header.tsx'
 import Footer from '../components/footer/Footer'
+import logo from '../assets/cherry_on_tech.svg'
 
 interface Props {
     title?: string
+    headerVariant?: 'default' | 'policy'
 }
 
-const { title = 'Cherry On Tech' } = Astro.props
+const { title = 'Cherry On Tech', headerVariant = 'default' } = Astro.props
 ---
 
 <!doctype html>
@@ -21,11 +23,21 @@ const { title = 'Cherry On Tech' } = Astro.props
         <title>{title}</title>
     </head>
     <body>
-        <Header client:load />
+        {
+            headerVariant === 'policy' ? (
+                <header class="policy-header">
+                    <a href="/" aria-label="Cherry On Tech home">
+                        <img src={logo.src} alt="Cherry On Tech" />
+                    </a>
+                </header>
+            ) : (
+                <Header client:load />
+            )
+        }
         <main>
             <slot />
         </main>
-        <Footer />
+        <Footer currentPath={Astro.url.pathname} />
     </body>
 </html>
 

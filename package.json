@@ -9,6 +9,8 @@
         "dev": "astro dev",
         "build": "astro build",
         "preview": "astro preview",
+        "terms-worker:dev": "wrangler dev --config workers/terms-api/wrangler.jsonc --var CACHE_TTL_SECONDS:604800",
+        "terms-worker:deploy": "wrangler deploy --config workers/terms-api/wrangler.jsonc",
         "astro": "astro",
         "prettier": "npx prettier --write --ignore-path .prettierignore .",
         "prettier-ci": "npx prettier --check --ignore-path .prettierignore .",
@@ -24,6 +26,7 @@
         "clsx": "^2.1.1",
         "react": "^19.2.5",
         "react-dom": "^19.2.5",
+        "react-markdown": "^10.1.0",
         "tailwind-merge": "^3.7.0",
         "tailwindcss": "^4.2.4"
     },
@@ -35,6 +38,7 @@
         "prettier": "^3.9.3",
         "prettier-plugin-astro": "^0.14.1",
         "prettier-plugin-tailwindcss": "^0.8.0",
-        "vitest": "^4.1.5"
+        "vitest": "^4.1.5",
+        "wrangler": "^4.151.2"
     }
 }
