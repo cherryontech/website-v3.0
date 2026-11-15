@@ -23,7 +23,7 @@ export interface ProgramTabSectionProps {
     tabs: TabContent[]
 }
 
-export const launchpadTabs = [
+export const launchpadTabs: TabContent[] = [
     {
         id: 'program-overview',
         label: 'Program Overview',
@@ -126,7 +126,7 @@ export const launchpadTabs = [
     },
 ]
 
-export const launchpadCohort = {
+export const launchpadCohort: CohortStatus = {
     statusSubtitle: 'Applications Currently Closed',
     description:
         'Our cohorts typically run once a year in the Fall. Sign up for the Cherry On Tech newsletter to get notified as soon as new cohort dates and application windows are announced!',
@@ -241,7 +241,7 @@ export const careersTabs: TabContent[] = [
     },
 ]
 
-export const careersCohort = {
+export const careersCohort: CohortStatus = {
     statusSubtitle: 'Open Year-Round',
     description:
         'Cherry Careers resources and coaching are available on an ongoing basis. Join the community to get started any time.',

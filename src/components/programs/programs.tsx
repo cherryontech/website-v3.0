@@ -7,8 +7,8 @@ import {
     launchpadCohort,
     careersTabs,
     careersCohort,
-    ProgramTabSectionProps,
 } from './data/program_tab_data.ts'
+import type { ProgramTabSectionProps } from './data/program_tab_data.ts'
 
 const ChevronUp = () => (
     <svg
@@ -95,25 +95,33 @@ const ProgramTabSection = ({
                         aria-label={`${programTitle} sections`}
                     >
                         {tabs.map((tab) => (
-                            <button
-                                key={tab.id}
-                                className={`program-tab-btn${activeTab === tab.id ? 'active' : ''}`}
-                                onClick={() => setActiveTab(tab.id)}
+                            <div
+                                className={`program-tab-container${activeTab === tab.id ? '.active' : ''}`}
                             >
-                                <span className="tab-label">{tab.label}</span>
-                                {activeTab === tab.id && (
-                                    <>
-                                        <span
-                                            className="tab-line"
-                                            aria-hidden="true"
-                                        />
-                                        <span
-                                            className="tab-dot"
-                                            aria-hidden="true"
-                                        />
-                                    </>
-                                )}
-                            </button>
+                                <button
+                                    key={tab.id}
+                                    className={`program-tab-btn`}
+                                    onClick={() => setActiveTab(tab.id)}
+                                >
+                                    <span className="tab-label">
+                                        {tab.label}
+                                    </span>
+                                    {activeTab === tab.id && (
+                                        <>
+                                            {/*
+                                            <span
+                                                className="tab-line"
+                                                aria-hidden="true"
+                                            />
+                                            <span
+                                                className="tab-dot"
+                                                aria-hidden="true"
+                                            />
+                                            */}
+                                        </>
+                                    )}
+                                </button>
+                            </div>
                         ))}
                     </nav>
                 </div>
