@@ -1,0 +1,239 @@
+/* MOBILE BY DEFAULT */
+
+.program-section {
+    padding: var(--spacing-15, 60px) var(--spacing-6, 24px);
+    overflow: hidden;
+    background: var(--color-background-white);
+}
+
+.program-section-title {
+    margin-bottom: var(--spacing-10, 40px);
+}
+
+/* --- Cohort status (always visible) --- */
+
+.cohort-status {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-4x, 16px);
+    margin-bottom: var(--spacing-8, 32px);
+}
+
+.cohort-status ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2x, 8px);
+    padding-left: var(--spacing-6, 24px);
+    list-style: disc;
+}
+
+/* --- Desktop/Tablet two-column layout --- */
+
+.program-layout {
+    display: block;
+}
+
+.program-right {
+    display: none;
+}
+
+/* --- Tab nav (desktop/tablet only) --- */
+
+.program-tabs-nav {
+    display: none;
+}
+
+/* --- Mobile accordion --- */
+
+.program-accordion {
+    display: flex;
+    flex-direction: column;
+}
+
+.accordion-item {
+    border-top: 1px solid var(--color-border-subtle-00);
+}
+
+.accordion-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: var(--spacing-5, 20px) 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: var(--text-xl);
+    font-weight: var(--font-weight-bold);
+    font-family: var(--font-lato);
+    color: var(--color-text-primary);
+    text-align: left;
+    gap: var(--spacing-4x, 16px);
+}
+
+.accordion-chevron {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    color: var(--color-text-secondary);
+}
+
+.accordion-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-4x, 16px);
+    padding-bottom: var(--spacing-6, 24px);
+}
+
+.accordion-content ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2x, 8px);
+    padding-left: var(--spacing-6, 24px);
+    list-style: disc;
+}
+
+.accordion-image {
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+    display: block;
+}
+
+/* ==============================
+   TABLET — 48rem
+   ============================== */
+
+@media (min-width: 48rem) {
+    .program-section {
+        padding: 100px 60px;
+    }
+
+    .program-section-title {
+        margin-bottom: var(--spacing-15, 60px);
+    }
+
+    .program-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+        align-items: start;
+    }
+
+    .program-left {
+        border-right: 1px solid var(--color-border-subtle-00);
+        padding-right: 48px;
+    }
+
+    .program-right {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-6, 24px);
+        padding-left: 48px;
+    }
+
+    .program-tab-image {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .program-tab-image img {
+        max-width: 300px;
+        width: 100%;
+    }
+
+    .program-tab-content {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-4x, 16px);
+    }
+
+    .program-tab-content ul {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-2x, 8px);
+        padding-left: var(--spacing-6, 24px);
+        list-style: disc;
+    }
+
+    /* Tab nav */
+
+    .program-tabs-nav {
+        display: flex;
+        flex-direction: column;
+        margin-top: var(--spacing-8, 32px);
+    }
+
+    .program-tab-btn {
+        display: flex;
+        align-items: center;
+        background: none;
+        border: none;
+        border-top: 1px solid var(--color-border-subtle-00);
+        padding: var(--spacing-5, 20px) 0;
+        cursor: pointer;
+        font-size: var(--text-xl);
+        font-weight: var(--font-weight-bold);
+        font-family: var(--font-lato);
+        color: var(--color-text-primary);
+        width: 100%;
+        text-align: left;
+        gap: var(--spacing-4x, 16px);
+        transition: color 120ms ease;
+    }
+
+    .program-tab-btn:hover {
+        color: var(--color-link-primary-hover);
+    }
+
+    .program-tab-btn.active {
+        color: var(--color-link-primary);
+    }
+
+    .tab-label {
+        flex-shrink: 0;
+    }
+
+    .tab-line {
+        flex: 1;
+        height: 1px;
+        background: var(--color-border-subtle-00);
+    }
+
+    .tab-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--color-border-subtle-00);
+        flex-shrink: 0;
+    }
+
+    /* Hide mobile accordion */
+
+    .program-accordion {
+        display: none;
+    }
+}
+
+/* ==============================
+   DESKTOP — 64rem
+   ============================== */
+
+@media (min-width: 64rem) {
+    .program-section {
+        padding: 100px;
+    }
+
+    .program-left {
+        padding-right: 80px;
+    }
+
+    .program-right {
+        padding-left: 80px;
+        gap: var(--spacing-10, 40px);
+    }
+
+    .program-tab-image img {
+        max-width: 420px;
+    }
+}
