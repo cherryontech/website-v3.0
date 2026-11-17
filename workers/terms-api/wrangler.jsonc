@@ -1,0 +1,10 @@
+{
+    "$schema": "../../node_modules/wrangler/config-schema.json",
+    "name": "cherryontech-content-api",
+    "main": "src/index.ts",
+    "compatibility_date": "2026-10-19",
+    "workers_dev": true,
+    "vars": {
+        "AIRTABLE_TABLE_NAME": "Terms and Conditions",
+    },
+}

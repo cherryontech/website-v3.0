@@ -10,10 +10,7 @@ import pathSquads from '../../assets/home/path-squads.svg'
 import cherryProfileIcon from '../../assets/home/cherry-profile-icon.svg'
 import supportHands from '../../assets/home/support-hands.svg'
 
-type Asset = string | { src: string }
-
-const assetSrc = (asset: Asset) =>
-    typeof asset === 'string' ? asset : asset.src
+import { assetSrc } from '../../util/assetSrc'
 
 const TABLET_BREAKPOINT = '48rem'
 const DESKTOP_BREAKPOINT = '64rem'
