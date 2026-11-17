@@ -24,13 +24,13 @@ const Programs_Page = () => {
                             </a>
                             <a
                                 href="#cherry-squads"
-                                className="btn btn-secondary"
+                                className="btn btn-primary"
                             >
                                 Cherry Squads
                             </a>
                             <a
                                 href="#cherry-careers"
-                                className="btn btn-secondary"
+                                className="btn btn-primary"
                             >
                                 Cherry Careers
                             </a>
