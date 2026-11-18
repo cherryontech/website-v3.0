@@ -1,6 +1,7 @@
 import '../../styles/programs.css'
 import { useState } from 'react'
 import Icon from '../Icon'
+import { assetSrc } from '../../util/assetSrc'
 
 import {
     launchpadTabs,
@@ -96,31 +97,24 @@ const ProgramTabSection = ({
                     >
                         {tabs.map((tab) => (
                             <div
+                                key={tab.id}
                                 className={`program-tab-container${activeTab === tab.id ? '.active' : ''}`}
                             >
                                 <button
-                                    key={tab.id}
-                                    className={`program-tab-btn`}
+                                    className={`program-tab-btn${activeTab === tab.id ? '.active' : ''}`}
                                     onClick={() => setActiveTab(tab.id)}
                                 >
-                                    <span className="tab-label">
-                                        {tab.label}
-                                    </span>
-                                    {activeTab === tab.id && (
-                                        <>
-                                            {/*
-                                            <span
-                                                className="tab-line"
-                                                aria-hidden="true"
-                                            />
-                                            <span
-                                                className="tab-dot"
-                                                aria-hidden="true"
-                                            />
-                                            */}
-                                        </>
-                                    )}
+                                    {tab.label}
                                 </button>
+                                {activeTab === tab.id && (
+                                    <div
+                                        className="tab-indicator"
+                                        aria-hidden="true"
+                                    >
+                                        <span className="tab-dot" />
+                                        <span className="tab-line" />
+                                    </div>
+                                )}
                             </div>
                         ))}
                     </nav>
@@ -130,7 +124,7 @@ const ProgramTabSection = ({
                     {activeContent.image && (
                         <div className="program-tab-image">
                             <img
-                                src={activeContent.image}
+                                src={assetSrc(activeContent.image)}
                                 alt={activeContent.imageAlt ?? ''}
                             />
                         </div>
@@ -177,7 +171,7 @@ const ProgramTabSection = ({
                             <div className="accordion-content">
                                 {tab.image && (
                                     <img
-                                        src={tab.image}
+                                        src={assetSrc(tab.image)}
                                         alt={tab.imageAlt ?? ''}
                                         className="accordion-image"
                                     />

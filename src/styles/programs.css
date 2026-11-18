@@ -125,17 +125,12 @@
     }
 
     .program-left {
-        border-right: 3px solid var(--color-border-subtle-00);
-        padding-right: 48px;
+        border-right: 2px solid var(--color-border-subtle-00);
+        min-height: 700px;
     }
 
-    .program-left::before {
-        position: absolute;
-        content: '';
-        background: var(--color-border-subtle-00);
-        left: 50%;
-        width: 3px;
-        height: calc(100%);
+    .cohort-status {
+        padding-right: 48px;
     }
 
     .program-right {
@@ -147,7 +142,7 @@
 
     .program-tab-image {
         display: flex;
-        justify-content: flex-end;
+        justify-content: center;
     }
 
     .program-tab-image img {
@@ -177,47 +172,23 @@
 
     .program-tab-container {
         position: relative;
-    }
-
-    .program-tab-container::before {
-        position: absolute;
-        content: '';
-        background: var(--color-border-subtle-00);
-        top: 50%;
-        left: 100%;
-        width: calc(100% - 100px);
-        transform: translate(-50%, -50%);
-        height: 3px;
-    }
-
-    .program-tab-container::after {
-        content: '';
-        position: absolute;
-        width: 10px;
-        height: 10px;
-        top: 50%;
-        left: 100%;
-        border-radius: 50%;
-        transform: translate(-50%, -50%);
-        background: var(--color-border-subtle-00);
+        display: flex;
+        align-items: center;
+        padding: 20px 0;
     }
 
     .program-tab-btn {
-        display: flex;
-        align-items: center;
         background: none;
         border: none;
-        /*border-top: 1px solid var(--color-border-subtle-00);*/
-        padding: var(--spacing-5, 20px) 0;
         cursor: pointer;
-        font-size: var(--text-xl);
+        font-size: var(--text-base);
         font-weight: var(--font-weight-bold);
         font-family: var(--font-lato);
         color: var(--color-text-primary);
-        width: 100%;
         text-align: left;
-        gap: var(--spacing-4x, 16px);
         transition: color 120ms ease;
+        padding: 0;
+        z-index: 1;
     }
 
     .program-tab-btn:hover {
@@ -228,23 +199,29 @@
         color: var(--color-link-primary);
     }
 
-    .tab-label {
+    /* Absolutely positioned so the dot always starts at the same x
+       regardless of which tab label is active, keeping line width uniform */
+    .tab-indicator {
+        position: absolute;
+        left: 230px;
+        right: 0;
+        display: flex;
+        align-items: center;
+        pointer-events: none;
+    }
+
+    .tab-dot {
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        background: var(--color-border-subtle-00);
         flex-shrink: 0;
     }
 
     .tab-line {
         flex: 1;
-        height: 1px;
-        border: 2px solid var(--color-border-subtle-00);
+        height: 2px;
         background: var(--color-border-subtle-00);
-    }
-
-    .tab-dot {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        background: var(--color-border-subtle-00);
-        flex-shrink: 0;
     }
 
     .program-accordion {
@@ -262,6 +239,11 @@
     }
 
     .program-left {
+        /* no padding-right — tab rows extend to the border */
+        min-height: 730px;
+    }
+
+    .cohort-status {
         padding-right: 80px;
     }
 

@@ -1,7 +1,15 @@
+import programs_overview_img from '../../../assets/programs/02_programs - launchpad - program overview.svg'
+import key_outcomes_img from '../../../assets/programs/03_programs - launchpad - key outcomes.svg'
+import who_its_for_img from '../../../assets/programs/04_programs - launchpad - who its for.svg'
+import roadmap_img from '../../../assets/programs/05_programs - launchpad - the roadmap.svg'
+import program_focus_img from '../../../assets/programs/07_programs - careers - program focus.svg'
+import career_who_its_for_img from '../../../assets/programs/08_programs - careers - who its for.svg'
+import topics_covered_img from '../../../assets/programs/09_programs - careers - topics covered.svg'
+
 interface TabContent {
     id: string
     label: string
-    image?: string
+    image?: ImageMetadata //Where is SvgComponent
     imageAlt?: string
     title: string
     description: string
@@ -28,6 +36,8 @@ export const launchpadTabs: TabContent[] = [
         id: 'program-overview',
         label: 'Program Overview',
         title: 'Program Overview',
+        image: programs_overview_img,
+        imageAlt: 'Programs Overview image',
         description:
             'A foundational 15-week project sprint designed to translate your learned skills into valuable, cross-functional team experience.',
         bullets: [
@@ -53,24 +63,29 @@ export const launchpadTabs: TabContent[] = [
         id: 'key-outcomes',
         label: 'Key Outcomes',
         title: 'Key Outcomes',
-        description:
-            'Walk away with tangible experience and a stronger professional identity.',
+        image: key_outcomes_img,
+        imageAlt: 'Key Outcomes Image',
+        description: 'Move the needle on your professional career goals.',
         bullets: [
             {
-                label: 'Portfolio',
-                text: 'A deployed live project to show employers.',
+                label: 'Team Experience',
+                text: 'Collaborate with developers, product managers, and UX designers/writers.',
             },
             {
-                label: 'Skills',
-                text: 'Cross-functional experience across design, dev, and product.',
+                label: 'MVP Launch',
+                text: 'Build a high-quality project from concept to deployment.',
             },
             {
-                label: 'Network',
-                text: 'Lasting connections with peers and industry mentors.',
+                label: 'Accessibility',
+                text: 'Practice inclusive design/coding to meet industry standards.',
             },
             {
-                label: 'Confidence',
-                text: 'Practical skills that translate directly to the workplace.',
+                label: 'Tool Stack',
+                text: 'Gain hands-on experience with React, Tailwind, Figma, and Jira.',
+            },
+            {
+                label: 'Mentorship',
+                text: 'Receive direct feedback/guidance from industry professionals.',
             },
         ],
     },
@@ -78,24 +93,29 @@ export const launchpadTabs: TabContent[] = [
         id: 'whos-it-for',
         label: "Who It's For",
         title: "Who It's For",
-        description:
-            'Cherry Launchpad is designed for women, non-binary, and trans individuals in tech who are ready to level up.',
+        image: who_its_for_img,
+        imageAlt: 'Key Outcomes Image',
+        description: 'Check your alignment with our mission.',
         bullets: [
             {
-                label: 'Learners',
-                text: 'Recent grads or career changers with foundational tech skills.',
+                label: 'Community',
+                text: 'You identify as an underrepresented and marginalized gender (i.e., Women, Non-binary, Trans).',
             },
             {
-                label: 'Builders',
-                text: 'People who learn best by doing real, meaningful work.',
+                label: 'Career Path',
+                text: 'You aspire to be a developer, product manager, or UX designer/writer.',
             },
             {
-                label: 'Community-driven',
-                text: 'Those who thrive in collaborative, supportive environments.',
+                label: 'Readiness',
+                text: 'You already have foundational skills and plan to job hunt within the next 1-3 months.',
             },
             {
-                label: 'Availability',
-                text: 'Anyone who can commit 7–10 hours per week for 15 weeks.',
+                label: 'Portfolio',
+                text: 'You want to add a collaborative, live project to your resume.',
+            },
+            {
+                label: 'Values',
+                text: 'You are committed to accessibility and empowering your peers.',
             },
         ],
     },
@@ -103,6 +123,8 @@ export const launchpadTabs: TabContent[] = [
         id: 'the-roadmap',
         label: 'The Roadmap',
         title: 'The Roadmap',
+        image: roadmap_img,
+        imageAlt: 'Roadmap Image',
         description:
             'A structured 15-week journey from onboarding to deployment.',
         bullets: [
@@ -141,101 +163,44 @@ export const launchpadCohort: CohortStatus = {
 export const careersTabs: TabContent[] = [
     {
         id: 'careers-overview',
-        label: 'Program Overview',
-        title: 'Program Overview',
+        label: 'Program Focus',
+        title: 'Program Focus',
         description:
-            'A career accelerator connecting Cherry On Tech alumni and community members with real job opportunities, resume support, and interview prep.',
-        bullets: [
-            {
-                label: 'Format',
-                text: 'Self-paced resources combined with live coaching sessions.',
-            },
-            {
-                label: 'Commitment',
-                text: 'Flexible — engage as much or as little as you need.',
-            },
-            {
-                label: 'Support',
-                text: 'Access to our employer network and community mentors.',
-            },
-            {
-                label: 'Cost',
-                text: '100% free for Cherry On Tech community members.',
-            },
-        ],
-    },
-    {
-        id: 'careers-outcomes',
-        label: 'Key Outcomes',
-        title: 'Key Outcomes',
-        description:
-            'Leave with the tools, confidence, and connections to land your next role.',
-        bullets: [
-            {
-                label: 'Resume',
-                text: 'A polished, tech-industry-ready resume and LinkedIn profile.',
-            },
-            {
-                label: 'Interview Prep',
-                text: 'Practice with real questions and feedback from industry pros.',
-            },
-            {
-                label: 'Job Leads',
-                text: 'Direct connections to inclusive employers in our network.',
-            },
-            {
-                label: 'Negotiation',
-                text: 'Tools and tactics to advocate for fair compensation.',
-            },
-        ],
+            'This 6-week intensive is designed to refine your professional edge and prepare you for the tech hiring landscape. Through peer accountability and targeted mentor feedback, we focus on translating your existing foundational skills and project experience into application readiness. Our goal is to help you find your story, polish your job assets, and bridge the gap to your next role in tech.',
+        image: program_focus_img,
+        imageAlt: 'Program Focus image',
+        bullets: [],
     },
     {
         id: 'careers-whos-it-for',
         label: "Who It's For",
         title: "Who It's For",
+        image: career_who_its_for_img,
+        imageAlt: 'Career Who It`s For Image',
         description:
-            'Cherry Careers is open to all Cherry On Tech community members who are actively job searching or preparing to.',
-        bullets: [
-            {
-                label: 'Alumni',
-                text: 'Cherry Launchpad graduates ready to transition to employment.',
-            },
-            {
-                label: 'Job Seekers',
-                text: 'Community members actively applying for tech roles.',
-            },
-            {
-                label: 'Career Changers',
-                text: 'Those pivoting into tech from another field.',
-            },
-            {
-                label: 'Re-entrants',
-                text: 'People returning to work after a career break.',
-            },
-        ],
+            'Tailor-made for Cherry Launchpad graduates and active members of Cherry Squads preparing to take the final leap in their tech journey. If you have built your project foundation and you are ready to refine your portfolio, practice interviews, and land a role, we encourage you to apply during our next open application window!',
+        bullets: [],
     },
     {
-        id: 'careers-roadmap',
-        label: 'The Roadmap',
-        title: 'The Roadmap',
+        id: 'topics-covered',
+        label: 'Topics Covered',
+        title: 'Topics Covered',
+        image: topics_covered_img,
+        imageAlt: 'Topics Covered Image',
         description:
-            'A step-by-step pathway from career prep to your first (or next) tech role.',
+            'As we continue to refine our upcoming curriculum, our core focus areas centre on 3 essential pillars of the job search.',
         bullets: [
             {
-                label: 'Phase 1',
-                text: 'Profile audit — resume, LinkedIn, and portfolio review.',
+                label: 'Foundations & Storytelling',
+                text: 'Map out your career targets, build workplace confidence, and learn how to articulate your personal narrative and transferable skills.',
             },
             {
-                label: 'Phase 2',
-                text: 'Interview coaching and mock interview sessions.',
+                label: 'Asset Optimization',
+                text: 'Tailor your resume, LinkedIn profile, and GitHub/ portfolio to showcase your highest-impact project work and attract tech recruiters. Learn effective strategies for focused industry networking.',
             },
             {
-                label: 'Phase 3',
-                text: 'Job search strategy and employer introductions.',
-            },
-            {
-                label: 'Phase 4',
-                text: 'Offer evaluation, negotiation, and onboarding support.',
+                label: 'Interview Readiness',
+                text: 'Prepare for the real hiring environment with discipline-specific mock interviews, behavioural prep, and direct, actionable feedback from industry mentors.',
             },
         ],
     },
