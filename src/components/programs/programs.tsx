@@ -2,6 +2,7 @@ import '../../styles/programs.css'
 // import bluePathHero from '../../assets/programs/01_programs_hero.svg'
 import squadChat from '../../assets/programs/06_programs_squads.svg'
 import Icon from '../Icon'
+import DropdownList from './DropdownList'
 import { useState } from 'react'
 
 type CopyBlock =
@@ -146,103 +147,77 @@ const Programs_Page = () => {
                 <h2 className="cherry-squads__title display-2">
                     Cherry Squads
                 </h2>
-                <img
-                    className="cherry-squad__image"
-                    src={squadChat.src}
-                    alt=""
-                />
-                <div className="cherry-squad__content">
-                    {cherrySquadContent.map((element, index) => {
-                        const [expandedBlocks, setExpandedBlocks] = useState<
-                            number[]
-                        >([])
-                        const isExpanded = expandedBlocks.includes(index)
+                <div className="cherry-squad__body">
+                    <img
+                        className="cherry-squad__image"
+                        src={squadChat.src}
+                        alt=""
+                    />
+                    <div className="cherry-squad__content">
+                        <DropdownList
+                            items={cherrySquadContent}
 
-                        return (
-                            <>
-                                <div className="cs-content-block" key={index}>
-                                    <div className="cs-heading">
-                                        <h2>{element.subheading}</h2>
+                            classNames={{
+                                block: 'cs-content-block',
+                                heading: 'cs-heading',
+                                copy: 'cs-copy',
+                            }}
 
-                                        <button
-                                            type="button"
-                                            onClick={() => {
-                                                setExpandedBlocks((prev) =>
-                                                    prev.includes(index)
-                                                        ? prev.filter(
-                                                              (i) => i !== index
-                                                          )
-                                                        : [...prev, index]
-                                                )
-                                            }}
-                                            aria-expanded={isExpanded}
-                                            aria-label={
-                                                isExpanded
-                                                    ? 'Collapse section'
-                                                    : 'Expand section'
-                                            }
-                                        >
-                                            {isExpanded ? '⌄' : '⌃'}
-                                        </button>
-                                    </div>
+                            getHeading={(element) => element.subheading}
 
-                                    {isExpanded && (
-                                        <div className="cs-copy">
-                                            {element.detailed_copy.map(
-                                                (block, blockIndex) => (
-                                                    <div key={blockIndex}>
-                                                        {block.type ===
-                                                        'paragraph' ? (
-                                                            <p>{block.text}</p>
-                                                        ) : (
-                                                            <ul>
-                                                                {block.items.map(
-                                                                    (
-                                                                        bulletpoint,
-                                                                        i
-                                                                    ) => (
-                                                                        <li
-                                                                            key={
-                                                                                i
-                                                                            }
-                                                                        >
-                                                                            <b>
-                                                                                {
-                                                                                    bulletpoint.opening
-                                                                                }
-                                                                            </b>
-                                                                            {
-                                                                                bulletpoint.details
-                                                                            }
-                                                                        </li>
-                                                                    )
-                                                                )}
-                                                            </ul>
+                            renderContent={(element) => (
+                                <>
+                                    {element.detailed_copy.map(
+                                        (block, index) => (
+                                            <div key={index}>
+                                                {block.type === 'paragraph' ? (
+                                                    <p>{block.text}</p>
+                                                ) : (
+                                                    <ul>
+                                                        {block.items.map(
+                                                            (
+                                                                bulletpoint,
+                                                                i
+                                                            ) => (
+                                                                <li key={i}>
+                                                                    <b>
+                                                                        {
+                                                                            bulletpoint.opening
+                                                                        }
+                                                                    </b>
+                                                                    {
+                                                                        bulletpoint.details
+                                                                    }
+                                                                </li>
+                                                            )
                                                         )}
-                                                    </div>
-                                                )
-                                            )}
-                                        </div>
+                                                    </ul>
+                                                )}
+
+                                                {index !==
+                                                    element.detailed_copy
+                                                        .length -
+                                                        1 && <hr />}
+                                            </div>
+                                        )
                                     )}
-                                </div>
-                                {index !== cherrySquadContent.length - 1 && (
-                                    <hr />
-                                )}
-                            </>
-                        )
-                    })}
-                    <a
-                        href=""
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn-stroke btn"
-                    >
-                        <span>Join Our Waitlist</span>
-                        <Icon name="arrow-right" className="btn__icon" />
-                        <span className="sr-only">
-                            (form opens in a new tab)
-                        </span>
-                    </a>
+                                </>
+                            )}
+                        />
+
+                        <a
+                            href=""
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn-stroke btn"
+                        >
+                            <span>Join Our Waitlist</span>
+                            <Icon name="arrow-right" className="btn__icon" />
+                            <span className="sr-only">
+                                (form opens in a new tab)
+                            </span>
+                        </a>
+                    </div>
                 </div>
             </section>
 

@@ -4,6 +4,9 @@
     display: flex;
     align-items: center;
     align-self: stretch;
+    padding: 60px 24px 0px 24px;
+    flex-direction: column;
+    gap: 4px;
 }
 
 .section-pink {
@@ -15,9 +18,8 @@
 }
 
 .hero_container {
-    /* align-items: flex-start; */
     align-self: stretch;
-    /* gap: 40px; */
+    gap: 60px;
 }
 
 .hero_grid {
@@ -62,6 +64,8 @@
     align-self: center;
     z-index: 1;
     height: inherit;
+    width: 250px;
+    aspect-ratio: 1/1;
 }
 
 .hero__image img {
@@ -72,6 +76,8 @@
 .button-container {
     display: flex;
     align-items: center;
+    flex-direction: column;
+    gap: 12px;
 }
 
 /* CHERRY SQUADS */
@@ -86,6 +92,13 @@
     align-self: stretch;
 }
 
+.cherry-squad__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-15, 60px);
+    margin-inline: auto;
+}
+
 .cherry-squads__title {
     font-weight: var(--font-weight-bold);
 }
@@ -93,10 +106,12 @@
 .cherry-squad__image {
     width: 319.73px;
     aspect-ratio: 1/1;
+    margin-inline: auto;
 }
 
 .cherry-squad__content {
     display: flex;
+    width: 345px;
     padding: var(--spacing-0, 0);
     flex-direction: column;
     align-items: center;
@@ -110,7 +125,7 @@
 
 .cs-content-block {
     display: flex;
-    width: 345px;
+    width: 100%;
     flex-direction: column;
     align-items: flex-start;
     gap: 16px;
@@ -119,11 +134,40 @@
 
 .cherry-squad__content hr {
     margin-top: 16px;
-    width: 345px;
+    margin-inline: auto;
+    width: 100%;
     height: 0;
     align-self: stretch;
-    stroke-width: 1px;
-    stroke: var(--color-border-inverse), rgba(22, 22, 22, 0.25);
+    color: var(--color-border-inverse);
+    opacity: 0.25;
+    /* stroke-width: 1px;
+    stroke: var(--color-border-inverse), rgba(22, 22, 22, 0.25); */
+}
+
+.cs-heading {
+    display: flex;
+    width: 100%;
+    padding: var(--spacing-0, 0);
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.dropdown-button {
+    display: flex;
+    width: 24px;
+    height: 24px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.dropdown-button svg {
+    transform: scaleY(1);
+    transition: transform 0.3s ease;
+}
+
+.dropdown-button[aria-expanded='true'] svg {
+    transform: scaleY(-1);
 }
 
 .cs-copy ul {
@@ -140,6 +184,7 @@
     align-items: center;
     align-self: stretch;
     gap: 0px;
+    padding: 60px 24px;
 }
 
 .shq-content-block {
@@ -193,41 +238,12 @@ html {
 
 /* Mobile */
 @media (max-width: 767px) {
-    .hero {
-        padding: 60px 24px 0px 24px;
-        flex-direction: column;
-        gap: 4px;
-    }
-
-    .hero_container {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .button-container {
-        flex-direction: column;
-        gap: 12px;
-    }
-
     .hero_copy a {
-        width: 133px;
-    }
-
-    .hero__image {
-        width: calc(100% - 95px);
-        aspect-ratio: 1/1;
-    }
-
-    /* .shq-content-block {
-        align-items: flex-start;
-    } */
-
-    .section-still-have-qs {
-        padding: 60px 24px;
+        width: 200px;
     }
 }
 
-/* Tablet & desktop */
+/* Tablet */
 @media (min-width: 768px) {
     .hero_container {
         display: grid;
@@ -244,30 +260,26 @@ html {
         gap: 16px;
     }
 
+    .cherry-squads {
+        padding: var(--spacing-25, 100px) var(--spacing-15, 60px);
+    }
+
+    .cherry-squad__content {
+        align-items: flex-start;
+        width: 600px;
+        margin-inline: auto;
+    }
+
+    .cs-content-block {
+        width: 100%;
+    }
+
+    .cherry-squad__content hr {
+        width: 100%;
+    }
+
     .shq-content-block {
         width: 550px;
-        /* align-items: center; */
-    }
-}
-
-/* Tablet */
-@media (min-width: 768px) and (max-width: 1024px) {
-    .hero {
-        padding: 100px 60px;
-        gap: 60px;
-    }
-
-    .hero_container {
-        gap: 60px;
-    }
-
-    .hero__image {
-        width: 350px;
-        aspect-ratio: 1/1;
-    }
-
-    .section-still-have-qs {
-        padding: 100px 60px;
     }
 }
 
@@ -291,6 +303,31 @@ html {
     .hero__image {
         max-width: 570px;
         aspect-ratio: 1/1;
+    }
+
+    .cherry-squads {
+        padding: var(--spacing-25, 100px);
+    }
+
+    .cherry-squad__body {
+        /* display: flex; */
+        flex-direction: initial;
+        width: min(calc(100% - 64px), 1464px);
+        justify-content: center;
+        align-items: flex-start;
+        gap: var(--spacing-33, 132px);
+        /* margin-inline: auto; */
+    }
+
+    .cherry-squad__image {
+        max-width: 513px;
+        flex-shrink: 0;
+        flex-basis: 42%;
+        margin-inline: auto 0;
+    }
+
+    .cherry-squad__content {
+        margin-inline: 0 auto;
     }
 
     .section-still-have-qs {
