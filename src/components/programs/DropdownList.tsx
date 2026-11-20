@@ -29,6 +29,7 @@ export default function DropdownList<T>({
         <>
             {items.map((item, index) => {
                 const key = getKey ? getKey(item, index) : index
+                const dropdownBlockId = `dropdown-block-${key}`
                 const isExpanded = expandedBlocks.includes(key)
                 const isLastBlock = index === items.length - 1
 
@@ -49,6 +50,7 @@ export default function DropdownList<T>({
                                         )
                                     }}
                                     aria-expanded={isExpanded}
+                                    aria-controls={dropdownBlockId}
                                     aria-label={
                                         isExpanded
                                             ? 'Collapse section'
@@ -60,7 +62,10 @@ export default function DropdownList<T>({
                             </div>
 
                             {isExpanded && (
-                                <div className={classNames.copy}>
+                                <div
+                                    id={dropdownBlockId}
+                                    className={classNames.copy}
+                                >
                                     {renderContent(item)}
                                 </div>
                             )}
