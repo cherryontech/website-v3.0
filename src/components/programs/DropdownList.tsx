@@ -22,7 +22,7 @@ export default function DropdownList<T>({
     classNames,
 }: DropdownListProps<T>) {
     const [expandedBlocks, setExpandedBlocks] = useState<(string | number)[]>(
-        []
+        [0] // set the first accordion content to be expanded by default upon entering the page
     )
 
     return (
