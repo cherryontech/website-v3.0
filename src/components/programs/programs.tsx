@@ -1,9 +1,8 @@
 import '../../styles/programs.css'
-// import bluePathHero from '../../assets/programs/01_programs_hero.svg'
+import bluePathHero from '../../assets/programs/01_programs_hero.svg'
 import squadChat from '../../assets/programs/06_programs_squads.svg'
 import Icon from '../Icon'
 import DropdownList from './DropdownList'
-import { useState } from 'react'
 
 type CopyBlock =
     | {
@@ -99,7 +98,7 @@ const cherrySquadContent: SquadContent[] = [
 const Programs_Page = () => {
     return (
         <>
-            {/* <section className="hero section-pink">
+            <section className="hero section-pink">
                 <div className="hero_container hero_grid">
                     <div className="hero_copy">
                         <h1 id="hero-title">
@@ -118,13 +117,13 @@ const Programs_Page = () => {
                             </a>
                             <a
                                 href="#cherry-squads"
-                                className="btn btn-secondary"
+                                className="btn btn-primary"
                             >
                                 Cherry Squads
                             </a>
                             <a
                                 href="#cherry-careers"
-                                className="btn btn-secondary"
+                                className="btn btn-primary"
                             >
                                 Cherry Careers
                             </a>
@@ -141,7 +140,7 @@ const Programs_Page = () => {
 
             <section className="section-white">
                 <div>[...2nd section go here...]</div>
-            </section> */}
+            </section>
 
             <section className="cherry-squads section-pink">
                 <h2 className="cherry-squads__title display-2">
@@ -221,7 +220,7 @@ const Programs_Page = () => {
                 </div>
             </section>
 
-            {/* <section className="section-white">
+            <section className="section-white">
                 <div>[...4th section go here...]</div>
             </section>
 
@@ -254,7 +253,7 @@ const Programs_Page = () => {
                         <span className="sr-only">(opens in a new tab)</span>
                     </a>
                 </div>
-            </section> */}
+            </section>
         </>
     )
 }

@@ -19,12 +19,11 @@
 
 .hero_container {
     align-self: stretch;
-    gap: 60px;
+    display: flex;
+    flex-direction: column;
 }
 
 .hero_grid {
-    /* align-items: end; */
-    grid-template-columns: minmax(0, 1.1fr) minmax(380px, 0.9fr);
     min-height: inherit;
 }
 
@@ -94,6 +93,7 @@
 
 .cherry-squad__body {
     display: flex;
+    width: calc(100% - 48px);
     flex-direction: column;
     gap: var(--spacing-15, 60px);
     margin-inline: auto;
@@ -111,7 +111,7 @@
 
 .cherry-squad__content {
     display: flex;
-    width: 345px;
+    width: 100%;
     padding: var(--spacing-0, 0);
     flex-direction: column;
     align-items: center;
@@ -140,8 +140,6 @@
     align-self: stretch;
     color: var(--color-border-inverse);
     opacity: 0.25;
-    /* stroke-width: 1px;
-    stroke: var(--color-border-inverse), rgba(22, 22, 22, 0.25); */
 }
 
 .cs-heading {
@@ -191,6 +189,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 345px;
 }
 
 .shq-content-block h1 {
@@ -245,14 +244,30 @@ html {
 
 /* Tablet */
 @media (min-width: 768px) {
+    .hero {
+        padding: 100px 60px;
+        gap: 60px;
+    }
+
     .hero_container {
         display: grid;
     }
 
+    .hero_grid {
+        grid-template-columns: minmax(320px, 1.05fr) minmax(280px, 0.95fr);
+        align-items: end;
+        gap: var(--spacing-15, 60px);
+        min-height: inherit;
+    }
+
     .hero_copy {
-        padding: 0px 30px;
         align-items: flex-start;
         align-self: center;
+    }
+
+    .hero__image {
+        width: 100%;
+        aspect-ratio: 1/1;
     }
 
     .button-container {
@@ -278,6 +293,10 @@ html {
         width: 100%;
     }
 
+    .section-still-have-qs {
+        padding: 100px 60px;
+    }
+
     .shq-content-block {
         width: 550px;
     }
@@ -291,18 +310,18 @@ html {
     }
 
     .hero_container {
-        gap: 132px;
         margin-inline: auto;
+    }
+
+    .hero_grid {
+        /* align-items: end; */
+        grid-template-columns: minmax(0, 1.2fr) minmax(380px, 0.8fr);
+        gap: 132px;
     }
 
     .hero_copy {
         max-width: 750px;
         justify-content: flex-end;
-    }
-
-    .hero__image {
-        max-width: 570px;
-        aspect-ratio: 1/1;
     }
 
     .cherry-squads {
