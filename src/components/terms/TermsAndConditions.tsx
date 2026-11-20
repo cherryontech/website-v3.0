@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import ReactMarkdown from 'react-markdown'
 import termsIllustration from '../../assets/policies/terms.svg'
-import '../../styles/terms-and-conditions.css'
+import '../../styles/policies.css'
 
 interface TermsSection {
     heading: string
