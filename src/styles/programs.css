@@ -168,6 +168,11 @@
     transform: scaleY(-1);
 }
 
+.dropdown-button:focus-visible {
+    outline: 3px solid var(--color-border-interactive);
+    outline-offset: 3px;
+}
+
 .cs-copy ul {
     list-style-type: disc;
     padding-left: 30px;
