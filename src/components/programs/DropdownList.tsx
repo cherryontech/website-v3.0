@@ -53,8 +53,8 @@ export default function DropdownList<T>({
                                     aria-controls={dropdownBlockId}
                                     aria-label={
                                         isExpanded
-                                            ? 'Collapse section'
-                                            : 'Expand section'
+                                            ? `Collapse ${getHeading(item)} section`
+                                            : `Expand ${getHeading(item)} section`
                                     }
                                 >
                                     <DropdownIcon />
