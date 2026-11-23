@@ -142,7 +142,7 @@ const Programs_Page = () => {
                 <div>[...2nd section go here...]</div>
             </section>
 
-            <section className="cherry-squads section-pink">
+            <section id="cherry-squads" className="cherry-squads section-pink">
                 <h2 className="cherry-squads__title display-2">
                     Cherry Squads
                 </h2>
