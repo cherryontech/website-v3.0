@@ -1,6 +1,99 @@
 import '../../styles/programs.css'
 import bluePathHero from '../../assets/programs/01_programs_hero.svg'
+import squadChat from '../../assets/programs/06_programs_squads.svg'
 import Icon from '../Icon'
+import DropdownList from './DropdownList'
+
+type CopyBlock =
+    | {
+          type: 'paragraph'
+          text: string
+      }
+    | {
+          type: 'list'
+          items: { [opening: string]: string }[]
+      }
+
+type SquadContent = {
+    subheading: string
+    detailed_copy: CopyBlock[]
+}
+
+const cherrySquadContent: SquadContent[] = [
+    {
+        subheading: 'Program Purpose',
+        detailed_copy: [
+            {
+                type: 'paragraph',
+                text: 'A community-driven space built to provide continuous, flexible project experience. Cherry Squads exists to give emerging tech talent a collaborative sandbox to maintain momentum, refine cross-functional skills, and build live software at their own pace.',
+            },
+        ],
+    },
+    {
+        subheading: 'Reasons to Join',
+        detailed_copy: [
+            {
+                type: 'list',
+                items: [
+                    {
+                        opening: 'Stay Connected & Keep Building: ',
+                        details:
+                            'Remain active in an encouraging, peer-led tech network where you can keep your skills sharp and stay accountable between roles.',
+                    },
+                    {
+                        opening: 'Flexible Career Momentum: ',
+                        details:
+                            'Gain practical skills and project leadership on a schedule that fits your bandwidth between roles or alongside other work/study commitments.',
+                    },
+                    {
+                        opening: 'Cross-Functional Teamwork: ',
+                        details:
+                            'Collaborate directly with developers, product managers, and UX designers/writers in a real agile environment—turning networking into active co-creation.',
+                    },
+                    {
+                        opening: 'Expand Your Portfolio: ',
+                        details:
+                            'Pitch your own project idea to find collaborators within the community. Turn community collaboration into tangible proof of your skills by shipping production-ready applications that strengthen your portfolio and resume.',
+                    },
+                ],
+            },
+        ],
+    },
+    {
+        subheading: 'Who It’s For',
+        detailed_copy: [
+            {
+                type: 'paragraph',
+                text: 'Designed for developers, product managers, and UX designers/writers looking for an active, collaborative network to build with. While Cherry Launchpad graduates receive priority placement because of their shared baseline, Squads is open to anyone looking for a supportive tech community. Applications outside of Launchpad are warmly welcomed onto our waitlist, with new members placed as spots open throughout the year.',
+            },
+        ],
+    },
+    {
+        subheading: 'How It Works',
+        detailed_copy: [
+            {
+                type: 'list',
+                items: [
+                    {
+                        opening: 'Step 1 – Match: ',
+                        details:
+                            'Step into our community space, browse open projects, and find a squad that aligns with your product goals.',
+                    },
+                    {
+                        opening: 'Step 2 – Build: ',
+                        details:
+                            'Sync with your cross-functional team to collaborate, manage a backlog, and solve real-world problems.',
+                    },
+                    {
+                        opening: 'Step 3 – Ship: ',
+                        details:
+                            'Deploy live projects to production, adding verifiable, collaborative team experience to your resume.',
+                    },
+                ],
+            },
+        ],
+    },
+]
 
 const Programs_Page = () => {
     return (
@@ -49,8 +142,82 @@ const Programs_Page = () => {
                 <div>[...2nd section go here...]</div>
             </section>
 
-            <section className="section-pink">
-                <div>[...3rd section go here...]</div>
+            <section id="cherry-squads" className="cherry-squads section-pink">
+                <h2 className="cherry-squads__title display-2">
+                    Cherry Squads
+                </h2>
+                <div className="cherry-squad__body">
+                    <img
+                        className="cherry-squad__image"
+                        src={squadChat.src}
+                        alt=""
+                    />
+                    <div className="cherry-squad__content">
+                        <DropdownList
+                            items={cherrySquadContent}
+
+                            classNames={{
+                                block: 'cs-content-block',
+                                heading: 'cs-heading',
+                                copy: 'cs-copy',
+                            }}
+
+                            getHeading={(element) => element.subheading}
+
+                            renderContent={(element) => (
+                                <>
+                                    {element.detailed_copy.map(
+                                        (block, index) => (
+                                            <div key={index}>
+                                                {block.type === 'paragraph' ? (
+                                                    <p>{block.text}</p>
+                                                ) : (
+                                                    <ul>
+                                                        {block.items.map(
+                                                            (
+                                                                bulletpoint,
+                                                                i
+                                                            ) => (
+                                                                <li key={i}>
+                                                                    <b>
+                                                                        {
+                                                                            bulletpoint.opening
+                                                                        }
+                                                                    </b>
+                                                                    {
+                                                                        bulletpoint.details
+                                                                    }
+                                                                </li>
+                                                            )
+                                                        )}
+                                                    </ul>
+                                                )}
+
+                                                {index !==
+                                                    element.detailed_copy
+                                                        .length -
+                                                        1 && <hr />}
+                                            </div>
+                                        )
+                                    )}
+                                </>
+                            )}
+                        />
+
+                        <a
+                            href="https://docs.google.com/forms/d/e/1FAIpQLSecu_QLirIwBQQT1abV-dBkTXYMXeBTCqtfujrujDVKM5WAXw/viewform"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn-stroke btn"
+                        >
+                            <span>Join Our Waitlist</span>
+                            <Icon name="arrow-right" className="btn__icon" />
+                            <span className="sr-only">
+                                (form opens in a new tab)
+                            </span>
+                        </a>
+                    </div>
+                </div>
             </section>
 
             <section className="section-white">
