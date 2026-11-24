@@ -1,4 +1,6 @@
 import '../../styles/programs.css'
+import '../../styles/tab_section.css'
+import type { SvgComponent } from 'astro/types'
 import bluePathHero from '../../assets/programs/01_programs_hero.svg'
 import squadChat from '../../assets/programs/06_programs_squads.svg'
 import Icon from '../Icon'
@@ -7,8 +9,8 @@ import TabSection from './TabSection'
 
 import {
     launchpadTabs,
-    launchpadCohort,
     careersTabs,
+    launchpadCohort,
     careersCohort,
 } from './data/program_tab_data.ts'
 
@@ -24,6 +26,8 @@ type CopyBlock =
 
 type SquadContent = {
     subheading: string
+    image?: SvgComponent & ImageMetadata
+    imageAlt?: string
     detailed_copy: CopyBlock[]
 }
 
@@ -146,12 +150,74 @@ const Programs_Page = () => {
                 </div>
             </section>
 
-            <section className="section-white" id="cherry-launchpad">
+            <section
+                className="section-white program-section"
+                id="cherry-launchpad"
+            >
                 {/* Mobile version must use the DropdownList component*/}
+                <h2 className="cherry-squads__title display-2">
+                    Cherry Launchpad
+                </h2>
+                {/* 
+                    NEED CLOUDFLARE WRANGLER
+                */}
+                <div className="cherry-squad__body">
+                    <div className="cherry-squad__content mobile-dropdown-container">
+                        <DropdownList
+                            items={launchpadTabs}
+
+                            classNames={{
+                                block: 'cs-content-block',
+                                heading: 'cs-heading',
+                                copy: 'cs-copy',
+                            }}
+
+                            getHeading={(element) => element.subheading}
+                            tabImage={(element) => element.image}
+                            renderContent={(element) => (
+                                <>
+                                    {element.detailed_copy.map(
+                                        (block, index) => (
+                                            <div key={index}>
+                                                {block.type === 'paragraph' ? (
+                                                    <p>{block.text}</p>
+                                                ) : (
+                                                    <ul>
+                                                        {block.items.map(
+                                                            (
+                                                                bulletpoint,
+                                                                i
+                                                            ) => (
+                                                                <li key={i}>
+                                                                    <b>
+                                                                        {
+                                                                            bulletpoint.opening
+                                                                        }
+                                                                    </b>
+                                                                    {
+                                                                        bulletpoint.details
+                                                                    }
+                                                                </li>
+                                                            )
+                                                        )}
+                                                    </ul>
+                                                )}
+
+                                                {index !==
+                                                    element.detailed_copy
+                                                        .length -
+                                                        1 && <hr />}
+                                            </div>
+                                        )
+                                    )}
+                                </>
+                            )}
+                        />
+                    </div>
+                </div>
                 <TabSection
                     sectionId="cherry-careers"
                     programTitle="Cherry Careers"
-                    cohortStatus={launchpadCohort}
                     tabs={launchpadTabs}
                 />
             </section>
@@ -234,14 +300,77 @@ const Programs_Page = () => {
                 </div>
             </section>
 
-            <section className="section-white" id="cherry-careers">
+            <section
+                className="section-white program-section"
+                id="cherry-careers"
+            >
                 {/* Desktop and mobile */}
-                <TabSection
+                <h2 className="cherry-squads__title display-2">
+                    Cherry Careers
+                </h2>
+                {/* 
+                    NEED CLOUDFLARE WRANGLER
+                */}
+                <div className="cherry-squad__body">
+                    <div className="cherry-squad__content mobile-dropdown-container">
+                        <DropdownList
+                            items={careersTabs}
+
+                            classNames={{
+                                block: 'cs-content-block',
+                                heading: 'cs-heading',
+                                copy: 'cs-copy',
+                            }}
+
+                            getHeading={(element) => element.subheading}
+                            tabImage={(element) => element.image}
+                            renderContent={(element) => (
+                                <>
+                                    {element.detailed_copy.map(
+                                        (block, index) => (
+                                            <div key={index}>
+                                                {block.type === 'paragraph' ? (
+                                                    <p>{block.text}</p>
+                                                ) : (
+                                                    <ul>
+                                                        {block.items.map(
+                                                            (
+                                                                bulletpoint,
+                                                                i
+                                                            ) => (
+                                                                <li key={i}>
+                                                                    <b>
+                                                                        {
+                                                                            bulletpoint.opening
+                                                                        }
+                                                                    </b>
+                                                                    {
+                                                                        bulletpoint.details
+                                                                    }
+                                                                </li>
+                                                            )
+                                                        )}
+                                                    </ul>
+                                                )}
+
+                                                {index !==
+                                                    element.detailed_copy
+                                                        .length -
+                                                        1 && <hr />}
+                                            </div>
+                                        )
+                                    )}
+                                </>
+                            )}
+                        />
+                    </div>
+                </div>
+                {/*<TabSection
                     sectionId="cherry-careers"
                     programTitle="Cherry Careers"
                     cohortStatus={careersCohort}
                     tabs={careersTabs}
-                />
+                />*/}
             </section>
 
             <section className="section-still-have-qs section-pink">

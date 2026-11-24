@@ -1,12 +1,14 @@
+import type { SvgComponent } from 'astro/types'
 import { Fragment, useState, type ReactNode } from 'react'
 import DropdownIcon from './DropdownIcon'
+import { assetSrc } from '../../util/assetSrc'
 
 type DropdownListProps<T> = {
     items: T[]
     getHeading: (item: T) => ReactNode
     renderContent: (item: T) => ReactNode
     getKey?: (item: T, index: number) => string | number
-
+    tabImage?: (item: T) => (SvgComponent & ImageMetadata) | undefined
     classNames: {
         block: string
         heading: string
@@ -19,6 +21,7 @@ export default function DropdownList<T>({
     getHeading,
     renderContent,
     getKey,
+    tabImage,
     classNames,
 }: DropdownListProps<T>) {
     const [expandedBlocks, setExpandedBlocks] = useState<(string | number)[]>(
@@ -66,6 +69,13 @@ export default function DropdownList<T>({
                                     id={dropdownBlockId}
                                     className={classNames.copy}
                                 >
+                                    {tabImage && (
+                                        <img
+                                            src={assetSrc(tabImage(item))}
+                                            alt=""
+                                        />
+                                    )}
+
                                     {renderContent(item)}
                                 </div>
                             )}

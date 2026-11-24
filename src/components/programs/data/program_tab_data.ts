@@ -1,3 +1,4 @@
+import type { SvgComponent } from 'astro/types'
 import programs_overview_img from '../../../assets/programs/02_programs - launchpad - program overview.svg'
 import key_outcomes_img from '../../../assets/programs/03_programs - launchpad - key outcomes.svg'
 import who_its_for_img from '../../../assets/programs/04_programs - launchpad - who its for.svg'
@@ -31,7 +32,272 @@ export interface ProgramTabSectionProps {
     tabs: TabContent[]
 }
 
-export const launchpadTabs: TabContent[] = [
+type CopyBlock =
+    | {
+          type: 'paragraph'
+          text: string
+      }
+    | {
+          type: 'list'
+          items: { [opening: string]: string }[]
+      }
+
+type SquadContent = {
+    subheading: string
+    image?: SvgComponent & ImageMetadata
+    imageAlt?: string
+    detailed_copy: CopyBlock[]
+}
+
+export const launchpadTabs: SquadContent[] = [
+    {
+        subheading: 'Program Overview',
+        image: programs_overview_img,
+        imageAlt: 'Programs Overview image',
+        detailed_copy: [
+            {
+                type: 'paragraph',
+                text: 'A foundational 15-week project sprint designed to translate your learned skills into valuable, cross-functional team experience.',
+            },
+            {
+                type: 'list',
+                items: [
+                    {
+                        opening: 'Format',
+                        details:
+                            'A guided team sprint mimicking a true production environment.',
+                    },
+                    {
+                        opening: 'Commitment',
+                        details:
+                            '7–10 hours weekly, designed to fit alongside work/studies.',
+                    },
+                    {
+                        opening: 'Milestones',
+                        details:
+                            'Structured tasks and mentorship to build/deploy a live project.',
+                    },
+                    {
+                        opening: 'Cost',
+                        details:
+                            '100% free, with ways to give back through community support later.',
+                    },
+                ],
+            },
+        ],
+    },
+    {
+        subheading: 'Key Outcomes',
+        image: key_outcomes_img,
+        imageAlt: 'Key Outcomes Image',
+        detailed_copy: [
+            {
+                type: 'paragraph',
+                text: 'Move the needle on your professional career goals.',
+            },
+            {
+                type: 'list',
+                items: [
+                    {
+                        opening: 'Team Experience',
+                        details:
+                            'Collaborate with developers, product managers, and UX designers/writers.',
+                    },
+                    {
+                        opening: 'MVP Launch',
+                        details:
+                            'Build a high-quality project from concept to deployment.',
+                    },
+                    {
+                        opening: 'Accessibility',
+                        details:
+                            'Practice inclusive design/coding to meet industry standards.',
+                    },
+                    {
+                        opening: 'Tool Stack',
+                        details:
+                            'Gain hands-on experience with React, Tailwind, Figma, and Jira.',
+                    },
+                    {
+                        opening: 'Mentorship',
+                        details:
+                            'Receive direct feedback/guidance from industry professionals.',
+                    },
+                ],
+            },
+        ],
+    },
+    {
+        subheading: "Who It's For",
+        image: who_its_for_img,
+        imageAlt: 'Key Outcomes Image',
+        detailed_copy: [
+            {
+                type: 'paragraph',
+                text: 'Check your alignment with our mission.',
+            },
+            {
+                type: 'list',
+                items: [
+                    {
+                        opening: 'Community',
+                        details:
+                            'You identify as an underrepresented and marginalized gender (i.e., Women, Non-binary, Trans).',
+                    },
+                    {
+                        opening: 'Career Path',
+                        details:
+                            'You aspire to be a developer, product manager, or UX designer/writer.',
+                    },
+                    {
+                        opening: 'Readiness',
+                        details:
+                            'You already have foundational skills and plan to job hunt within the next 1-3 months.',
+                    },
+                    {
+                        opening: 'Portfolio',
+                        details:
+                            'You want to add a collaborative, live project to your resume.',
+                    },
+                    {
+                        opening: 'Values',
+                        details:
+                            'You are committed to accessibility and empowering your peers.',
+                    },
+                ],
+            },
+        ],
+    },
+    {
+        subheading: 'The Roadmap',
+        image: roadmap_img,
+        imageAlt: 'Roadmap Image',
+        detailed_copy: [
+            {
+                type: 'paragraph',
+                text: 'A structured 15-week journey from onboarding to deployment.',
+            },
+            {
+                type: 'list',
+                items: [
+                    {
+                        opening: 'Weeks 1–2',
+                        details:
+                            'Team formation, project scoping, and onboarding.',
+                    },
+                    {
+                        opening: 'Weeks 3–10',
+                        details:
+                            'Sprint cycles with weekly milestones and check-ins.',
+                    },
+                    {
+                        opening: 'Weeks 11–13',
+                        details:
+                            'Build and integration sprints toward a working product.',
+                    },
+                    {
+                        opening: 'Weeks 14–15',
+                        details:
+                            'Final deployment, demo day, and community celebration.',
+                    },
+                    {
+                        opening: 'Launch (Week 15)',
+                        details:
+                            'Present to the community and join our alumni network.',
+                    },
+                ],
+            },
+        ],
+    },
+]
+
+export const careersTabs: SquadContent[] = [
+    {
+        subheading: 'Program Focus',
+        image: program_focus_img,
+        imageAlt: 'Program Focus image',
+        detailed_copy: [
+            {
+                type: 'paragraph',
+                text: 'This 6-week intensive is designed to refine your professional edge and prepare you for the tech hiring landscape. Through peer accountability and targeted mentor feedback, we focus on translating your existing foundational skills and project experience into application readiness. Our goal is to help you find your story, polish your job assets, and bridge the gap to your next role in tech.',
+            },
+        ],
+    },
+    {
+        subheading: "Who It's For",
+        image: career_who_its_for_img,
+        imageAlt: 'Career Who It`s For Image',
+        detailed_copy: [
+            {
+                type: 'paragraph',
+                text: 'Tailor-made for Cherry Launchpad graduates and active members of Cherry Squads preparing to take the final leap in their tech journey. If you have built your project foundation and you are ready to refine your portfolio, practice interviews, and land a role, we encourage you to apply during our next open application window!',
+            },
+        ],
+    },
+    {
+        subheading: 'Topics Covered',
+        image: topics_covered_img,
+        imageAlt: 'Topics Covered Image',
+        detailed_copy: [
+            {
+                type: 'paragraph',
+                text: 'As we continue to refine our upcoming curriculum, our core focus areas centre on 3 essential pillars of the job search.',
+            },
+            {
+                type: 'list',
+                items: [
+                    {
+                        opening: 'Foundations & Storytelling',
+                        details:
+                            'Map out your career targets, build workplace confidence, and learn how to articulate your personal narrative and transferable skills.',
+                    },
+                    {
+                        opening: 'Asset Optimization',
+                        details:
+                            'Tailor your resume, LinkedIn profile, and GitHub/ portfolio to showcase your highest-impact project work and attract tech recruiters. Learn effective strategies for focused industry networking.',
+                    },
+                    {
+                        opening: 'Interview Readiness',
+                        details:
+                            'Prepare for the real hiring environment with discipline-specific mock interviews, behavioural prep, and direct, actionable feedback from industry mentors.',
+                    },
+                ],
+            },
+        ],
+    },
+]
+
+export const launchpadCohort: CohortStatus = {
+    statusSubtitle: 'Applications Currently Closed',
+    description:
+        'Our cohorts typically run once a year in the Fall. Sign up for the Cherry On Tech newsletter to get notified as soon as new cohort dates and application windows are announced!',
+    bullets: [
+        { label: 'Typical Schedule', text: 'August – December' },
+        { label: 'Next Window', text: 'Announced via our newsletter' },
+    ],
+    buttonText: 'Subscribe for Updates',
+    buttonHref: '#',
+}
+
+export const careersCohort: CohortStatus = {
+    statusSubtitle: 'Open Year-Round',
+    description:
+        'Cherry Careers resources and coaching are available on an ongoing basis. Join the community to get started any time.',
+    bullets: [
+        {
+            label: 'Access',
+            text: 'Open to all Cherry On Tech community members',
+        },
+        {
+            label: 'Coaching Sessions',
+            text: 'Scheduled monthly — check the community calendar',
+        },
+    ],
+    buttonText: 'Join the Community',
+    buttonHref: '#',
+}
+
+/*export const launchpadTabs: TabContent[] = [
     {
         id: 'program-overview',
         label: 'Program Overview',
@@ -222,4 +488,4 @@ export const careersCohort: CohortStatus = {
     ],
     buttonText: 'Join the Community',
     buttonHref: '#',
-}
+}*/

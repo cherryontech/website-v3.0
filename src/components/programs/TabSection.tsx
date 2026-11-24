@@ -1,55 +1,74 @@
 import '../../styles/tab_section.css'
-import { useState } from 'react'
+import type { SvgComponent } from 'astro/types'
+import { Fragment, useState, type ReactNode } from 'react'
 import Icon from '../Icon'
 import { assetSrc } from '../../util/assetSrc'
 
-import {
-    launchpadTabs,
-    launchpadCohort,
-    careersTabs,
-    careersCohort,
-} from './data/program_tab_data.ts'
 import type { ProgramTabSectionProps } from './data/program_tab_data.ts'
 
-const TabSection = ({
-    sectionId,
-    programTitle,
-    cohortStatus,
-    tabs,
-}: ProgramTabSectionProps) => {
-    const [activeTab, setActiveTab] = useState(tabs[0].id)
+type DropdownListProps<T> = {
+    items: T[]
+    getHeading: (item: T) => ReactNode
+    renderContent: (item: T) => ReactNode
+    getKey?: (item: T, index: number) => string | number
+    tabImage?: (item: T) => (SvgComponent & ImageMetadata) | undefined
+}
 
-    const activeContent = tabs.find((t) => t.id === activeTab) ?? tabs[0]
+function TabSection<T>({
+    items,
+    getHeading,
+    renderContent,
+    getKey,
+    tabImage,
+}: DropdownListProps<T>) {
+    return (
+        <>
+            <div>test</div>
+        </>
+    )
+}
+/*const TabSection = ({
+    items,
+    getHeading,
+    renderContent,
+    getKey,
+    tabImage,
+}: DropdownListProps<T>) => {
+    const [activeTab, setActiveTab] = useState(items[0].id) //items[0].subheading
+
+    const activeContent = items.find((t) => t.id === activeTab) ?? items[0]
 
     const handleAccordionToggle = (id: string) => {
         setActiveTab((prev) => (prev === id ? '' : id))
     }
 
     return (
-        <section id={sectionId} className="program-section">
+        <>
             <h1 className="program-section-title display-2 font-bold">
-                {programTitle}
+                program title
             </h1>
 
-            {/* Desktop / Tablet: two-column layout */}
             <div className="program-layout">
                 <div className="program-left">
                     <div className="cohort-status">
                         <h2>Next Cohort Status</h2>
                         <p className="cohort-status-subtitle font-bold">
-                            {cohortStatus.statusSubtitle}
+                            Status Subtitle
                         </p>
-                        <p>{cohortStatus.description}</p>
+                        <p>Cohort status description</p>
+                        
                         <ul>
                             {cohortStatus.bullets.map((b, i) => (
                                 <li key={i}>
                                     <span className="font-bold">
                                         {b.label}:
                                     </span>{' '}
-                                    {b.text}
+                                    b.text
                                 </li>
                             ))}
                         </ul>
+                    
+                        
                         <a
                             href={cohortStatus.buttonHref}
                             className="btn btn-stroke"
@@ -57,13 +76,14 @@ const TabSection = ({
                             {cohortStatus.buttonText}{' '}
                             <Icon name="arrow-right" />
                         </a>
+                    
                     </div>
 
                     <nav
                         className="program-tabs-nav"
-                        aria-label={`${programTitle} sections`}
+                        aria-label={`program title sections`}
                     >
-                        {tabs.map((tab) => (
+                        {items.map((tab, index) => (
                             <div
                                 key={tab.id}
                                 className={`program-tab-container${activeTab === tab.id ? '.active' : ''}`}
@@ -98,7 +118,7 @@ const TabSection = ({
                         </div>
                     )}
                     <div className="program-tab-content">
-                        <h2>{activeContent.title}</h2>
+                        <h2>{activeContent.subheading}</h2>
                         <p>{activeContent.description}</p>
                         <ul>
                             {activeContent.bullets.map((b, i) => (
@@ -113,8 +133,8 @@ const TabSection = ({
                     </div>
                 </div>
             </div>
-        </section>
+        </>
     )
-}
+}*/
 
 export default TabSection

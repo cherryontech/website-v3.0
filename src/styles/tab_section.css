@@ -2,12 +2,21 @@
 
 .program-section {
     padding: var(--spacing-15, 60px) var(--spacing-6, 24px);
+    gap: var(--spacing-15, 60px);
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background: var(--color-background-white);
 }
 
 .program-section-title {
     margin-bottom: var(--spacing-10, 40px);
+}
+
+.mobile-dropdown-container {
+    display: flex;
 }
 
 /* --- Cohort status (always visible) --- */
@@ -54,6 +63,10 @@
 
     .program-section-title {
         margin-bottom: var(--spacing-15, 60px);
+    }
+
+    .mobile-dropdown-container {
+        display: none;
     }
 
     .program-layout {
