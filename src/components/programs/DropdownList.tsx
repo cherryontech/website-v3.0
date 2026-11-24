@@ -61,14 +61,13 @@ export default function DropdownList<T>({
                                 </button>
                             </div>
 
-                            {isExpanded && (
-                                <div
-                                    id={dropdownBlockId}
-                                    className={classNames.copy}
-                                >
-                                    {renderContent(item)}
-                                </div>
-                            )}
+                            <div
+                                id={dropdownBlockId}
+                                className={classNames.copy}
+                                hidden={!isExpanded}
+                            >
+                                {renderContent(item)}
+                            </div>
                         </div>
 
                         {!isLastBlock && <hr />}
