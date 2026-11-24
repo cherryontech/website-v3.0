@@ -5,10 +5,69 @@ interface VolunteerTableProps {
     title: string
 }
 
+interface VolunteerResponse {
+    fullName: string
+    photo: string
+    firstName: string
+    lastName: string
+}
+
+const systemMessages = {
+    loading_msg_branded: 'Cherry-picking the goods...🍒',
+    global_err_fetch_failed: {
+        headline: 'Temporarily unavailable.',
+        uiCopy: 'Unable to fetch {content_type} right now.',
+    },
+}
+
 const VolunteerSection = () => {
-    const [records, setRecords] = useState(null)
+    const [records, setRecords] = useState<VolunteerResponse | null>(null)
+    const [error, setError] = useState<string | null>(null)
 
     //Placeholder for fetching volunteer records
+
+    useEffect(() => {
+        const apiUrl = import.meta.env.PUBLIC_CONTENT_API_URL?.replace(
+            /\/$/,
+            ''
+        )
+        if (!apiUrl) {
+            setError(
+                systemMessages.global_err_fetch_failed.uiCopy.replace(
+                    '{content_type}',
+                    'Terms and Conditions'
+                )
+            )
+            return
+        }
+
+        const controller = new AbortController()
+
+        fetch(`${apiUrl}/api/v1/volunteers`, {
+            signal: controller.signal,
+        })
+            .then((response) => {
+                if (!response.ok) throw new Error('Request failed')
+                return response.json() as Promise<VolunteerResponse>
+            })
+            .then(setRecords)
+            .catch((fetchError: unknown) => {
+                if (
+                    fetchError instanceof DOMException &&
+                    fetchError.name === 'AbortError'
+                ) {
+                    return
+                }
+                setError(
+                    systemMessages.global_err_fetch_failed.uiCopy.replace(
+                        '{content_type}',
+                        'Terms and Conditions'
+                    )
+                )
+            })
+
+        return () => controller.abort()
+    }, [])
 
     return (
         <>
