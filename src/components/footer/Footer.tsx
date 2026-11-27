@@ -29,7 +29,7 @@ export default function Footer({ currentPath }: FooterProps) {
                     />
                 </a>
 
-                <div>
+                <div className="footer-top-text">
                     <div className="footer-heading">Connect with Us!</div>
                     <div className="footer-section">
                         {isPolicyPage
