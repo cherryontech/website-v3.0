@@ -21,7 +21,7 @@ const systemMessages = {
 }
 
 const VolunteerSection = () => {
-    const [records, setRecords] = useState<VolunteerResponse | null>(null)
+    const [records, setRecords] = useState<VolunteerResponse[] | null>(null)
     const [error, setError] = useState<string | null>(null)
 
     //Placeholder for fetching volunteer records
@@ -35,7 +35,7 @@ const VolunteerSection = () => {
             setError(
                 systemMessages.global_err_fetch_failed.uiCopy.replace(
                     '{content_type}',
-                    'Terms and Conditions'
+                    'volunteer records'
                 )
             )
             return
@@ -48,7 +48,7 @@ const VolunteerSection = () => {
         })
             .then((response) => {
                 if (!response.ok) throw new Error('Request failed')
-                return response.json() as Promise<VolunteerResponse>
+                return response.json() as Promise<VolunteerResponse[]>
             })
             .then(setRecords)
             .catch((fetchError: unknown) => {
@@ -61,7 +61,7 @@ const VolunteerSection = () => {
                 setError(
                     systemMessages.global_err_fetch_failed.uiCopy.replace(
                         '{content_type}',
-                        'Terms and Conditions'
+                        'volunteer records'
                     )
                 )
             })
@@ -88,7 +88,7 @@ const VolunteerSection = () => {
                     </div>
                     <div className="volunteer-tables">
                         <h2 className="volunteer-title">The Community Squad</h2>
-                        {records && records ? (
+                        {records && records.length > 0 ? (
                             <VolunteerTable
                                 title="Community Squad members"
                                 url={
@@ -101,7 +101,7 @@ const VolunteerSection = () => {
                     </div>
                     <div>
                         <h2 className="volunteer-title">Guest Cherries</h2>
-                        {records && records ? (
+                        {records && records.length > 0 ? (
                             <VolunteerTable
                                 title="Guest cherries"
                                 url={
