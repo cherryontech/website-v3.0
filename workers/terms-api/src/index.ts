@@ -22,13 +22,17 @@ interface AirtableResponse {
 }
 
 interface TermsSection {
-    heading: string
+    heading?: string
     headingLevel: 2 | 3
     body: string
     displayOrder: number
 }
 
-const endpointPath = '/api/v1/policies/terms-and-conditions'
+const policyEndpoints: Record<string, string> = {
+    '/api/v1/policies/terms-and-conditions': 'Terms and Conditions',
+    '/api/v1/policies/privacy-policy': 'Privacy Policy',
+    '/api/v1/policies/code-of-conduct': 'Code of Conduct',
+}
 const fields = [
     'Heading Text',
     'Heading Style',
@@ -59,8 +63,10 @@ const jsonResponse = (
         },
     })
 
-async function fetchPublishedRecords(env: Env): Promise<AirtableRecord[]> {
-    const tableName = env.AIRTABLE_TABLE_NAME || 'Terms and Conditions'
+async function fetchPublishedRecords(
+    env: Env,
+    tableName: string
+): Promise<AirtableRecord[]> {
     let offset: string | undefined
     const records: AirtableRecord[] = []
 
@@ -95,7 +101,7 @@ async function fetchPublishedRecords(env: Env): Promise<AirtableRecord[]> {
     return records.filter((record) => record.fields.Published === true)
 }
 
-function toTermsPayload(records: AirtableRecord[]) {
+function toPolicyPayload(records: AirtableRecord[]) {
     let lastUpdated: string | null = null
     const sections: TermsSection[] = []
 
@@ -103,9 +109,7 @@ function toTermsPayload(records: AirtableRecord[]) {
         const { fields: recordFields } = record
         const heading = recordFields['Heading Text']?.trim()
 
-        if (!heading) continue
-
-        if (heading.toLowerCase() === 'last updated') {
+        if (heading?.toLowerCase() === 'last updated') {
             lastUpdated = recordFields['Last Updated'] ?? null
             continue
         }
@@ -114,7 +118,7 @@ function toTermsPayload(records: AirtableRecord[]) {
         if (!body) continue
 
         sections.push({
-            heading,
+            heading: heading || undefined,
             headingLevel: recordFields['Heading Style'] === 'Heading 2' ? 3 : 2,
             body,
             displayOrder: recordFields['Display Order'] ?? 0,
@@ -142,7 +146,8 @@ export default {
             })
         }
 
-        if (url.pathname !== endpointPath) {
+        const tableName = policyEndpoints[url.pathname]
+        if (!tableName) {
             return jsonResponse({ error: 'Not found' }, 404, false)
         }
 
@@ -165,16 +170,21 @@ export default {
             Number.isFinite(configuredCacheTtl) && configuredCacheTtl > 0
                 ? Math.floor(configuredCacheTtl)
                 : 86400
-        const cacheKey = new Request(new URL(endpointPath, url.origin), {
+        const cacheKey = new Request(new URL(url.pathname, url.origin), {
             method: 'GET',
         })
         const cached = await cache.match(cacheKey)
         if (cached) return cached
 
         try {
-            const records = await fetchPublishedRecords(env)
+            const records = await fetchPublishedRecords(
+                env,
+                url.pathname === '/api/v1/policies/terms-and-conditions'
+                    ? env.AIRTABLE_TABLE_NAME || tableName
+                    : tableName
+            )
             const response = jsonResponse(
-                toTermsPayload(records),
+                toPolicyPayload(records),
                 200,
                 true,
                 cacheTtlSeconds
@@ -183,7 +193,7 @@ export default {
             return response
         } catch {
             return jsonResponse(
-                { error: 'Unable to load Terms and Conditions' },
+                { error: `Unable to load ${tableName}` },
                 502,
                 false
             )
