@@ -216,9 +216,9 @@ const Programs_Page = () => {
                     </div>
                 </div>
                 <TabSection
-                    sectionId="cherry-careers"
-                    programTitle="Cherry Careers"
-                    tabs={launchpadTabs}
+                    items={launchpadTabs}
+                    getHeading={(element) => element.subheading}
+                    tabImage={(element) => element.image}
                 />
             </section>
 
@@ -365,12 +365,11 @@ const Programs_Page = () => {
                         />
                     </div>
                 </div>
-                {/*<TabSection
-                    sectionId="cherry-careers"
-                    programTitle="Cherry Careers"
-                    cohortStatus={careersCohort}
-                    tabs={careersTabs}
-                />*/}
+                <TabSection
+                    items={careersTabs}
+                    getHeading={(element) => element.subheading}
+                    tabImage={(element) => element.image}
+                />
             </section>
 
             <section className="section-still-have-qs section-pink">

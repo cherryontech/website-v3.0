@@ -1,6 +1,6 @@
 import '../../styles/tab_section.css'
 import type { SvgComponent } from 'astro/types'
-import { Fragment, useState, type ReactNode } from 'react'
+import { Fragment, useState, useEffect, type ReactNode } from 'react'
 import Icon from '../Icon'
 import { assetSrc } from '../../util/assetSrc'
 
@@ -21,120 +21,106 @@ function TabSection<T>({
     getKey,
     tabImage,
 }: DropdownListProps<T>) {
+    const [activeTab, setActiveTab] = useState(items[0].subheading) //items[0].subheading
+    const activeContent =
+        items.find((t) => t.subheading === activeTab) ?? items[0]
+
+    useEffect(() => {
+        console.log('activeContent')
+        console.log(activeContent)
+    }, [])
+
     return (
         <>
-            <div>test</div>
+            {items && (
+                <Fragment>
+                    <div className="program-layout">
+                        <div className="program-left">
+                            <div className="cohort-status">
+                                <h2>Next Cohort Status</h2>
+                                <p className="cohort-status-subtitle font-bold">
+                                    Status Subtitle
+                                </p>
+                                <p>Cohort status description</p>
+                            </div>
+                            <a href="#" className="btn btn-stroke">
+                                This is a test
+                                <Icon name="arrow-right" />
+                            </a>
+
+                            <nav
+                                className="program-tabs-nav"
+                                aria-label={`program title sections`}
+                            >
+                                {items.map((tab, index) => (
+                                    <div
+                                        key={tab.subheading}
+                                        className={`program-tab-container${activeTab === tab.subheading ? '.active' : ''}`}
+                                    >
+                                        <button
+                                            className={`program-tab-btn${activeTab === tab.subheading ? '.active' : ''}`}
+                                            onClick={() =>
+                                                setActiveTab(tab.subheading)
+                                            }
+                                        >
+                                            {getHeading(tab)}
+                                        </button>
+                                        {activeTab === tab.subheading && (
+                                            <div
+                                                className="tab-indicator"
+                                                aria-hidden="true"
+                                            >
+                                                <span className="tab-dot" />
+                                                <span className="tab-line" />
+                                            </div>
+                                        )}
+                                    </div>
+                                ))}
+                            </nav>
+                        </div>
+
+                        <div className="program-right">
+                            {activeContent.image && (
+                                <div className="program-tab-image">
+                                    <img
+                                        src={assetSrc(activeContent.image)}
+                                        alt={activeContent.imageAlt ?? ''}
+                                    />
+                                </div>
+                            )}
+                            <div className="program-tab-content">
+                                <h2>{activeContent.subheading}</h2>
+                                {activeContent?.detailed_copy.map(
+                                    (block, index) => {
+                                        if (block.type === 'paragraph') {
+                                            return (
+                                                <p key={index}>{block.text}</p>
+                                            )
+                                        }
+
+                                        return (
+                                            <ul key={index}>
+                                                {block.items.map(
+                                                    (item, itemIndex) => (
+                                                        <li key={itemIndex}>
+                                                            <span className="font-bold">
+                                                                {item.opening}:
+                                                            </span>{' '}
+                                                            {item.details}
+                                                        </li>
+                                                    )
+                                                )}
+                                            </ul>
+                                        )
+                                    }
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                </Fragment>
+            )}
         </>
     )
 }
-/*const TabSection = ({
-    items,
-    getHeading,
-    renderContent,
-    getKey,
-    tabImage,
-}: DropdownListProps<T>) => {
-    const [activeTab, setActiveTab] = useState(items[0].id) //items[0].subheading
-
-    const activeContent = items.find((t) => t.id === activeTab) ?? items[0]
-
-    const handleAccordionToggle = (id: string) => {
-        setActiveTab((prev) => (prev === id ? '' : id))
-    }
-
-    return (
-        <>
-            <h1 className="program-section-title display-2 font-bold">
-                program title
-            </h1>
-
-            <div className="program-layout">
-                <div className="program-left">
-                    <div className="cohort-status">
-                        <h2>Next Cohort Status</h2>
-                        <p className="cohort-status-subtitle font-bold">
-                            Status Subtitle
-                        </p>
-                        <p>Cohort status description</p>
-                        
-                        <ul>
-                            {cohortStatus.bullets.map((b, i) => (
-                                <li key={i}>
-                                    <span className="font-bold">
-                                        {b.label}:
-                                    </span>{' '}
-                                    b.text
-                                </li>
-                            ))}
-                        </ul>
-                    
-                        
-                        <a
-                            href={cohortStatus.buttonHref}
-                            className="btn btn-stroke"
-                        >
-                            {cohortStatus.buttonText}{' '}
-                            <Icon name="arrow-right" />
-                        </a>
-                    
-                    </div>
-
-                    <nav
-                        className="program-tabs-nav"
-                        aria-label={`program title sections`}
-                    >
-                        {items.map((tab, index) => (
-                            <div
-                                key={tab.id}
-                                className={`program-tab-container${activeTab === tab.id ? '.active' : ''}`}
-                            >
-                                <button
-                                    className={`program-tab-btn${activeTab === tab.id ? '.active' : ''}`}
-                                    onClick={() => setActiveTab(tab.id)}
-                                >
-                                    {tab.label}
-                                </button>
-                                {activeTab === tab.id && (
-                                    <div
-                                        className="tab-indicator"
-                                        aria-hidden="true"
-                                    >
-                                        <span className="tab-dot" />
-                                        <span className="tab-line" />
-                                    </div>
-                                )}
-                            </div>
-                        ))}
-                    </nav>
-                </div>
-
-                <div className="program-right">
-                    {activeContent.image && (
-                        <div className="program-tab-image">
-                            <img
-                                src={assetSrc(activeContent.image)}
-                                alt={activeContent.imageAlt ?? ''}
-                            />
-                        </div>
-                    )}
-                    <div className="program-tab-content">
-                        <h2>{activeContent.subheading}</h2>
-                        <p>{activeContent.description}</p>
-                        <ul>
-                            {activeContent.bullets.map((b, i) => (
-                                <li key={i}>
-                                    <span className="font-bold">
-                                        {b.label}:
-                                    </span>{' '}
-                                    {b.text}
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </>
-    )
-}*/
 
 export default TabSection
