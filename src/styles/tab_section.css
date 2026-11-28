@@ -46,7 +46,7 @@
     display: none;
 }
 
-@media (min-width: 48rem) {
+@media (min-width: 50rem) {
     .program-section {
         padding: 100px 60px;
     }

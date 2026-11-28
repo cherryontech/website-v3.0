@@ -161,6 +161,11 @@ const Programs_Page = () => {
                 {/* 
                     NEED CLOUDFLARE WRANGLER
                 */}
+                <TabSection
+                    items={launchpadTabs}
+                    getHeading={(element) => element.subheading}
+                    tabImage={(element) => element.image}
+                />
                 <div className="cherry-squad__body">
                     <div className="cherry-squad__content mobile-dropdown-container">
                         <DropdownList
@@ -215,11 +220,6 @@ const Programs_Page = () => {
                         />
                     </div>
                 </div>
-                <TabSection
-                    items={launchpadTabs}
-                    getHeading={(element) => element.subheading}
-                    tabImage={(element) => element.image}
-                />
             </section>
 
             <section className="cherry-squads section-pink">
@@ -311,6 +311,13 @@ const Programs_Page = () => {
                 {/* 
                     NEED CLOUDFLARE WRANGLER
                 */}
+
+                <TabSection
+                    items={careersTabs}
+                    getHeading={(element) => element.subheading}
+                    tabImage={(element) => element.image}
+                />
+
                 <div className="cherry-squad__body">
                     <div className="cherry-squad__content mobile-dropdown-container">
                         <DropdownList
@@ -365,11 +372,6 @@ const Programs_Page = () => {
                         />
                     </div>
                 </div>
-                <TabSection
-                    items={careersTabs}
-                    getHeading={(element) => element.subheading}
-                    tabImage={(element) => element.image}
-                />
             </section>
 
             <section className="section-still-have-qs section-pink">
